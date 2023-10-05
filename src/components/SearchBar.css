@@ -1,0 +1,36 @@
+
+.searchBar-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    padding-right: 50px;
+  }
+
+
+.searchBar-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 50px;
+    padding: 5px;
+    width: 350px; 
+    position: relative;
+  }
+
+  
+  .searchBar-container::after {
+    content: "";
+    background-image: url('src/assets/2015241.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
