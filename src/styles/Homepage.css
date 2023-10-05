@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Koulen Serif';
+    src: url('../assets/Koulen/Koulen-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .background-video-homepage {
     position: relative;
     height: 100vh;
@@ -26,6 +33,7 @@
 
 .homepage-text {
     font-size: 25px;
+    letter-spacing: 1.5mm;
     margin-top: 23%;
     font-family: "Koulen Serif", sans-serif;
     color: white;
