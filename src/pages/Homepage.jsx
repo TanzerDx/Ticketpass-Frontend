@@ -10,7 +10,7 @@ function Homepage() {
             <source src={video} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
-        <div className="overlay"></div>S
+        <div className="overlay"></div>
         
 
         <div className="content">
@@ -20,7 +20,7 @@ function Homepage() {
             </div>
             
             <NavLink to="/concerts" id="concerts-link">
-            <button type="button" name="find-a-concert" className="button-concerts">FIND A CONCERT</button>
+                <button type="button" name="find-a-concert" className="button-concerts">FIND A CONCERT</button>
             </NavLink>
         
         </div>
