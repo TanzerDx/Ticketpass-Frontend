@@ -4,7 +4,9 @@ function SignIn() {
     return (
         <div className='background-color-signin'>
             <div className="content">
-                <h1 className='white-text'>SIGN IN COMING SOON!</h1>
+                <div className='signin-text'>
+                    <h1>SIGN UP. START YOUR JOURNEY.</h1>
+                </div>
             </div>
         </div>
     )

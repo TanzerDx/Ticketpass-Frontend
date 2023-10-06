@@ -8,6 +8,11 @@
     background: linear-gradient( to top, #ffffff, #000000);
 }
 
-.white-text {
+.signin-text {
+    font-size: 15px;
+    letter-spacing: 1.5mm;
+    margin-top: 13%;
+    font-family: "Koulen Serif", sans-serif;
     color: white;
+    margin-left: 37%;
 }
