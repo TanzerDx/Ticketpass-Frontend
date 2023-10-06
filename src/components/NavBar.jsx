@@ -14,20 +14,20 @@ function NavBar() {
           <img src={logo} alt="Logo" className="navbar-logo" />
 
           <div className="navbar-item">
-            <NavLink to="/" id="homepage-link">
+            <NavLink to="/" id="homepage-link" className="navbar-item-text">
               HOMEPAGE
             </NavLink>
           </div>
 
           <div className="navbar-item">
-            <NavLink to="/concerts" id="concerts-link">
-              CONCERTS
+            <NavLink to="/concerts" id="concerts-link" className="navbar-item-text">
+            CONCERTS
             </NavLink>
           </div>
 
           <div className="navbar-item">
-            <NavLink to="/statistics" id="statistics-link">
-              STATISTICS
+            <NavLink to="/statistics" id="statistics-link" className="navbar-item-text">
+            STATISTICS
             </NavLink>
           </div>
           
@@ -36,8 +36,8 @@ function NavBar() {
           <img src={notifications} alt="Notifications" className="navbar-notifications" />
 
           <div className="navbar-item">
-            <NavLink to="/signin" id="signin-link">
-              SIGN IN
+            <NavLink to="/signin" id="signin-link" className="navbar-item-text">
+            SIGN IN
             </NavLink>
           </div>
         </div>

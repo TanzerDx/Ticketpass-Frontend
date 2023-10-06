@@ -28,6 +28,11 @@
     padding: 60px;
 }
 
+.navbar-item-text {
+    text-decoration: none;
+    color: black;
+}
+
 .content {
     margin-top: 5%;
 }

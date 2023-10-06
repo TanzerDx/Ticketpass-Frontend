@@ -1,5 +1,5 @@
 import '../styles/Homepage.css'
-import video from "../assets/bgvideo.mp4"
+import video from "../assets/bgvideo.webm"
 import {NavLink} from "react-router-dom"
 
 function Homepage() {
@@ -7,7 +7,7 @@ function Homepage() {
     <div className='background-video-homepage'>
         
         <video autoPlay loop muted>
-            <source src={video} type="video/mp4" />
+            <source src={video} type="video/webm" />
             Your browser does not support the video tag.
         </video>
         <div className="overlay"></div>
@@ -16,7 +16,7 @@ function Homepage() {
         <div className="content">
             
             <div className="homepage-text">
-                <h1>TICKETPASS - WHERE MUSIC MEETS MOMENTS</h1>    	
+                <h1 className="homepage-margin">TICKETPASS - WHERE MUSIC MEETS MOMENTS</h1>    	
             </div>
             
             <NavLink to="/concerts" id="concerts-link">
