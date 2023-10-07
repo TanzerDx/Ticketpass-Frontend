@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage.jsx'
 import Statistics from './pages/Statistics.jsx'
 import Concerts from './pages/Concerts.jsx'
 import SignIn from './pages/SignIn.jsx'
+import SignUp from './pages/SignUp.jsx'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path="/concerts" element={<Concerts />} />
               <Route path="/statistics" element={<Statistics />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
           </Routes>
         </Router>
     </div>
