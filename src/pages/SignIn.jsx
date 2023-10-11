@@ -42,7 +42,7 @@ function SignIn() {
                 </NavLink>
 
                 <div className='text-createAccount'>
-                    <h1 style={{ textDecoration: 'none' }}>DON'T HAVE AN ACCOUNT? CREATE ONE <NavLink to="/signup">HERE</NavLink>!</h1>
+                    <h1>DON'T HAVE AN ACCOUNT? <NavLink to="/signup" className='text-createAccount-link'>CREATE ONE HERE</NavLink>!</h1>
                 </div>
 
             </div>

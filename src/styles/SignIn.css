@@ -31,7 +31,7 @@
 }
 
 .button-signin:hover {
-    background-color: #c0baba;
+    background-color: #4b1111;
 }
 
 .text-info {
@@ -47,6 +47,13 @@
     font-size: 10px;
     letter-spacing: 0.5mm;
     margin-left: 40.5%;
+}
+
+.text-createAccount-link {
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.5mm;
 }
 
 .content-box-signin {
