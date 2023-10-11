@@ -1,4 +1,4 @@
-import "./Navbar.css"
+import "../styles/styles.components/Navbar.css"
 import logo from "../assets/Project Icon.png"
 import notifications from "../assets/3239958.png"
 import {NavLink} from "react-router-dom"

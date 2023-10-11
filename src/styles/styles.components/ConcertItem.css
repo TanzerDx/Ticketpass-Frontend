@@ -1,0 +1,23 @@
+.concert-item {
+    background-color: white;
+    height: 100%;
+}
+
+.concert-image {
+    height: 75%;
+    width: 100%;
+}
+
+.concert-text {
+    font-family: "Koulen Serif", sans-serif;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    text-align: center;
+}
+
+.concert-text-margin {
+    margin: 0;
+    padding: 0;
+}
