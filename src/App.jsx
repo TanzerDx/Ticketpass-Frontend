@@ -6,6 +6,7 @@ import Statistics from './pages/Statistics.jsx'
 import Concerts from './pages/Concerts.jsx'
 import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
+import Orders from './pages/Orders.jsx'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/statistics" element={<Statistics />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/orders" element={<Orders />} />
           </Routes>
         </Router>
     </div>

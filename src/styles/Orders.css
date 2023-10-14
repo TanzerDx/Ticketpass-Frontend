@@ -1,0 +1,24 @@
+.background-color-orders{
+    height: 100dvh;
+    background: #ffffff;
+    background: -webkit-linear-gradient( to bottom, #ffffff, #000000);
+    background: -moz-linear-gradient( to bottom, #ffffff, #000000);
+    background: -ms-linear-gradient( to bottom, #ffffff, #000000);
+    background: -o-linear-gradient( to bottom, #ffffff, #000000);
+    background: linear-gradient( to bottom, #ffffff, #000000);
+}
+
+.orders-heading {
+    font-family: "Koulen Serif", sans-serif;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.orders-heading-margin {
+    margin: 0;
+    padding: 0;
+}
