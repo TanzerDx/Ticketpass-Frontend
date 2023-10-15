@@ -32,7 +32,7 @@
 }
 
 .homepage-text {
-    font-size: 25px;
+    font-size: 150%;
     letter-spacing: 1.5mm;
     margin-top: 23%;
     font-family: "Koulen Serif", sans-serif;
@@ -48,8 +48,8 @@
     color: #000000;
     font-family: "Koulen Serif", sans-serif;
     background-color: #ffffff;
-    font-size: 40px;
-    padding: 0px 50px;
+    font-size: 250%;
+    padding: 0px 3%;
     font-weight: bold;
     cursor: pointer;
     margin-left: 2%;

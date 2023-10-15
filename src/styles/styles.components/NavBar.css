@@ -13,26 +13,43 @@
 
 .navbar-logo {
     max-height: 60%;
-    padding: 50px;
+    padding: 3%;
 }
 
 .navbar-notifications {
     max-height: 40%;
-    padding: 50px;
-    margin-left: 40px;
+    padding: 3%;
+    margin-left: 2%;
 }
 
-.navbar-item {
-    font-size: 20px;
+.navbar-item,
+.navbar-signin {
+    font-size: 120%;
     font-weight: bold;
     font-family: "Inter", sans-serif;
-    padding: 60px;
+    padding: 2.5%;
+}
+
+.navbar-signin {
+    margin-left: 26%;
+    width: 5%;
 }
 
 .navbar-item-text {
     text-decoration: none;
     color: black;
 }
+
+.navbar-logout {
+    font-size: 120%;
+    width: 3%;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    background-color: transparent;
+    border: transparent;
+    margin-left: 3%;
+}
+
 
 .content {
     margin-top: 5%;
