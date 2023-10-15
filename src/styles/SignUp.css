@@ -9,26 +9,25 @@
 }
 
 .signup-text {
-    font-size: 20px;
+    font-size: 123%;
     letter-spacing: 1.5mm;
     font-family: "Koulen Serif", sans-serif;
     color: white;
-    margin-left: 30.7%;
-    padding-top: 40px;
-    padding-bottom: 5px;
+    margin-left: 28.7%;
+    padding: 1.8%
 }
 
 .button-signup {
     color: #000000;
     font-family: "Koulen Serif", sans-serif;
     background-color: #ffffff;
-    font-size: 40px;
-    padding: 0px 50px;
+    font-size: 250%;
+    padding: 0px 3%;
     font-weight: 900;
     cursor: pointer;
-    margin-left: 40.3%;
+    margin-left: 40.5%;
     letter-spacing: 1mm;
-    margin-top: 4%;
+    margin-top: 2%;
 }
 
 .button-signup:hover {
@@ -38,25 +37,25 @@
 .text-info {
     color: #ffffff;
     font-family: "Koulen Serif", sans-serif;
-    font-size: 10px;
+    font-size: 70%;
     letter-spacing: 0.5mm;
 }
 
 
 .content-box-signup {
     margin-left: 39.5%;
-    margin-top: 1%;
-    height: 120px;
-    width: 400px;
+    margin-top: 2%;
+    height: 10%;
+    width: 25%;
 }
 
 .signup-input {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 20px;
-    padding: 10px;
-    padding-right: 50px;
+    font-size: 120%;
+    padding: 2%;
+    padding-right: 3%;
   }
 
 
@@ -66,7 +65,7 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 10px;
-    width: 400px; 
+    padding: 2%;
+    width: 90%; 
     position: relative;
   }

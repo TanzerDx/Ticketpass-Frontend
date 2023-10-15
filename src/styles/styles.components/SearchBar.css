@@ -3,9 +3,9 @@
     flex: 1;
     border: none;
     outline: none;
-    font-size: 16px;
-    padding: 5px;
-    padding-right: 50px;
+    font-size: 100%;
+    padding: 3%;
+    padding-right: 15%;
   }
 
 
@@ -15,9 +15,9 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-left: 50px;
-    padding: 5px;
-    width: 350px; 
+    margin-left: 1%;
+    padding: 0.1%;
+    width: 20%; 
     position: relative;
   }
 
@@ -30,7 +30,7 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    right: 10px;
+    right: 3%;
     top: 50%;
     transform: translateY(-50%);
   }

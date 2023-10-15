@@ -28,7 +28,7 @@ function Orders() {
                     {user ? (
                         <h1 className='orders-heading-margin'>Hello, ID {user.id}</h1>
                     ) : (
-                        <h1 className='orders-heading-margin'>ERROR!</h1>
+                        <h1 className='orders-heading-margin'>LOADING CONTENT...</h1>
                     )}
                     </div>
                     
