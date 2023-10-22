@@ -1,6 +1,6 @@
 import '../styles/SignIn.css'
 import {NavLink} from "react-router-dom"
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import UserService from '../services/UserService';
 
 function SignIn() {
@@ -27,15 +27,35 @@ function SignIn() {
         .catch(() => {
             alert("User is not found!");
         });
-        
-
+    
     }
+
+    useEffect(() => {
+
+        function sleep(ms) {
+            return new Promise((resolve) => 
+            setTimeout(resolve,ms));
+        }
+
+        const phrase = 'SIGN IN. CONTINUE YOUR JOURNEY.';
+        const element = document.getElementById('typewriter-signin');
+        let sleepTime = 100;
+
+        const writePhrase = async () => {
+            for (let i = 0; i < phrase.length; i++) {
+                element.innerText = phrase.substring(0, i + 1);
+                await sleep(sleepTime);
+            }
+        };
+
+        writePhrase();
+    }, []);
 
     return (
         <div className='background-color-signin'>
             <div className="content">
                 <div className='signin-text'>
-                    <h1>SIGN IN. CONTINUE YOUR JOURNEY.</h1>
+                <span id="typewriter-signin"></span><span id="cursor-signin">|</span>
                 </div>
             
             <form onSubmit={handleLogin}>

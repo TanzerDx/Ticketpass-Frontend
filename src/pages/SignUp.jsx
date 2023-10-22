@@ -1,5 +1,5 @@
 import '../styles/SignUp.css'
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import UserService from '../services/UserService';
 
 
@@ -35,11 +35,32 @@ function SignUp() {
 
     }
 
+    useEffect(() => {
+
+        function sleep(ms) {
+            return new Promise((resolve) => 
+            setTimeout(resolve,ms));
+        }
+
+        const phrase = 'YOUR CONCERT ADVENTURE STARTS HERE.';
+        const element = document.getElementById('typewriter-signup');
+        let sleepTime = 100;
+
+        const writePhrase = async () => {
+            for (let i = 0; i < phrase.length; i++) {
+                element.innerText = phrase.substring(0, i + 1);
+                await sleep(sleepTime);
+            }
+        };
+
+        writePhrase();
+    }, []);
+
     return (
         <div className='background-color-signup'>
             <div className="content">
                 <div className='signup-text'>
-                    <h1>Your Concert Adventure Starts Here.</h1>
+                    <span id="typewriter-signup"></span><span id="cursor-signup">|</span>
                 </div>
             
             <form onSubmit={handleRegister}>
