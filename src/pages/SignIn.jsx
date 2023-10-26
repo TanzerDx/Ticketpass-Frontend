@@ -39,7 +39,7 @@ function SignIn() {
 
         const phrase = 'SIGN IN. CONTINUE YOUR JOURNEY.';
         const element = document.getElementById('typewriter-signin');
-        let sleepTime = 100;
+        let sleepTime = 60;
 
         const writePhrase = async () => {
             for (let i = 0; i < phrase.length; i++) {

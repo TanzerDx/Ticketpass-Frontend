@@ -44,7 +44,7 @@ function SignUp() {
 
         const phrase = 'YOUR CONCERT ADVENTURE STARTS HERE.';
         const element = document.getElementById('typewriter-signup');
-        let sleepTime = 100;
+        let sleepTime = 60;
 
         const writePhrase = async () => {
             for (let i = 0; i < phrase.length; i++) {
