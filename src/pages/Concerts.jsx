@@ -10,7 +10,7 @@ function Concerts() {
     useEffect (() => {
         ConcertService.getAllConcerts()
         .then(data => setConcerts(data))
-    })
+    }, []); 
 
     return (
         <>

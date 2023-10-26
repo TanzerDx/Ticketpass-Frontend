@@ -1,6 +1,8 @@
 .concert-item {
     background-color: white;
-    height: 100%;
+    position: relative;
+    height: 100%; 
+    width: 100%;
 }
 
 .concert-image {
@@ -20,4 +22,72 @@
 .concert-text-margin {
     margin: 0;
     padding: 0;
+}
+
+
+
+/* Hover */
+.concerts-additional-info-artist{
+    font-family: "Koulen Serif", sans-serif;
+    color: black;
+    font-size: 150%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    text-align: center;
+}
+
+.concerts-additional-info-desc {
+    font-family: "Koulen Serif", sans-serif;
+    color: black;
+    font-size: 70%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    text-align: left;
+}
+
+#concerts-additional-info-margin {
+    margin: 0;
+    padding: 0;
+}
+
+.concerts-additional-info-desc-truncate{
+    max-height: 11em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.additional-info {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 80%;
+    width: 96%;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+  }
+  
+  .concert-item:hover .additional-info {
+    display: block;
+    z-index: 2;
+  }
+  
+  .button-moreInfo {
+    color: #ffffff;
+    background-color: #312e2e;
+    font-size: 170%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 4% 10%;
+    cursor: pointer;
+    margin-left: 50%;
+    margin-top: 30%;
+}
+
+.button-moreInfo:hover {
+    color: #ffffff;
+    background-color: #7e7a7a;
 }
