@@ -94,6 +94,6 @@
   }
 
   @keyframes blink {
-    from, to { color: transparent }
-    50% { color: rgba(245, 245, 245) }
+    from, to { color: white }
+    50% { color: transparent }
 }
