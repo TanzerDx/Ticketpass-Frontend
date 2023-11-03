@@ -3,13 +3,11 @@ import React, { useState, useEffect} from 'react';
 import UserService from '../services/UserService';
 
 
-
-
 function SignUp() {
 
     const [formData, setFormData] = useState({
         email: "",
-        password: "",
+        hashedPassword: "",
         confirmPassword: ""
     })
 
@@ -22,7 +20,7 @@ function SignUp() {
     const handleRegister = (event) => {
         event.preventDefault();
         
-        if (formData.password === formData.confirmPassword)
+        if (formData.hashedPassword === formData.confirmPassword)
         {
             UserService.Register(formData)
             .then(() =>  {
@@ -89,7 +87,7 @@ function SignUp() {
                     <div className='signup-container'>
                         <input
                             type="password"
-                            name="password"
+                            name="hashedPassword"
                             className="signup-input"
                             placeholder=""
                             required

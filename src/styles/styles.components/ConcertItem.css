@@ -40,10 +40,11 @@
 .concerts-additional-info-desc {
     font-family: "Koulen Serif", sans-serif;
     color: black;
-    font-size: 70%;
+    font-size: 80%;
     font-weight: bold;
     letter-spacing: 0.5mm;
     text-align: left;
+    height: 51%;
     animation: appear 0.8s;
     margin-top: 2%;
 }
@@ -89,7 +90,7 @@
     padding: 4% 10%;
     cursor: pointer;
     margin-left: 50%;
-    margin-top: 13%;
+    margin-top: 8.3%;
     animation: appearButton 0.8s;
 }
 
