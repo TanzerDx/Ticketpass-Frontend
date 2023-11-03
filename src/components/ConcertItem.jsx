@@ -1,8 +1,16 @@
-import React from "react"
 import "../styles/styles.components/ConcertItem.css"
+import React from "react";
 
 function ConcertItem(props) {
 
+  const truncateText = (text, maxLength) => {
+      return text.length <= maxLength ? text : text.slice(0, maxLength) + "…";
+  };
+
+  const handleMoreInfoClick = () => {
+    props.onMoreInfoClick(props.concertItem);
+    window.location.href = "/concert";
+  };
 
     return (
       <>
@@ -21,7 +29,7 @@ function ConcertItem(props) {
               </div>
 
               <div className="concerts-additional-info-desc">
-                <h1 id="concerts-additional-info-margin" className="concerts-additional-info-desc-truncate">{props.concertItem.desc}</h1>
+                <h1 id="concerts-additional-info-margin">{truncateText(props.concertItem.description, 220)}</h1>
               </div>
 
               <button type="button" className="button-moreInfo" name="moreInfo">MORE INFO</button>
