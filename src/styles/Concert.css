@@ -77,7 +77,6 @@
     cursor: pointer;
     margin-left: 18%;
     margin-top: 4.3%;
-    animation: appearButton 0.8s;
 }
 
 .button-buyTickets:hover {

@@ -16,19 +16,27 @@ function SignIn() {
         })
     }
 
+    const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
+
     const handleLogin = (event) => {
         event.preventDefault();
-
-        UserService.Login(formData)
-        .then(data => {
-            sessionStorage.setItem("user", JSON.stringify(data));
-            window.location.href = "/orders";
-        })
-        .catch(() => {
-            alert("User is not found!");
-        });
     
-    }
+        UserService.Login(formData)
+          .then((data) => {
+            sessionStorage.setItem('user', JSON.stringify(data));
+            if (concertData === null) 
+            {
+              window.location.href = '/orders';
+            } 
+            else 
+            {
+              window.location.href = '/checkout';
+            }
+          })
+          .catch(() => {
+            alert('User is not found!');
+          });
+      };
 
     useEffect(() => {
 
@@ -50,6 +58,8 @@ function SignIn() {
 
         writePhrase();
     }, []);
+
+
 
     return (
         <div className='background-color-signin'>

@@ -8,6 +8,7 @@ import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
 import Orders from './pages/Orders.jsx'
 import Concert from './pages/Concert.jsx'
+import Checkout from './pages/Checkout.jsx'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/concert" element={<Concert />} />
               <Route path="/statistics" element={<Statistics />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/orders" element={<Orders />} />
           </Routes>

@@ -1,5 +1,4 @@
 import "../styles/styles.components/ConcertItem.css"
-import Concert from '../pages/Concert';
 import React from "react";
 
 function ConcertItem(props) {
@@ -9,7 +8,7 @@ function ConcertItem(props) {
   };
 
   const handleMoreInfoClick = () => {
-    <Concert key={props.concertItem.id} concertItem={props.concertItem} />
+    sessionStorage.setItem('concertItem', JSON.stringify(props.concertItem));
     window.location.href="/concert"
   };
   
