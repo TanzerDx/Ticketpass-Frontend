@@ -1,4 +1,5 @@
 import "../styles/styles.components/ConcertItem.css"
+import Concert from '../pages/Concert';
 import React from "react";
 
 function ConcertItem(props) {
@@ -8,9 +9,10 @@ function ConcertItem(props) {
   };
 
   const handleMoreInfoClick = () => {
-    props.onMoreInfoClick(props.concertItem);
-    window.location.href = "/concert";
+    <Concert key={props.concertItem.id} concertItem={props.concertItem} />
+    window.location.href="/concert"
   };
+  
 
     return (
       <>
@@ -32,7 +34,7 @@ function ConcertItem(props) {
                 <h1 id="concerts-additional-info-margin">{truncateText(props.concertItem.description, 220)}</h1>
               </div>
 
-              <button type="button" className="button-moreInfo" name="moreInfo">MORE INFO</button>
+              <button type="button" className="button-moreInfo" name="moreInfo" onClick={handleMoreInfoClick}> MORE INFO</button>
 
             </div>
 

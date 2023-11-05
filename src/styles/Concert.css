@@ -1,0 +1,86 @@
+.background-color-concert {
+    height: 90dvh;
+    background: #000000;
+    background: -webkit-linear-gradient( to bottom, #ffffff, #000000);
+    background: -moz-linear-gradient( to bottom, #ffffff, #000000);
+    background: -ms-linear-gradient( to bottom, #ffffff, #000000);
+    background: -o-linear-gradient( to bottom, #ffffff, #000000);
+    background: linear-gradient( to bottom, #ffffff, #000000);
+}
+
+.concert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1%;
+    gap: 5%;
+    margin-top: 7%;
+}
+
+.concert-grid-left {
+    grid-column: 1;
+    margin-left: 5%;
+}
+
+.concert-grid-right {
+    grid-column: 2;
+}
+
+
+.artist-picture {
+    height: 78%;
+    width: 90%;
+    margin-top: 5%;
+}
+
+
+/* TEXT */
+
+.remove-margin {
+    margin: 0;
+}
+
+.artist-name {
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    font-size: 270%;
+}
+
+.artist-description {
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    font-size: 90%;
+    width: 90%;
+    height: 50%;
+}
+
+.concert-details {
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    font-size: 90%;
+    width: 90%;
+    height: 30%;
+    margin-top: 5%;
+}
+
+.button-buyTickets{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #ffffff;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 15%;
+    cursor: pointer;
+    margin-left: 18%;
+    margin-top: 4.3%;
+    animation: appearButton 0.8s;
+}
+
+.button-buyTickets:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
