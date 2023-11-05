@@ -7,6 +7,12 @@ function getAllConcerts() {
     .then(response => response.data)
 }
 
+function getConcert(id) {
+    return axios.get(`${hostname}/concerts/${id}`)
+    .then(response => response.data)
+}
+
 export default {
-    getAllConcerts
+    getAllConcerts,
+    getConcert
 }

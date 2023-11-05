@@ -1,8 +1,38 @@
 import '../styles/Concert.css';
-import picture from '../assets/concert_crowd_people_134866_1920x1080.jpg';
+import ConcertService from '../services/ConcertService';
+import React, {useState, useEffect} from "react";
 
 function Concert() {
     
+    const [concertItem, setConcertItem] = useState(null);
+
+    useEffect(() => {
+        const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
+
+        if (concertData) {
+        ConcertService.getConcert(concertData.id)
+            .then(data => setConcertItem(data))
+            .catch(error => {
+            console.error("Error fetching concert data:", error);
+            });
+        }
+    }, []);
+
+    const handleBuyTicketsClick = () => {
+        const userData = JSON.parse(sessionStorage.getItem("user"));
+
+        if (userData === null)
+        {
+            window.location.href="/signin"
+        }
+        else {
+            window.location.href="/checkout"
+        }
+      };
+
+    if (concertItem === null) {
+        return <div>Loading...</div>;
+      }    
 
     return (
         <>
@@ -14,28 +44,25 @@ function Concert() {
                         
                         <div className="concert-grid-left">
                             <div className='artist-name'>
-                                <h1 className='remove-margin'>ARTIST</h1>
+                                <h1 className='remove-margin'>{concertItem.artist}</h1>
                             </div>
                                             
                             <div className='artist-description'>
-                                <h1 className='remove-margin'>
-                                    This is a very detailed description. Honestly this
-                                    probably the best descripiton I have ever seen in my whole life.
-                                </h1>
+                                <h1 className='remove-margin'>{concertItem.description}</h1>
                             </div>
 
                             <div className='concert-details'>
-                                <h1 className='remove-margin'>VENUE: TivoliVredenburg</h1>
-                                <h1 className='remove-margin'>DATE: 20:00 - 04/05/2024 </h1>
-                                <h1 className='remove-margin'>LOCATION: Utrecht, The Netherlands  </h1>
+                                <h1 className='remove-margin'>VENUE: {concertItem.venue}</h1>
+                                <h1 className='remove-margin'>DATE: {concertItem.date} </h1>
+                                <h1 className='remove-margin'>LOCATION: {concertItem.city}  </h1>
                             </div>
 
                         </div>
 
                         <div className="concert-grid-right">
-                            <img src={picture} alt="Artist" className="artist-picture" />
+                            <img src={concertItem.photoURL} alt="Artist" className="artist-picture" />
                             
-                            <button type="button" className="button-buyTickets" name="buyTickets">BUY TICKETS</button>
+                            <button type="button" className="button-buyTickets" name="buyTickets" onClick={handleBuyTicketsClick}>BUY TICKETS</button>
                         </div>
 
                     </div>
