@@ -1,11 +1,11 @@
 .background-color-orders{
-    height: 100dvh;
-    background: #ffffff;
-    background: -webkit-linear-gradient( to bottom, #ffffff, #000000);
-    background: -moz-linear-gradient( to bottom, #ffffff, #000000);
-    background: -ms-linear-gradient( to bottom, #ffffff, #000000);
-    background: -o-linear-gradient( to bottom, #ffffff, #000000);
-    background: linear-gradient( to bottom, #ffffff, #000000);
+    height: 100vh;
+    background: #000000;
+    background: -webkit-linear-gradient( to bottom, #999797, #000);
+    background: -moz-linear-gradient( to bottom, #999797, #000);
+    background: -ms-linear-gradient( to bottom, #999797, #000);
+    background: -o-linear-gradient( to bottom, #999797, #000);
+    background: linear-gradient( to bottom, #999797, #000);
 }
 
 .orders-heading {
