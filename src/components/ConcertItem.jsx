@@ -30,7 +30,7 @@ function ConcertItem(props) {
               </div>
 
               <div className="concerts-additional-info-desc">
-                <h1 id="concerts-additional-info-margin">{truncateText(props.concertItem.description, 220)}</h1>
+                <h1 id="concerts-additional-info-margin">{truncateText(props.concertItem.description, 200)}</h1>
               </div>
 
               <button type="button" className="button-moreInfo" name="moreInfo" onClick={handleMoreInfoClick}> MORE INFO</button>

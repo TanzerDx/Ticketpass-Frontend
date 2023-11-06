@@ -1,11 +1,11 @@
 .background-color-signin {
-    height: 100vh;
+    height: 90vh;
     background: #ffffff;
-    background: -webkit-linear-gradient( to top, #ffffff, #000000);
-    background: -moz-linear-gradient( to top, #ffffff, #000000);
-    background: -ms-linear-gradient( to top, #ffffff, #000000);
-    background: -o-linear-gradient( to top, #ffffff, #000000);
-    background: linear-gradient( to top, #ffffff, #000000);
+    background: -webkit-linear-gradient( to top, #999797, #000000);
+    background: -moz-linear-gradient( to top, #999797, #000000);
+    background: -ms-linear-gradient( to top, #999797, #000000);
+    background: -o-linear-gradient( to top, #999797, #000000);
+    background: linear-gradient( to top, #999797, #000000);
 }
 
 .signin-text {
