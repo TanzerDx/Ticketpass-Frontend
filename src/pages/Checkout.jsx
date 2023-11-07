@@ -145,9 +145,9 @@ function Checkout() {
                                         </div>
                                 </div>
 
-                                <div class="checkbox-container-flex">
+                                <div className="checkbox-container-flex">
                                     <input type="checkbox" id="agreeCheckbox"/>
-                                    <label for="agreeCheckbox" class="checkout-agreeCheckbox">I have read and agree to the general terms of Ticketpass</label>
+                                    <label htmlFor="agreeCheckbox" className="checkout-agreeCheckbox">I have read and agree to the general terms of Ticketpass</label>
                                 </div>
                         
                             <button type="button" className="button-makeOrder" name="makeOrder">PROCEED</button>

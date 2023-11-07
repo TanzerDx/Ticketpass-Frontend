@@ -1,5 +1,6 @@
 import "../styles/styles.components/ConcertItem.css"
 import React from "react";
+import { useNavigate} from 'react-router-dom';
 
 function ConcertItem(props) {
 
@@ -7,9 +8,10 @@ function ConcertItem(props) {
       return text.length <= maxLength ? text : text.slice(0, maxLength) + "…";
   };
 
+  const navigateTo = useNavigate();
+
   const handleMoreInfoClick = () => {
-    sessionStorage.setItem('concertItem', JSON.stringify(props.concertItem));
-    window.location.href="/concert"
+    navigateTo(`/concert?id=${props.concertItem.id}`);
   };
   
 
