@@ -1,24 +1,28 @@
 import '../styles/Concert.css';
 import ConcertService from '../services/ConcertService';
+import { useLocation } from 'react-router-dom';
 import React, {useState, useEffect} from "react";
 
 function Concert() {
     
     const [concertItem, setConcertItem] = useState(null);
 
-    useEffect(() => {
-        const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get("id");
 
-        if (concertData) {
-        ConcertService.getConcert(concertData.id)
+    useEffect(() => {
+
+        ConcertService.getConcert(id)
             .then(data => setConcertItem(data))
             .catch(error => {
             console.error("Error fetching concert data:", error);
             });
-        }
+        
     }, []);
 
     const handleBuyTicketsClick = () => {
+        sessionStorage.setItem("concertItem", JSON.stringify(concertItem));
         const userData = JSON.parse(sessionStorage.getItem("user"));
 
         if (userData === null)
