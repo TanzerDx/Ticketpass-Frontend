@@ -26,11 +26,11 @@ function Concerts() {
                 
                 </div>
             
-            <div className='concerts-tiny-text'>     
+            {/* <div className='concerts-tiny-text'>     
                 <h1>Ticketpass© is a project made by Hristo Ganchev, third-semester student at Fontys University of Applied Sciences. Copying is forbidden and may lead to
                     plagiarism accusations
                 </h1>
-            </div>
+            </div> */}
             
             </div>
         </>

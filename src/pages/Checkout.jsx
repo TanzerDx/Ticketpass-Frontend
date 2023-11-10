@@ -3,12 +3,15 @@ import React, {useState, useEffect} from "react";
 import paypalLogo from '../assets/paypal-logo-C83095A82C-seeklogo.com.png';
 import cardLogo from '../assets/credit-card-black-png-0.png';
 import idealLogo from '../assets/ideal-logo-1024.png';
+import OrderService from '../services/OrderService.jsx';
 
 function Checkout() {
 
     const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
 
     const [numberOfTickets, setNumberOfTickets] = useState(1);
+
+    const price = numberOfTickets * concertData.price;
     
     const handlePlusClick = () => {
         setNumberOfTickets(numberOfTickets + 1);
@@ -26,6 +29,7 @@ function Checkout() {
         }
     };
 
+
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
 
     const handlePaymentMethodClick = (name) => {
@@ -34,6 +38,33 @@ function Checkout() {
       console.log(name);
     };
 
+    const [formData, setFormData] = useState({
+       concert: concertData,
+       user: JSON.parse(sessionStorage.getItem("user")),
+       date: new Date,
+       name: "",
+       surname: "",
+       address: "",
+       phone: "",
+       ticketNumber: numberOfTickets,
+       orderPrice: price,
+       paymentMethod: selectedPaymentMethod
+    })
+
+    const updateFormData = event => {
+        setFormData ({
+            ...formData, [event.target.name]:event.target.value
+        })
+    }
+
+    const handleCheckout = (event) => {
+        event.preventDefault();
+        
+        OrderService.addOrder(formData)
+
+        console.log(formData);
+     
+      };
 
     return (
         <>
@@ -47,28 +78,12 @@ function Checkout() {
 
                     <div className='checkout-grid'>
 
+                    <form onSubmit={handleCheckout}>
                         <div className='checkout-grid-left'>
-                            <div className='checkout-concert-info-box'>
-                                
-                                <div className='checkout-concert-info-heading'>
-                                    <h1 className='remove-margin'>{concertData.artist}</h1>
-                                </div>
-                                
-                                <div className='checkout-concert-info-description'>
-                                    <h1 className='remove-margin'>Venue: {concertData.venue}</h1>
-                                    <h1 className='remove-margin'>Time: {concertData.date}</h1>
-                                    <h1 className='remove-margin'>Location: {concertData.city}</h1>
-                                </div>
-                            
-                            </div>
-                        </div>
-
-                        <div className='checkout-grid-right'>
-
-                                <div className='checkout-validation-text'>
+                        <div className='checkout-validation-text'>
                                     <h1 className='remove-margin'>Number of tickets: </h1>
                                 </div>
-
+ 
                                 <button type="button" name="buttonPlus" className='button-ticket-management' onClick={handlePlusClick}>+</button>
                                 <div className='checkout-validation-text-ticketNumber'>
                                     <h1 className='remove-margin'>{numberOfTickets}</h1>
@@ -86,6 +101,7 @@ function Checkout() {
                                         className="checkout-input"
                                         placeholder=""
                                         required
+                                        onChange={updateFormData}
                                     />  
                                 </div>
                                 
@@ -99,6 +115,7 @@ function Checkout() {
                                         className="checkout-input"
                                         placeholder=""
                                         required
+                                        onChange={updateFormData}
                                     />  
                                 </div>
 
@@ -112,6 +129,7 @@ function Checkout() {
                                         className="checkout-input"
                                         placeholder=""
                                         required
+                                        onChange={updateFormData}
                                     />  
                                 </div>
 
@@ -121,10 +139,11 @@ function Checkout() {
                                 <div className='checkout-container'>
                                     <input
                                         type="text"
-                                        name="phoneNum"
+                                        name="phone"
                                         className="checkout-input"
                                         placeholder=""
                                         required
+                                        onChange={updateFormData}
                                     />  
                                 </div>
                                 <div className='checkout-validation-text-paymentMethod'>
@@ -150,8 +169,28 @@ function Checkout() {
                                     <label htmlFor="agreeCheckbox" className="checkout-agreeCheckbox">I have read and agree to the general terms of Ticketpass</label>
                                 </div>
                         
-                            <button type="button" className="button-makeOrder" name="makeOrder">PROCEED</button>
+                            <input type="submit" className="button-makeOrder" value="PROCEED"/>
                         
+                        </div>
+                        </form>
+
+                        <div className='checkout-grid-right'>
+
+                            <div className='checkout-concert-info-box'>
+                                
+                                <div className='checkout-concert-info-heading'>
+                                    <h1 className='remove-margin'>{concertData.artist}</h1>
+                                </div>
+                                
+                                <div className='checkout-concert-info-description'>
+                                    <h1 className='remove-margin'>Venue: {concertData.venue}</h1>
+                                    <h1 className='remove-margin'>Time: {concertData.date}</h1>
+                                    <h1 className='remove-margin'>Location: {concertData.city}</h1>
+                                    <h1 className='remove-margin'>TOTAL PRICE: {price.toFixed(2)}€</h1>
+                                </div>
+                            
+                            </div>
+
                         </div>
 
                     </div>
