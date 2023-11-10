@@ -47,7 +47,7 @@ function NavBar() {
             
             <div className="navbar-item">
             <NavLink to="/orders" id="orders-link" className="navbar-item-text">
-            YOUR TICKETS
+            MY TICKETS
             </NavLink>
             </div>
 

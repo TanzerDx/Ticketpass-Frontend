@@ -14,7 +14,7 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 2%;
+    padding: 1%;
     width: 40%; 
     position: relative;
     margin-top: 5%;
@@ -23,20 +23,20 @@
 
   .checkout-grid {
     display: grid;
-    grid-template-columns: 35% 56%;
+    grid-template-columns: 56% 35%;
     padding: 1%;
-    gap: 10%;
+    gap: 5%;
     margin-top: 1%;
 }
 
 .checkout-grid-left {
     grid-column: 1;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .checkout-grid-right {
     grid-column: 2;
-    display: flex;
-    flex-wrap: wrap;
 
 }
 
@@ -207,5 +207,5 @@
 
 .payment-method.selected {
     background-color: rgb(166, 250, 177);
-    border: 10px solid forestgreen;
+    border: 10px solid rgb(47, 211, 47);
 }

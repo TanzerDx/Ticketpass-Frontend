@@ -26,12 +26,25 @@ function Orders() {
                 
                     <div className='orders-heading'>
                     {user ? (
-                        <h1 className='orders-heading-margin'>Hello, ID {user.id}</h1>
+                        <h1 className='orders-heading-margin'>UPCOMING CONCERTS</h1>
                     ) : (
                         <h1 className='orders-heading-margin'>LOADING CONTENT...</h1>
                     )}
                     </div>
                     
+                    <div className='orders-flex'>
+
+                        <div className='order-container'>
+                            <h1>MADISON BEER</h1>
+
+                        </div>
+
+                        <div className='order-container'>
+                            <h1>MADISON BEER</h1>
+
+                        </div>
+
+                    </div>
                 
                 </div>
             
