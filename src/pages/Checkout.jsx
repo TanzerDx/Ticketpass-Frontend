@@ -12,6 +12,8 @@ function Checkout() {
     const [numberOfTickets, setNumberOfTickets] = useState(1);
 
     const price = numberOfTickets * concertData.price;
+
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
     
     const handlePlusClick = () => {
         setNumberOfTickets(numberOfTickets + 1);
@@ -29,37 +31,62 @@ function Checkout() {
         }
     };
 
-
-    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
-
     const handlePaymentMethodClick = (name) => {
       setSelectedPaymentMethod(name);
-      
-      console.log(name);
     };
 
-    const [formData, setFormData] = useState({
-       concert: concertData,
-       user: JSON.parse(sessionStorage.getItem("user")),
-       date: new Date,
-       name: "",
-       surname: "",
-       address: "",
-       phone: "",
-       ticketNumber: numberOfTickets,
-       orderPrice: price,
-       paymentMethod: selectedPaymentMethod
-    })
+    // const originalDate = new Date();
 
-    const updateFormData = event => {
-        setFormData ({
-            ...formData, [event.target.name]:event.target.value
-        })
-    }
+    // function formatDate(date) {
+    //     const year = date.getFullYear();
+    //     const month = String(date.getMonth() + 1).padStart(2, '0');
+    //     const day = String(date.getDate()).padStart(2, '0');
+    //     const hours = String(date.getHours()).padStart(2, '0');
+    //     const minutes = String(date.getMinutes()).padStart(2, '0');
+    //     const seconds = String(date.getSeconds()).padStart(2, '0');
+    //     const milliseconds = String(date.getMilliseconds()).padStart(6, '0');
+        
+    //     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
+    //   }
+
+    // const formattedDate = formatDate(originalDate);
+    
+    const [formData, setFormData] = useState({
+        concert: concertData,
+        user: JSON.parse(sessionStorage.getItem("user")),
+        date: new Date,
+        name: "",
+        surname: "",
+        address: "",
+        phone: "",
+        ticketNumber: numberOfTickets,
+        orderPrice: price,
+        paymentMethod: selectedPaymentMethod
+     })
+
+     useEffect(() => {
+        setFormData((formData) => ({
+            ...formData,
+            ticketNumber: numberOfTickets,
+            orderPrice: numberOfTickets * concertData.price,
+          paymentMethod: selectedPaymentMethod
+        }));
+      }, [selectedPaymentMethod]);
+
+     const updateFormData = event => {
+        setFormData((formData) => ({
+            ...formData,
+            [event.target.name]: event.target.value,
+            ticketNumber: numberOfTickets,
+            orderPrice: numberOfTickets * concertData.price,
+            paymentMethod: selectedPaymentMethod
+        }));
+    };
+
 
     const handleCheckout = (event) => {
         event.preventDefault();
-        
+
         OrderService.addOrder(formData)
 
         console.log(formData);
