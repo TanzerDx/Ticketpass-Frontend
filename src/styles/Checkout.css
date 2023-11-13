@@ -57,8 +57,9 @@
     font-size: 200%;
 }
 
-.checkout-concert-info-description {
-    margin-top: 10%;
+.checkout-concert-info-description,
+.checkout-concert-info-description-price {
+    margin-top: 7%;
     color: #000000;
     font-family: "Koulen Serif", sans-serif;
     letter-spacing: 0.5mm;

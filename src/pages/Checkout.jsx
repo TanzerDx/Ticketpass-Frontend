@@ -210,10 +210,15 @@ function Checkout() {
                                 </div>
                                 
                                 <div className='checkout-concert-info-description'>
+                                    
                                     <h1 className='remove-margin'>Venue: {concertData.venue}</h1>
                                     <h1 className='remove-margin'>Time: {concertData.date}</h1>
                                     <h1 className='remove-margin'>Location: {concertData.city}</h1>
-                                    <h1 className='remove-margin'>TOTAL PRICE: {price.toFixed(2)}€</h1>
+                                        
+                                        <div className='checkout-concert-info-description-price'>
+                                            <h1 className='remove-margin'>TOTAL PRICE: {price.toFixed(2)}€</h1>
+                                        </div>
+                                
                                 </div>
                             
                             </div>
