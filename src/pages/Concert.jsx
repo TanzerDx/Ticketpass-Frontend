@@ -11,6 +11,17 @@ function Concert() {
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get("id");
 
+    if (concertItem != null) {
+        
+        const concertDate = new Date(concertItem.date);
+      
+        concertItem.date = concertDate.toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        });
+      }
+
     useEffect(() => {
 
         ConcertService.getConcert(id)
@@ -34,9 +45,13 @@ function Concert() {
         }
       };
 
+
     if (concertItem === null) {
+        
+        
         return <div>Loading...</div>;
       }    
+
 
     return (
         <>
@@ -57,7 +72,7 @@ function Concert() {
 
                             <div className='concert-details'>
                                 <h1 className='remove-margin'>VENUE: {concertItem.venue}</h1>
-                                <h1 className='remove-margin'>DATE: {concertItem.date} </h1>
+                                <h1 className='remove-margin'>DATE: {concertItem.date}</h1>
                                 <h1 className='remove-margin'>LOCATION: {concertItem.city}  </h1>
                             </div>
 

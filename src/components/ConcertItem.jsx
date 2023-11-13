@@ -4,15 +4,19 @@ import { useNavigate} from 'react-router-dom';
 
 function ConcertItem(props) {
 
-  const truncateText = (text, maxLength) => {
-      return text.length <= maxLength ? text : text.slice(0, maxLength) + "…";
-  };
-
   const navigateTo = useNavigate();
 
   const handleMoreInfoClick = () => {
     navigateTo(`/concert?id=${props.concertItem.id}`);
   };
+
+    const concertDate = new Date(props.concertItem.date);
+  
+    const formattedDate = concertDate.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
   
 
     return (
@@ -33,7 +37,7 @@ function ConcertItem(props) {
 
               <div className="concerts-additional-info-desc">
                 <h1 id="concerts-additional-info-margin">Venue: {props.concertItem.venue}</h1>
-                <h1 id="concerts-additional-info-margin">Time: {props.concertItem.date}</h1>
+                <h1 id="concerts-additional-info-margin">Time: {formattedDate}</h1>
                 <h1 id="concerts-additional-info-margin">Location: {props.concertItem.city}</h1>
               </div>
 
