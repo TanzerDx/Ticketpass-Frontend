@@ -12,8 +12,8 @@ function getOrder(id) {
     .then(response => response.data)
 }
 
-function getAllOrders(user_id) {
-    return axios.get(`${hostname}/orders`, user_id)
+function getAllOrders(userId) {
+    return axios.get(`${hostname}/orders`, { params: { userId } })
     .then(response => response.data)
 }
 

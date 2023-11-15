@@ -25,13 +25,67 @@
 }
 
 .order-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     background-color:white;
     min-height: 20%;
     max-width: 100%;
-    border: 2px solid black;
+    border: 3px solid black;
+    animation: slideOrders 1s;
+}
+
+.order-artist-name {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 250%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.order-concert-details {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 100%;
+    font-weight: 100;
+    letter-spacing: 0.5mm;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .orders-heading-margin {
     margin: 0;
     padding: 0;
+}
+
+.button-showTickets{
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #000000;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #ffffff;
+    padding: 0.5% 2%;
+    cursor: pointer;
+    margin-left: 2%;
+}
+
+.button-showTickets:hover {
+    color: #ffffff;
+    background-color: #929191;
+}
+
+@keyframes slideOrders {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

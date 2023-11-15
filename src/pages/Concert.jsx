@@ -1,5 +1,6 @@
 import '../styles/Concert.css';
 import ConcertService from '../services/ConcertService';
+import {format} from "date-fns";
 import { useLocation } from 'react-router-dom';
 import React, {useState, useEffect} from "react";
 
@@ -15,11 +16,7 @@ function Concert() {
         
         const concertDate = new Date(concertItem.date);
       
-        concertItem.date = concertDate.toLocaleDateString('en-GB', {
-          day: '2-digit',
-          month: '2-digit',
-          year: 'numeric'
-        });
+        concertItem.date = format(concertDate, 'yyyy-MM-dd');
       }
 
     useEffect(() => {
