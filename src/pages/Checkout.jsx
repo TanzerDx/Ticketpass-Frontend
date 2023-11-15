@@ -1,5 +1,6 @@
 import '../styles/Checkout.css';
 import React, {useState, useEffect} from "react";
+import {format} from "date-fns";
 import paypalLogo from '../assets/paypal-logo-C83095A82C-seeklogo.com.png';
 import cardLogo from '../assets/credit-card-black-png-0.png';
 import idealLogo from '../assets/ideal-logo-1024.png';
@@ -35,26 +36,10 @@ function Checkout() {
       setSelectedPaymentMethod(name);
     };
 
-    // const originalDate = new Date();
-
-    // function formatDate(date) {
-    //     const year = date.getFullYear();
-    //     const month = String(date.getMonth() + 1).padStart(2, '0');
-    //     const day = String(date.getDate()).padStart(2, '0');
-    //     const hours = String(date.getHours()).padStart(2, '0');
-    //     const minutes = String(date.getMinutes()).padStart(2, '0');
-    //     const seconds = String(date.getSeconds()).padStart(2, '0');
-    //     const milliseconds = String(date.getMilliseconds()).padStart(6, '0');
-        
-    //     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
-    //   }
-
-    // const formattedDate = formatDate(originalDate);
-    
     const [formData, setFormData] = useState({
         concert: concertData,
         user: JSON.parse(sessionStorage.getItem("user")),
-        date: new Date,
+        date: format(new Date(), 'yyyy-MM-dd'),
         name: "",
         surname: "",
         address: "",
@@ -212,7 +197,7 @@ function Checkout() {
                                 <div className='checkout-concert-info-description'>
                                     
                                     <h1 className='remove-margin'>Venue: {concertData.venue}</h1>
-                                    <h1 className='remove-margin'>Time: {concertData.date}</h1>
+                                    <h1 className='remove-margin'>Date: {concertData.date}</h1>
                                     <h1 className='remove-margin'>Location: {concertData.city}</h1>
                                         
                                         <div className='checkout-concert-info-description-price'>
