@@ -1,5 +1,6 @@
 import "../styles/styles.components/ConcertItem.css"
 import React from "react";
+import {format} from "date-fns";
 import { useNavigate} from 'react-router-dom';
 
 function ConcertItem(props) {
@@ -11,12 +12,8 @@ function ConcertItem(props) {
   };
 
     const concertDate = new Date(props.concertItem.date);
-  
-    const formattedDate = concertDate.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
+      
+    props.concertItem.date = format(concertDate, 'yyyy-MM-dd HH:mm:ss');
   
 
     return (
@@ -37,7 +34,7 @@ function ConcertItem(props) {
 
               <div className="concerts-additional-info-desc">
                 <h1 id="concerts-additional-info-margin">Venue: {props.concertItem.venue}</h1>
-                <h1 id="concerts-additional-info-margin">Time: {formattedDate}</h1>
+                <h1 id="concerts-additional-info-margin">Time: {props.concertItem.date}</h1>
                 <h1 id="concerts-additional-info-margin">Location: {props.concertItem.city}</h1>
               </div>
 

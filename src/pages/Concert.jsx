@@ -12,11 +12,12 @@ function Concert() {
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get("id");
 
+    let formattedDate = "";
+
     if (concertItem != null) {
         
         const concertDate = new Date(concertItem.date);
-      
-        concertItem.date = format(concertDate, 'yyyy-MM-dd');
+        formattedDate = format(concertDate, 'yyyy-MM-dd HH:mm:ss');
       }
 
     useEffect(() => {
@@ -69,7 +70,7 @@ function Concert() {
 
                             <div className='concert-details'>
                                 <h1 className='remove-margin'>VENUE: {concertItem.venue}</h1>
-                                <h1 className='remove-margin'>DATE: {concertItem.date}</h1>
+                                <h1 className='remove-margin'>DATE: {formattedDate}</h1>
                                 <h1 className='remove-margin'>LOCATION: {concertItem.city}  </h1>
                             </div>
 
