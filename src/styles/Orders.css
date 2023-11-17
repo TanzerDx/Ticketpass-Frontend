@@ -39,11 +39,12 @@
 .order-artist-name {
     font-family: "Koulen Serif", sans-serif;
     color: rgb(0, 0, 0);
-    font-size: 250%;
+    font-size: 200%;
     font-weight: bold;
     letter-spacing: 0.5mm;
     padding-left: 5%;
     padding-right: 5%;
+    width: 25%;
 }
 
 .order-concert-details {
@@ -52,8 +53,9 @@
     font-size: 100%;
     font-weight: 100;
     letter-spacing: 0.5mm;
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 6%;
+    padding-right: 6%;
+    width: 10%;
 }
 
 .orders-heading-margin {

@@ -10,6 +10,7 @@ function Orders() {
 
     const [orders, setOrders] = useState([]);
 
+
     useEffect(() => {
         const userData = JSON.parse(sessionStorage.getItem("user"));
         
@@ -23,7 +24,7 @@ function Orders() {
             OrderService.getAllOrders(userData.id)
             .then(data => {
                 const orders = data.orders.map(order => {
-                    order.concert.date = format(new Date(order.concert.date), 'yyyy-MM-dd');
+                    order.concert.date = format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm:ss');
                     return order;
                 });
                 setOrders(orders);
