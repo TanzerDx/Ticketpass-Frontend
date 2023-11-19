@@ -1,31 +1,44 @@
 import '../styles/SignUp.css'
 import React, { useState, useEffect} from 'react';
 import UserService from '../services/UserService';
+import RoleService from '../services/RoleService';
 
 
 function SignUp() {
 
-    const [formData, setFormData] = useState({
+    const [formDataAccount, setFormDataAccount] = useState({
         email: "",
         password: "",
         confirmPassword: ""
     })
 
-    const updateFormData = event => {
-        setFormData ({
-            ...formData, [event.target.name]:event.target.value
+    const [formDataRole, setFormDataRole] = useState({
+        user: JSON.parse(sessionStorage.getItem("user")),
+        role: "user"
+    })
+
+    const updateFormDataAccount = event => {
+        setFormDataAccount ({
+            ...formDataAccount, [event.target.name]:event.target.value
         })
     }
 
     const handleRegister = (event) => {
         event.preventDefault();
         
-        if (formData.password === formData.confirmPassword)
+        if (formDataAccount.password === formDataAccount.confirmPassword)
         {
-            UserService.Register(formData)
+
+            UserService.Register(formDataAccount)
             .then(() =>  {
-                window.location.href = 'signin'
-            })
+                UserService.Login(formDataAccount)
+                .then((data) => {
+                    sessionStorage.setItem('user', JSON.stringify(data));
+                    
+                    RoleService.createRole(formDataRole)
+
+                    window.location.href = 'signin'
+            })})
         }
         else {
             alert("Passwords don't match!");
@@ -74,7 +87,7 @@ function SignUp() {
                             className="signup-input"
                             placeholder=""
                             required
-                            onChange={updateFormData}
+                            onChange={updateFormDataAccount}
                         />  
                     </div>
                 </div>
@@ -91,7 +104,7 @@ function SignUp() {
                             className="signup-input"
                             placeholder=""
                             required
-                            onChange={updateFormData}
+                            onChange={updateFormDataAccount}
                         />  
                     </div>
                 </div>
@@ -108,7 +121,7 @@ function SignUp() {
                             className="signup-input"
                             placeholder=""
                             required
-                            onChange={updateFormData}
+                            onChange={updateFormDataAccount}
                         />  
                     </div>
                 </div>
