@@ -5,6 +5,7 @@ import paypalLogo from '../assets/paypal-logo-C83095A82C-seeklogo.com.png';
 import cardLogo from '../assets/credit-card-black-png-0.png';
 import idealLogo from '../assets/ideal-logo-1024.png';
 import OrderService from '../services/OrderService.jsx';
+import TicketService from '../services/TicketService.jsx';
 
 function Checkout() {
 
@@ -77,14 +78,34 @@ function Checkout() {
     };
 
 
-    const handleCheckout = (event) => {
-        event.preventDefault();
-
-        OrderService.addOrder(formData)
-
-        console.log(formData);
-     
+    const [orderTickets, setOrderTickets] = useState({
+        order: null,
+      });
+      
+      const updateOrderTickets = (orderToPass) => {
+        setOrderTickets(() => ({
+          order: orderToPass
+        }));
       };
+      
+      const handleCheckout = async (event) => {
+        event.preventDefault();
+      
+        const orderResponse = await OrderService.addOrder(formData);
+        const orderToPass = await OrderService.getOrder(orderResponse.id);
+      
+        updateOrderTickets(orderToPass);
+    }
+    
+    useEffect(() => {
+      
+        if (orderTickets.order != null)
+        {
+            console.log(orderTickets);
+        
+            TicketService.addTickets(orderTickets);
+        }
+      }, [orderTickets]);
 
     return (
         <>
