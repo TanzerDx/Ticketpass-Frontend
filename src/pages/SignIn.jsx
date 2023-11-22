@@ -18,57 +18,33 @@ function SignIn() {
 
     const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
 
-    // const handleLogin = (event) => {
-    //     event.preventDefault();
-        
-    //     console.log(formData);
-
-    //     UserService.Login(formData)
-    //       .then((data) => {
-    //         console.log('Login successful:', data);
-    //         sessionStorage.setItem('user', JSON.stringify(data));
-    //         if (concertData === null) 
-    //         {
-    //           window.location.href = '/orders';
-    //         } 
-    //         else 
-    //         {
-    //           window.location.href = '/checkout';
-    //         }
-    //       })
-    //       .catch((error) => {
-    //         console.error('Login failed:', error);
-    //         alert('User is not found!');
-    //       });
-    //   };
-
     const handleLogin = (event) => {
         event.preventDefault();
+        
+        console.log(formData);
 
-        console.log('Login Request Payload:', JSON.stringify(formData));
-      
-        fetch('http://localhost:8080/users/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
+        UserService.Login(formData)
+          .then((data) => {
+
+            if (concertData === null && data != null) 
+            {
+              sessionStorage.setItem('user', JSON.stringify(data));
+              window.location.href = '/orders';
+            } 
+            else if (concertData != null && data != null)
+            {
+              sessionStorage.setItem('user', JSON.stringify(data));
+              window.location.href = '/checkout';
+            } 
           })
-          .then(data => {
-            console.log('Login successful:', data);
-            sessionStorage.setItem('user', JSON.stringify(data));
-            window.location.href = '/orders';
-          })
-          .catch(error => {
+        
+          .catch((error) => {
             console.error('Login failed:', error);
+            alert('User is not found!');
           });
+        
       };
+
 
     useEffect(() => {
 
