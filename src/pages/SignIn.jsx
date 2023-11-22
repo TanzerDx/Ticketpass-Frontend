@@ -20,23 +20,31 @@ function SignIn() {
 
     const handleLogin = (event) => {
         event.preventDefault();
-    
+        
+        console.log(formData);
+
         UserService.Login(formData)
           .then((data) => {
-            sessionStorage.setItem('user', JSON.stringify(data));
-            if (concertData === null) 
+
+            if (concertData === null && data != null) 
             {
+              sessionStorage.setItem('user', JSON.stringify(data));
               window.location.href = '/orders';
             } 
-            else 
+            else if (concertData != null && data != null)
             {
+              sessionStorage.setItem('user', JSON.stringify(data));
               window.location.href = '/checkout';
-            }
+            } 
           })
-          .catch(() => {
+        
+          .catch((error) => {
+            console.error('Login failed:', error);
             alert('User is not found!');
           });
+        
       };
+
 
     useEffect(() => {
 

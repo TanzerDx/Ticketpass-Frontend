@@ -7,7 +7,7 @@ function SignUp() {
 
     const [formData, setFormData] = useState({
         email: "",
-        hashedPassword: "",
+        password: "",
         confirmPassword: ""
     })
 
@@ -20,11 +20,12 @@ function SignUp() {
     const handleRegister = (event) => {
         event.preventDefault();
         
-        if (formData.hashedPassword === formData.confirmPassword)
+        if (formData.password === formData.confirmPassword)
         {
+
             UserService.Register(formData)
             .then(() =>  {
-                window.location.href = 'signin'
+                    window.location.href = 'signin'
             })
         }
         else {
@@ -87,7 +88,7 @@ function SignUp() {
                     <div className='signup-container'>
                         <input
                             type="password"
-                            name="hashedPassword"
+                            name="password"
                             className="signup-input"
                             placeholder=""
                             required
