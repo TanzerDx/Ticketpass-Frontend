@@ -12,16 +12,17 @@ function Orders() {
 
 
     useEffect(() => {
-        const userData = JSON.parse(sessionStorage.getItem("user"));
-        
-        if (userData) {
-        UserService.getUser(userData.id)
+        const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+        console.log(accessToken);
+
+        if (accessToken) {
+        UserService.getUser(1)
             .then(data => setUser(data))
             .catch(error => {
             console.error("Error fetching user data:", error);
             });
     
-            OrderService.getAllOrders(userData.id)
+            OrderService.getAllOrders(1)
             .then(data => {
                 const orders = data.orders.map(order => {
                     order.concert.date = format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm:ss');

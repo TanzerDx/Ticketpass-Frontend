@@ -16,7 +16,7 @@ function SignIn() {
         })
     }
 
-    const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
+    const concertData = JSON.parse(localStorage.getItem("concertItem"));
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -28,12 +28,12 @@ function SignIn() {
 
             if (concertData === null && data != null) 
             {
-              sessionStorage.setItem('user', JSON.stringify(data));
+              localStorage.setItem('accessToken', JSON.stringify(data));
               window.location.href = '/orders';
             } 
             else if (concertData != null && data != null)
             {
-              sessionStorage.setItem('user', JSON.stringify(data));
+              localStorage.setItem('accessToken', JSON.stringify(data));
               window.location.href = '/checkout';
             } 
           })
