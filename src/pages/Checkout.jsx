@@ -6,10 +6,11 @@ import cardLogo from '../assets/credit-card-black-png-0.png';
 import idealLogo from '../assets/ideal-logo-1024.png';
 import OrderService from '../services/OrderService.jsx';
 import TicketService from '../services/TicketService.jsx';
+import UserService from '../services/UserService.jsx';
 
 function Checkout() {
 
-    const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
+    const concertData = JSON.parse(localStorage.getItem("concertItem"));
 
     const [numberOfTickets, setNumberOfTickets] = useState(1);
 
@@ -47,7 +48,7 @@ function Checkout() {
 
     const [formData, setFormData] = useState({
         concert: concertData,
-        user: JSON.parse(sessionStorage.getItem("user")),
+        user: UserService.getUser(1),
         date: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSX"),
         name: "",
         surname: "",

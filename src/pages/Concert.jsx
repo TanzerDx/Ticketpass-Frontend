@@ -31,10 +31,10 @@ function Concert() {
     }, []);
 
     const handleBuyTicketsClick = () => {
-        sessionStorage.setItem("concertItem", JSON.stringify(concertItem));
-        const userData = JSON.parse(sessionStorage.getItem("user"));
+        localStorage.setItem("concertItem", JSON.stringify(concertItem));
+        const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 
-        if (userData === null)
+        if (accessToken === null)
         {
             window.location.href="/signin"
         }

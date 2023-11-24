@@ -9,11 +9,11 @@ function NavBar() {
 
   const logout = (event) => {
     event.preventDefault();
-    sessionStorage.clear();
+    localStorage.clear();
     window.location.href="/"
   }
 
-  const userSessionExists = !!sessionStorage.getItem("user");
+  const userSessionExists = !!localStorage.getItem("accessToken");
 
   return (
     <>
