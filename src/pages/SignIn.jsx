@@ -31,12 +31,14 @@ function SignIn() {
               localStorage.setItem('accessToken', JSON.stringify(data));
               window.location.href = '/orders';
             } 
+
             else if (concertData != null && data != null)
             {
               localStorage.setItem('accessToken', JSON.stringify(data));
               window.location.href = '/checkout';
             } 
-          })
+        
+        })
         
           .catch((error) => {
             console.error('Login failed:', error);
