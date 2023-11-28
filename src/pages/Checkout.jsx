@@ -48,7 +48,7 @@ function Checkout() {
 
     const [formData, setFormData] = useState({
         concert: concertData,
-        user: UserService.getUser(1),
+        user: UserService.getUserById(2),
         date: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSX"),
         name: "",
         surname: "",
