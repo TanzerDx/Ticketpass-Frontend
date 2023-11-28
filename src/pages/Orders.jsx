@@ -13,27 +13,24 @@ function Orders() {
 
     useEffect(() => {
         const accessToken = JSON.parse(localStorage.getItem("accessToken"));
-        console.log(accessToken);
-
-        if (accessToken) {
-        UserService.getUser(1)
-            .then(data => setUser(data))
-            .catch(error => {
-            console.error("Error fetching user data:", error);
-            });
     
-            OrderService.getAllOrders(1)
-            .then(data => {
-                const orders = data.orders.map(order => {
-                    order.concert.date = format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm:ss');
-                    return order;
+        if (accessToken) {
+            UserService.getUserByAccessToken(accessToken.accessToken)
+                .then(data => {
+                    setUser(data);
+
+                    return OrderService.getAllOrders(data.id);
+                })
+                .then(data => {
+                    const orders = data.orders.map(order => {
+                        order.concert.date = format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm:ss');
+                        return order;
+                    });
+                    setOrders(orders);
+                })
+                .catch(error => {
+                    console.error("Error fetching user or order data:", error);
                 });
-                setOrders(orders);
-            })
-            .catch(error => {
-                console.error("Error fetching order data:", error);
-            });
-        
         }
     }, []);
     
