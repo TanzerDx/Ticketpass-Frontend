@@ -20,6 +20,8 @@ function Orders() {
                     setUser(data);
 
                     return OrderService.getAllOrders(data.id);
+
+                    //TODO: fix an error when retrieving the order, you get an unauthorized error
                 })
                 .then(data => {
                     const orders = data.orders.map(order => {

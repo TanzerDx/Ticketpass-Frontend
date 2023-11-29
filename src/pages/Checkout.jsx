@@ -11,13 +11,18 @@ import UserService from '../services/UserService.jsx';
 function Checkout() {
 
     const concertData = JSON.parse(localStorage.getItem("concertItem"));
+    
+    const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+
+    const [user, setUser] = useState(null);
 
     const [numberOfTickets, setNumberOfTickets] = useState(1);
 
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
+
     const price = numberOfTickets * concertData.price;
 
-    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
-    
+
     const handlePlusClick = () => {
         setNumberOfTickets(numberOfTickets + 1);
 
@@ -48,7 +53,7 @@ function Checkout() {
 
     const [formData, setFormData] = useState({
         concert: concertData,
-        user: UserService.getUserById(2),
+        user: "",
         date: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSX"),
         name: "",
         surname: "",
@@ -72,6 +77,7 @@ function Checkout() {
         setFormData((formData) => ({
             ...formData,
             [event.target.name]: event.target.value,
+            user: user,
             ticketNumber: numberOfTickets,
             orderPrice: numberOfTickets * concertData.price,
             paymentMethod: selectedPaymentMethod
@@ -91,9 +97,13 @@ function Checkout() {
       
       const handleCheckout = async (event) => {
         event.preventDefault();
+
+        console.log(formData);
       
         const orderResponse = await OrderService.addOrder(formData);
         const orderToPass = await OrderService.getOrder(orderResponse.id);
+
+        //TODO: fix an error when retrieving the order, you get an unauthorized error
       
         updateOrderTickets(orderToPass);
     }
@@ -107,6 +117,13 @@ function Checkout() {
             TicketService.addTickets(orderTickets);
         }
       }, [orderTickets]);
+
+        useEffect(() => {
+            UserService.getUserByAccessToken(accessToken.accessToken)
+            .then(data => {
+                setUser(data);
+        })
+        }  , []);
 
     return (
         <>
