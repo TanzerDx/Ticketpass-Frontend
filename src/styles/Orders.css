@@ -55,7 +55,7 @@
     letter-spacing: 0.5mm;
     padding-left: 6%;
     padding-right: 6%;
-    width: 10%;
+    width: 11%;
 }
 
 .orders-heading-margin {
@@ -73,7 +73,6 @@
     border: 1px solid #ffffff;
     padding: 0.5% 2%;
     cursor: pointer;
-    margin-left: 2%;
 }
 
 .button-showTickets:hover {

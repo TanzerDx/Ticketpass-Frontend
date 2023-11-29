@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import { format } from "date-fns"
 import UserService from '../services/UserService';
 import OrderService from '../services/OrderService';
+import TicketService from '../services/TicketService';
 
 function Orders() {
 
@@ -12,16 +13,15 @@ function Orders() {
 
 
     useEffect(() => {
-        const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+        const accessToken = localStorage.getItem("accessToken");
     
         if (accessToken) {
-            UserService.getUserByAccessToken(accessToken.accessToken)
+            UserService.getUserByAccessToken(accessToken)
                 .then(data => {
                     setUser(data);
 
                     return OrderService.getAllOrders(data.id);
 
-                    //TODO: fix an error when retrieving the order, you get an unauthorized error
                 })
                 .then(data => {
                     const orders = data.orders.map(order => {
@@ -35,6 +35,13 @@ function Orders() {
                 });
         }
     }, []);
+
+    const handleGetTickets = (orderId) => {
+        
+        localStorage.setItem("orderId", orderId);
+        window.location.href = '/tickets';
+        
+    };
     
 
     return (
@@ -69,7 +76,7 @@ function Orders() {
                                             <h1 className='orders-heading-margin'>{order.concert.date}</h1>
                                         </div>
 
-                                        <button type="button" className="button-showTickets" name="showTickets">SHOW TICKETS</button>
+                                        <button type="button" className="button-showTickets" name="showTickets" onClick={() => handleGetTickets(order.id)}>SHOW TICKETS</button>
                                     
                                     </div>
                             ))}

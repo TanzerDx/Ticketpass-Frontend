@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp.jsx'
 import Orders from './pages/Orders.jsx'
 import Concert from './pages/Concert.jsx'
 import Checkout from './pages/Checkout.jsx'
+import Tickets from './pages/Tickets.jsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/orders" element={<Orders />} />
+              <Route path="/tickets" element={<Tickets/>} />
           </Routes>
         </Router>
     </div>

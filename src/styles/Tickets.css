@@ -1,0 +1,113 @@
+.background-color-tickets {
+    height: 100vh;
+    background: #000000;
+    background: -webkit-linear-gradient( to bottom, #999797, #000);
+    background: -moz-linear-gradient( to bottom, #999797, #000);
+    background: -ms-linear-gradient( to bottom, #999797, #000);
+    background: -o-linear-gradient( to bottom, #999797, #000);
+    background: linear-gradient( to bottom, #999797, #000);
+}
+
+.tickets-heading {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 250%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.tickets-warning {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 173%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+
+.tickets-headers-flexbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tickets-order-details {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+    font-weight: 100;
+    letter-spacing: 0.5mm;
+    margin-right: 2%;
+    text-align: right;
+    width: 20%;
+    padding-top: 1%;
+}
+
+.tickets-remove-margin {
+    margin: 0;
+    padding: 0;
+}
+
+.ticket-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    min-width: 60%;
+    height: 50vh;
+    border: 5px solid black;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.ticket-artist-name {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 250%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.ticket-qr {
+    margin: 5% 5% 5% 5%;
+    height: 74.8%;
+    width: 31.3%;
+    border: 5px solid black;
+    justify-content: start;
+}
+
+.ticket-id-text {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 100%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-left: 1%;
+}
+
+.ticket-name-seating {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 120%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 10%;
+    padding-left: 1%;
+}
+
+
+.tickets-field {
+    height: 20%;
+    width: auto;
+    margin-top: 5%;
+    display: flex;
+    overflow-x: scroll;
+}

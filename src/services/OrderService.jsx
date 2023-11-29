@@ -1,6 +1,9 @@
 import axios from "axios";
+import TokenService from "./TokenService";
 
 const hostname = "http://localhost:8080"
+
+TokenService.setHeaders(axios);
 
 function addOrder(formData) {
     return axios.post(`${hostname}/orders`, formData)

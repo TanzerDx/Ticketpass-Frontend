@@ -20,21 +20,27 @@ function SignIn() {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        
-        console.log(formData);
 
         UserService.Login(formData)
           .then((data) => {
 
             if (concertData === null && data != null) 
             {
-              localStorage.setItem('accessToken', JSON.stringify(data));
+              localStorage.setItem('accessToken', data.accessToken);
+              
+              const user = UserService.getUserByAccessToken(data.accessToken);
+              localStorage.setItem('user', JSON.stringify(user));
+
               window.location.href = '/orders';
             } 
 
             else if (concertData != null && data != null)
             {
-              localStorage.setItem('accessToken', JSON.stringify(data));
+              localStorage.setItem('accessToken', data.accessToken);
+
+              const user = UserService.getUserByAccessToken(data.accessToken);
+              localStorage.setItem('user', JSON.stringify(user));
+              
               window.location.href = '/checkout';
             } 
         
