@@ -1,6 +1,9 @@
 import axios from "axios";
+import TokenService from "./TokenService";
 
 const hostname = "http://localhost:8080"
+
+TokenService.setHeaders(axios);
 
 function Register(formData) {
     return axios.post(`${hostname}/users`, formData)
@@ -18,18 +21,8 @@ function getUserById(id) {
 }
 
 function getUserByAccessToken(accessToken) {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${accessToken}`
-        }
-    };
-
-    return axios.get(`${hostname}/users/viaToken`, config)
-        .then(response => response.data)
-        .catch(error => {
-            console.error("Error fetching user data:", error);
-            throw error;
-        });
+    return axios.get(`${hostname}/users/viaToken`, accessToken)
+    .then(response => response.data)
 }
 
 export default {

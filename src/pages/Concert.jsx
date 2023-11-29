@@ -32,9 +32,9 @@ function Concert() {
 
     const handleBuyTicketsClick = () => {
         localStorage.setItem("concertItem", JSON.stringify(concertItem));
-        const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+        const user = JSON.parse(localStorage.getItem("user"));
 
-        if (accessToken === null)
+        if (user === null)
         {
             window.location.href="/signin"
         }

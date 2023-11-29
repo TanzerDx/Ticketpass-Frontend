@@ -12,7 +12,7 @@ function Checkout() {
 
     const concertData = JSON.parse(localStorage.getItem("concertItem"));
     
-    const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+    const accessToken = localStorage.getItem("accessToken");
 
     const [user, setUser] = useState(null);
 
@@ -98,12 +98,9 @@ function Checkout() {
       const handleCheckout = async (event) => {
         event.preventDefault();
 
-        console.log(formData);
-      
         const orderResponse = await OrderService.addOrder(formData);
         const orderToPass = await OrderService.getOrder(orderResponse.id);
 
-        //TODO: fix an error when retrieving the order, you get an unauthorized error
       
         updateOrderTickets(orderToPass);
     }
@@ -112,14 +109,12 @@ function Checkout() {
       
         if (orderTickets.order != null)
         {
-            console.log(orderTickets);
-        
             TicketService.addTickets(orderTickets);
         }
       }, [orderTickets]);
 
         useEffect(() => {
-            UserService.getUserByAccessToken(accessToken.accessToken)
+            UserService.getUserByAccessToken(accessToken)
             .then(data => {
                 setUser(data);
         })
