@@ -20,8 +20,14 @@ function getAllOrders(userId) {
     .then(response => response.data)
 }
 
+function getOrdersForAllUsers() {
+    return axios.get(`${hostname}/orders/all`)
+    .then(response => response.data)
+}
+
 export default {
     addOrder,
     getOrder,
-    getAllOrders
+    getAllOrders,
+    getOrdersForAllUsers
 }

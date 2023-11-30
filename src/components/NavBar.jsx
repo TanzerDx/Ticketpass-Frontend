@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
 import '../styles/styles.components/Navbar.css';
 import logo from '../assets/Project Icon.png';
 import notifications from '../assets/3239958.png';
 import { NavLink } from 'react-router-dom';
+import UserService from "../services/UserService";
 import SearchBar from './SearchBar';
 
 function NavBar() {
@@ -12,6 +13,18 @@ function NavBar() {
     localStorage.clear();
     window.location.href="/"
   }
+
+  const [user, setUser] = useState(null);
+
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem("accessToken");
+
+  //   if (accessToken) {
+  //       UserService.getUserByAccessToken(accessToken)
+  //           .then(data => {
+  //               setUser(data);
+  //           })}})
+
 
   const userSessionExists = !!localStorage.getItem("accessToken");
 
@@ -41,7 +54,7 @@ function NavBar() {
           
           <SearchBar/>
 
-          {userSessionExists ? (
+          {user ? (
           <>
             <img src={notifications} alt="Notifications" className="navbar-notifications" />
             
