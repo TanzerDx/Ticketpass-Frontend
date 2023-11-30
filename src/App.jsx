@@ -12,6 +12,9 @@ import Checkout from './pages/Checkout.jsx'
 import Tickets from './pages/Tickets.jsx';
 
 function App() {
+
+
+  
   return (
     <div className="App">
         <Router>

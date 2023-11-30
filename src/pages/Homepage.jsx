@@ -2,7 +2,6 @@ import '../styles/Homepage.css'
 import video from "../assets/bgvideo.webm"
 import {NavLink} from "react-router-dom"
 
-console.log(JSON.parse(localStorage.getItem("tickets")));
 
 function Homepage() {
     return (
