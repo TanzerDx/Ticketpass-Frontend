@@ -24,11 +24,7 @@ function Orders() {
 
                 })
                 .then(data => {
-                    const orders = data.orders.map(order => {
-                        order.concert.date = format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm:ss');
-                        return order;
-                    });
-                    setOrders(orders);
+                    setOrders(data.orders);
                 })
                 .catch(error => {
                     console.error("Error fetching user or order data:", error);
@@ -73,7 +69,7 @@ function Orders() {
                                         </div>
 
                                         <div className='order-concert-details'>
-                                            <h1 className='orders-heading-margin'>{order.concert.date}</h1>
+                                            <h1 className='orders-heading-margin'>{format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
                                         </div>
 
                                         <button type="button" className="button-showTickets" name="showTickets" onClick={() => handleGetTickets(order.id)}>SHOW TICKETS</button>
