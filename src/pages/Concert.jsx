@@ -26,6 +26,12 @@ function Concert() {
             .then(data => setConcertItem(data))
             .catch(error => {
             console.error("Error fetching concert data:", error);
+
+            if (error.response.status === 401)
+            {
+                localStorage.removeItem('accessToken');
+            }
+            
             });
         
     }, []);

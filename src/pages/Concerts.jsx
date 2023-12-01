@@ -10,7 +10,14 @@ function Concerts() {
     useEffect (() => {
         ConcertService.getAllConcerts()
         .then(data => setConcerts(data))
-    }, []); 
+        .catch(error => {
+            if (error.response.status === 401)
+            {
+                localStorage.removeItem('accessToken');
+                window.location.href = '/concerts';
+            }
+
+    }, [])}); 
 
     return (
         <>

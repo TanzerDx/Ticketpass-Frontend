@@ -30,6 +30,13 @@
     padding: 2.5%;
 }
 
+.navbar-item-manager {
+    font-size: 120%;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    padding: 1.5%;
+}
+
 .navbar-signin {
     margin-left: 26%;
     width: 5%;
@@ -48,6 +55,16 @@
     background-color: transparent;
     border: transparent;
     margin-left: 3%;
+}
+
+.navbar-logout-manager {
+    font-size: 120%;
+    width: 7%;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    background-color: transparent;
+    border: transparent;
+    margin-left: 1%;
 }
 
 

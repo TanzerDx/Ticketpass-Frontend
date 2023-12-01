@@ -48,6 +48,12 @@ function SignIn() {
         
           .catch((error) => {
             console.error('Login failed:', error);
+            
+            if (error.response.status === 401)
+            {
+                localStorage.removeItem('accessToken');
+            }
+            
             alert('User is not found!');
           });
         
