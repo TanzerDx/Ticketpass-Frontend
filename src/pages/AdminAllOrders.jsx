@@ -8,31 +8,18 @@ function AdminAllOrders ()
     const [orders, setOrders] = useState(null);
 
     useEffect(() => {
-      const accessToken = localStorage.getItem("accessToken");
-  
-      if (accessToken) {
-            OrderService.getOrdersForAllUsers()
+        const accessToken = localStorage.getItem("accessToken");
+      
+        if (accessToken) {
+          OrderService.getOrdersForAllUsers()
             .then(data => {
-
-            //     if (data) {
-            //         const updatedOrders = data.orders.map(order => {
-            //           order.date = format(new Date(order.date), 'yyyy-MM-dd HH:mm:ss');
-            //           return order;
-            //         });
-            //         setOrders(updatedOrders);
-            // }})
-
-                if (data) {
-                    setOrders(data);
-            }})
-
+              setOrders(data);
+            })
             .catch(error => {
-                console.error("Error fetching user or order data:", error);
+              console.error("Error fetching user or order data:", error);
             });
         }
-        }, []);
-  
-
+      }, []);
 
     return (
         <>
@@ -48,25 +35,15 @@ function AdminAllOrders ()
                     )}
                     </div>
 
-                    <div className='allOrders-container-info'>
-                        <div className="allOrders-details">
-                            <h1 className='remove-margin'>ID</h1>
-                            <h1 className='remove-margin'>NAME </h1>
-                            <h1 className='remove-margin'>SURNAME</h1>
-                            <h1 className='remove-margin'>PAYMENT METHOD</h1>
-                            <h1 className='remove-margin'>DATE ACQUIRED</h1>
-                        </div>
-                    </div>
-
                     {orders && orders.map(order => (                  
                                     
                         <div className='allOrders-container' key={order.id}>
                             <div className="allOrders-details">
-                                <h1 className='remove-margin'>{order.id}</h1>
-                                <h1 className='remove-margin'>{order.name} </h1>
-                                <h1 className='remove-margin'>{order.surname}</h1>
-                                <h1 className='remove-margin'>{order.paymentMethod}</h1>
-                                <h1 className='remove-margin'>{order.date}</h1>
+                                <h1 className='remove-margin'>ID: {order.id}</h1>
+                                <h1 className='remove-margin'>NAME: {order.name} </h1>
+                                <h1 className='remove-margin'>SURNAME: {order.surname}</h1>
+                                <h1 className='remove-margin'>PAYMENT METHOD: {order.paymentMethod}</h1>
+                                <h1 className='remove-margin'>DATE ACQUIRED: {format(new Date(order.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
                             </div>
                         </div>
                      

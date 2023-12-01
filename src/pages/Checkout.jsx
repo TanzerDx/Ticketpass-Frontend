@@ -43,14 +43,6 @@ function Checkout() {
       setSelectedPaymentMethod(name);
     };
 
-    let formattedDate = "";
-
-    if (concertData!= null) {
-        
-        const concertDate = new Date(concertData.date);
-        formattedDate = format(concertDate, 'yyyy-MM-dd HH:mm:ss');
-      }
-
     const [formData, setFormData] = useState({
         concert: concertData,
         user: "",
@@ -239,7 +231,7 @@ function Checkout() {
                                 <div className='checkout-concert-info-description'>
                                     
                                     <h1 className='remove-margin'>Venue: {concertData.venue}</h1>
-                                    <h1 className='remove-margin'>Date: {formattedDate}</h1>
+                                    <h1 className='remove-margin'>Date: {format(new Date(concertData.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
                                     <h1 className='remove-margin'>Location: {concertData.city}</h1>
                                         
                                         <div className='checkout-concert-info-description-price'>

@@ -12,14 +12,6 @@ function Concert() {
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get("id");
 
-    let formattedDate = "";
-
-    if (concertItem != null) {
-        
-        const concertDate = new Date(concertItem.date);
-        formattedDate = format(concertDate, 'yyyy-MM-dd HH:mm:ss');
-      }
-
     useEffect(() => {
 
         ConcertService.getConcert(id)
@@ -76,7 +68,7 @@ function Concert() {
 
                             <div className='concert-details'>
                                 <h1 className='remove-margin'>VENUE: {concertItem.venue}</h1>
-                                <h1 className='remove-margin'>DATE: {formattedDate}</h1>
+                                <h1 className='remove-margin'>DATE: {format(new Date(concertItem.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
                                 <h1 className='remove-margin'>LOCATION: {concertItem.city}  </h1>
                             </div>
 
