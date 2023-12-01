@@ -16,17 +16,15 @@ function NavBar() {
 
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   const accessToken = localStorage.getItem("accessToken");
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
 
-  //   if (accessToken) {
-  //       UserService.getUserByAccessToken(accessToken)
-  //           .then(data => {
-  //               setUser(data);
-  //           })}})
+    if (accessToken) {
+        UserService.getUserByAccessToken(accessToken)
+            .then(data => {
+                setUser(data);
+            })}})
 
-
-  const userSessionExists = !!localStorage.getItem("accessToken");
 
   return (
     <>
@@ -54,26 +52,51 @@ function NavBar() {
           
           <SearchBar/>
 
-          {user ? (
-          <>
-            <img src={notifications} alt="Notifications" className="navbar-notifications" />
-            
-            <div className="navbar-item">
-            <NavLink to="/orders" id="orders-link" className="navbar-item-text">
-            MY TICKETS
-            </NavLink>
-            </div>
+          {user && user.role === "user" && (
+              <>
+                <img src={notifications} alt="Notifications" className="navbar-notifications" />
+                
+                <div className="navbar-item">
+                  <NavLink to="/orders" id="orders-link" className="navbar-item-text">
+                    MY TICKETS
+                  </NavLink>
+                </div>
 
-            <button onClick={logout} id='navbar-item-text' className='navbar-logout'>LOGOUT</button>
-          </>
-          ):(
+                <button onClick={logout} id='navbar-item-text' className='navbar-logout'>LOGOUT</button>
+              </>
+            )}
 
-            <div className="navbar-signin">
-              <NavLink to="/signin" id="signin-link" className="navbar-item-text">
-              SIGN IN
-              </NavLink>
-            </div>
-          )}
+            {user && (user.role === "admin" || user.role === "manager") && (
+              <>
+                <div className="navbar-item-manager">
+                  <NavLink to="/allOrders" id="allOrders-link" className="navbar-item-text">
+                    ALL ORDERS
+                  </NavLink>
+                </div>
+
+                <div className="navbar-item-manager">
+                  <NavLink to="/allOrders" id="allOrders-link" className="navbar-item-text">
+                    MANAGE USERS
+                  </NavLink>
+                </div>
+
+                <div className="navbar-item-manager">
+                  <NavLink to="/allOrders" id="allOrders-link" className="navbar-item-text">
+                    MANAGE CONCERTS
+                  </NavLink>
+                </div>
+
+                <button onClick={logout} id='navbar-item-text' className='navbar-logout-manager'>LOGOUT</button>
+              </>
+            )}
+
+            {user === null && (
+              <div className="navbar-signin">
+                <NavLink to="/signin" id="signin-link" className="navbar-item-text">
+                  SIGN IN
+                </NavLink>
+              </div>
+            )}
         </div>
     </>
   )
