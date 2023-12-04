@@ -1,5 +1,7 @@
 import '../styles/SignIn.css'
 import {NavLink} from "react-router-dom"
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useState, useEffect} from 'react';
 import UserService from '../services/UserService';
 
@@ -21,40 +23,38 @@ function SignIn() {
     const handleLogin = (event) => {
         event.preventDefault();
 
+        localStorage.removeItem('accessToken');
+
         UserService.Login(formData)
           .then((data) => {
 
-            if (concertData === null && data != null) 
-            {
-              localStorage.setItem('accessToken', data.accessToken);
-              
-              const user = UserService.getUserByAccessToken(data.accessToken);
-              localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('accessToken', data.accessToken);
+            
+             UserService.getUserByAccessToken(data.accessToken)
 
-              window.location.href = '/orders';
-            } 
+            .then((userData) => {
 
-            else if (concertData != null && data != null)
-            {
-              localStorage.setItem('accessToken', data.accessToken);
+                const user = userData;
+      
+                 if (user.role === 'admin' || user.role === 'manager') {
+                window.location.href = '/allOrders';
+                }
 
-              const user = UserService.getUserByAccessToken(data.accessToken);
-              localStorage.setItem('user', JSON.stringify(user));
-              
-              window.location.href = '/checkout';
-            } 
-        
+                else if (concertData === null && user !== null) {
+                  window.location.href = '/orders';
+
+                } else if (concertData !== null && user !== null) {
+                  window.location.href = '/checkout';
+              }})
         })
         
           .catch((error) => {
             console.error('Login failed:', error);
-            
-            if (error.response.status === 401)
-            {
-                localStorage.removeItem('accessToken');
-            }
-            
-            alert('User is not found!');
+            toast.error('Invalid username or password', {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            });
+            setTimeout(() => {
+            }, 1000);
           });
         
       };
