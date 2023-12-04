@@ -1,6 +1,8 @@
 import '../styles/Checkout.css';
 import React, {useState, useEffect} from "react";
 import {format} from "date-fns";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import paypalLogo from '../assets/paypal-logo-C83095A82C-seeklogo.com.png';
 import cardLogo from '../assets/credit-card-black-png-0.png';
 import idealLogo from '../assets/ideal-logo-1024.png';
@@ -29,7 +31,13 @@ function Checkout() {
         if (numberOfTickets == 4)
         {
             setNumberOfTickets(4);
-            alert("You cannot buy more than 4 tickets!");
+
+            toast.error('You cannot buy more than 4 tickets!', {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            });
+            
+            setTimeout(() => {
+            }, 1000);
         }
     };
     
@@ -95,6 +103,13 @@ function Checkout() {
 
       
         updateOrderTickets(orderToPass);
+
+        toast.success('Order successful', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+        });
+
+        setTimeout(() => {
+        }, 1000);
     }
     
     useEffect(() => {

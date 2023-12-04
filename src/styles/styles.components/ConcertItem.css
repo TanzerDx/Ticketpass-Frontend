@@ -3,6 +3,7 @@
     position: relative;
     height: 90%; 
     width: 100%;
+    margin-top: 5%;
 }
 
 .concert-image {
@@ -81,7 +82,7 @@
     border: 1px solid #000000;
     padding: 4% 10%;
     cursor: pointer;
-    margin-left: 50%;
+    margin-left: 49%;
     animation: appearButton 0.8s;
 }
 

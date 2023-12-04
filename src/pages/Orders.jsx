@@ -19,7 +19,7 @@ function Orders() {
             UserService.getUserByAccessToken(accessToken)
                 .then(data => {
                     setUser(data);
-
+                    
                     return OrderService.getAllOrders(data.id);
 
                 })

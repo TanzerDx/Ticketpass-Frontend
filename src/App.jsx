@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage.jsx'
 import Statistics from './pages/Statistics.jsx'
 import Concerts from './pages/Concerts.jsx'
+import {ToastContainer} from "react-toastify";
 import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
 import Orders from './pages/Orders.jsx'
@@ -14,10 +15,11 @@ import AdminAllOrders from './pages/AdminAllOrders.jsx'
 
 function App() {
 
-
+  const user = localStorage.getItem("user");
   
   return (
     <div className="App">
+
         <Router>
         <NavBar />
           <Routes>
@@ -30,9 +32,11 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/tickets" element={<Tickets/>} />
-              <Route path="/allOrders" element={<AdminAllOrders />} />
+              <Route path="/allOrders" element={<AdminAllOrders/>} />
           </Routes>
         </Router>
+                      
+      <ToastContainer />
     </div>
   );
 }

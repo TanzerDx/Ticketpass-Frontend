@@ -209,4 +209,10 @@
 .payment-method.selected {
     background-color: rgb(166, 250, 177);
     border: 10px solid rgb(47, 211, 47);
+  }
+
+
+.payment-method:hover {
+    background-color: rgb(220, 220, 220);
+    border: 10px solid darkgray;
 }

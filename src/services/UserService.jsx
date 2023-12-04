@@ -21,6 +21,7 @@ function getUserById(id) {
 }
 
 function getUserByAccessToken(accessToken) {
+    TokenService.setHeaders(axios)
     return axios.get(`${hostname}/users/viaToken`, accessToken)
     .then(response => response.data)
 }
