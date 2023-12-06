@@ -66,8 +66,8 @@ function NavBar() {
               </>
             )}
 
-            {user && (user.role === "admin" || user.role === "manager") && (
-              <>
+          {user && user.role === "admin" && (
+            <>
                 <div className="navbar-item-manager">
                       <h1 className="dropdown-menu-size">ADMIN FUNCTIONS</h1>
                     <div className="dropdown-content">
@@ -79,14 +79,66 @@ function NavBar() {
                       </div>
 
                       <div className="navbar-item">
-                        <NavLink to="/manageConcerts" id="orders-link" className="navbar-item-text">
-                          MANAGE CONCERTS
+                        <NavLink to="/addConcert" id="orders-link" className="navbar-item-text">
+                          ADD CONCERT
+                        </NavLink>
+                      </div>
+
+                      
+                      <div className="navbar-item">
+                        <NavLink to="/updateConcert" id="orders-link" className="navbar-item-text">
+                          UPDATE CONCERT
                         </NavLink>
                       </div>
 
                       <div className="navbar-item">
-                        <NavLink to="/manageUsers" id="orders-link" className="navbar-item-text">
-                          MANAGE USERS
+                        <NavLink to="/banUser" id="orders-link" className="navbar-item-text">
+                          BAN USER
+                        </NavLink>
+                      </div>
+
+                    </div>
+                </div>
+
+              <button onClick={logout} id='navbar-item-text' className='navbar-logout'>LOGOUT</button>
+            </>
+            )}
+
+            {user && user.role === "manager" && (
+              <>
+                <div className="navbar-item-manager">
+                      <h1 className="dropdown-menu-size">MANAGER FUNCTIONS</h1>
+                    <div className="dropdown-content">
+                          
+                      <div className="navbar-item">
+                        <NavLink to="/allOrders" id="orders-link" className="navbar-item-text">
+                          ALL ORDERS
+                        </NavLink>
+                      </div>
+
+                      <div className="navbar-item">
+                        <NavLink to="/addConcert" id="orders-link" className="navbar-item-text">
+                          ADD CONCERT
+                        </NavLink>
+                      </div>
+
+                      
+                      <div className="navbar-item">
+                        <NavLink to="/updateConcert" id="orders-link" className="navbar-item-text">
+                          UPDATE CONCERT
+                        </NavLink>
+                      </div>
+
+                      
+                      <div className="navbar-item">
+                        <NavLink to="/addAdmin" id="orders-link" className="navbar-item-text">
+                          ADD ADMIN
+                        </NavLink>
+                      </div>
+
+                      <div className="navbar-item">
+                        <NavLink to="/banUser" id="orders-link" className="navbar-item-text">
+                          BAN USER
                         </NavLink>
                       </div>
 

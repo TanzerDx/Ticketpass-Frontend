@@ -207,7 +207,7 @@ function AdminManageConcerts ()
                             </div>
                         
                         </div>
-                        <input type="submit" className="button-makeConcert" value="PROCEED"/>
+                        <input type="submit" className="button-manageConcert" value="PROCEED"/>
                     </form>
                 </div>
 

@@ -20,8 +20,14 @@ function getConcert(id) {
     .then(response => response.data)
 }
 
+function updateConcert(formData) {
+    return axios.put(`${hostname}/concerts/${formData.id}`, formData)
+    .then(response => response.data)
+}
+
 export default {
     addConcert,
     getAllConcerts,
-    getConcert
+    getConcert,
+    updateConcert
 }
