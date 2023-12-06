@@ -12,6 +12,8 @@ import Concert from './pages/Concert.jsx'
 import Checkout from './pages/Checkout.jsx'
 import Tickets from './pages/Tickets.jsx'
 import AdminAllOrders from './pages/AdminAllOrders.jsx'
+import AdminManageConcerts from './pages/AdminManageConcerts.jsx';
+import AdminManageUsers from './pages/AdminManageUsers.jsx';
 
 function App() {
 
@@ -33,6 +35,8 @@ function App() {
               <Route path="/orders" element={<Orders />} />
               <Route path="/tickets" element={<Tickets/>} />
               <Route path="/allOrders" element={<AdminAllOrders/>} />
+              <Route path="/manageUsers" element={<AdminManageUsers/>} />
+              <Route path="/manageConcerts" element={<AdminManageConcerts/>} />
           </Routes>
         </Router>
                       
