@@ -1,5 +1,6 @@
 import '../styles/SignUp.css'
 import React, { useState, useEffect} from 'react';
+import {toast} from "react-toastify";
 import UserService from '../services/UserService';
 
 
@@ -29,7 +30,9 @@ function SignUp() {
             })
         }
         else {
-            alert("Passwords don't match!");
+            toast.error('Passwords do not match!', {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            });
         }
 
     }

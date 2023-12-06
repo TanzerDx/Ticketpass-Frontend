@@ -69,24 +69,31 @@ function NavBar() {
             {user && (user.role === "admin" || user.role === "manager") && (
               <>
                 <div className="navbar-item-manager">
-                  <NavLink to="/allOrders" id="allOrders-link" className="navbar-item-text">
-                    ALL ORDERS
-                  </NavLink>
+                      <h1 className="dropdown-menu-size">ADMIN FUNCTIONS</h1>
+                    <div className="dropdown-content">
+                          
+                      <div className="navbar-item">
+                        <NavLink to="/allOrders" id="orders-link" className="navbar-item-text">
+                          ALL ORDERS
+                        </NavLink>
+                      </div>
+
+                      <div className="navbar-item">
+                        <NavLink to="/manageConcerts" id="orders-link" className="navbar-item-text">
+                          MANAGE CONCERTS
+                        </NavLink>
+                      </div>
+
+                      <div className="navbar-item">
+                        <NavLink to="/manageUsers" id="orders-link" className="navbar-item-text">
+                          MANAGE USERS
+                        </NavLink>
+                      </div>
+
+                    </div>
                 </div>
 
-                <div className="navbar-item-manager">
-                  <NavLink to="/allOrders" id="allOrders-link" className="navbar-item-text">
-                    MANAGE USERS
-                  </NavLink>
-                </div>
-
-                <div className="navbar-item-manager">
-                  <NavLink to="/allOrders" id="allOrders-link" className="navbar-item-text">
-                    MANAGE CONCERTS
-                  </NavLink>
-                </div>
-
-                <button onClick={logout} id='navbar-item-text' className='navbar-logout-manager'>LOGOUT</button>
+                <button onClick={logout} id='navbar-item-text' className='navbar-logout'>LOGOUT</button>
               </>
             )}
 
