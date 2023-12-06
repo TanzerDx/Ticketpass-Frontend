@@ -14,6 +14,8 @@ import Tickets from './pages/Tickets.jsx'
 import AdminAllOrders from './pages/AdminAllOrders.jsx'
 import AdminManageConcerts from './pages/AdminManageConcerts.jsx';
 import AdminManageUsers from './pages/AdminManageUsers.jsx';
+import AdminUpdateConcert from './pages/AdminUpdateConcert.jsx';
+import AdminAddAdmin from './pages/AdminAddAdmin.jsx';
 
 function App() {
 
@@ -35,8 +37,10 @@ function App() {
               <Route path="/orders" element={<Orders />} />
               <Route path="/tickets" element={<Tickets/>} />
               <Route path="/allOrders" element={<AdminAllOrders/>} />
-              <Route path="/manageUsers" element={<AdminManageUsers/>} />
-              <Route path="/manageConcerts" element={<AdminManageConcerts/>} />
+              <Route path="/banUser" element={<AdminManageUsers/>} />
+              <Route path="/addConcert" element={<AdminManageConcerts/>} />
+              <Route path="/addAdmin" element={<AdminAddAdmin/>} />
+              <Route path="/updateConcert" element={<AdminUpdateConcert/>} />
           </Routes>
         </Router>
                       
