@@ -30,7 +30,7 @@ function Concert() {
 
     const handleBuyTicketsClick = () => {
         localStorage.setItem("concertItem", JSON.stringify(concertItem));
-        const user = JSON.parse(localStorage.getItem("user"));
+        const user = localStorage.getItem("accessToken");
 
         if (user === null)
         {
