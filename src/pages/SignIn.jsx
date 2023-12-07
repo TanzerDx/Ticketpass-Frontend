@@ -30,7 +30,7 @@ function SignIn() {
 
             localStorage.setItem('accessToken', data.accessToken);
             
-             UserService.getUserByAccessToken(data.accessToken)
+            UserService.getUserByAccessToken(data.accessToken)
 
             .then((userData) => {
 
