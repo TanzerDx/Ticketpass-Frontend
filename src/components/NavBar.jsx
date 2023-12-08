@@ -4,6 +4,8 @@ import logo from '../assets/Project Icon.png';
 import notifications from '../assets/3239958.png';
 import { NavLink } from 'react-router-dom';
 import UserService from "../services/UserService";
+import OrderService from "../services/OrderService";
+import { Client } from '@stomp/stompjs';
 import SearchBar from './SearchBar';
 
 function NavBar() {
@@ -15,23 +17,75 @@ function NavBar() {
   }
 
   const [user, setUser] = useState(null);
+  const [topics, setTopics] = useState(null);
+  const [stompClient, setStompClient] = useState();
+  const [messagesReceived, setMessagesReceived] = useState([]);
 
-  useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
+  const setupStompClient = () => {
+    const stompClient = new Client({
+      brokerURL: 'ws://localhost:8080/ws',
+      reconnectDelay: 5000,
+      heartbeatIncoming: 4000,
+      heartbeatOutgoing: 4000
+    });
 
-    if (accessToken) {
-        UserService.getUserByAccessToken(accessToken)
-            .then(data => {
-                setUser(data);
-            })}})
+    stompClient.onConnect = () => {
+          topics.forEach((topic) => {
+              stompClient.subscribe(`/user/${topic}/queue/inboxmessages`, (data) => {
+                  onMessageReceived(data);
+              });
+          });
+      };
+    
+
+    stompClient.activate();
+    setStompClient(stompClient);
+  };
+          
+  const onMessageReceived = (data) => {
+    const message = JSON.parse(data.body);
+    setMessagesReceived(messagesReceived => [...messagesReceived, message]);
+  };
+
+  
+      useEffect(() => {
+        const accessToken = localStorage.getItem("accessToken");
+      
+        if (accessToken) {
+          UserService.getUserByAccessToken(accessToken)
+            .then(user => {
+              setUser(user);
+      
+              if (user) {
+                OrderService.getAllOrders(user.id)
+            .then(orders => {
+                  if (Array.isArray(orders.orders)) { 
+                    const retrievedOrders = orders.orders;
+                    const concertIds = retrievedOrders.map(order => order.concert.id);
+                    setTopics(concertIds);
+
+                    setupStompClient();
+
+                  }})
+                  .catch(error => {
+                    console.error("Error fetching orders:", error);
+                  });
+              }
+            })
+            .catch(error => {
+              console.error("Error fetching user:", error);
+            });
+        }
+      }, []); 
+        
 
 
   return (
     <>
         <div className="navbar-container">
           
-          <img src={logo} alt="Logo" className="navbar-logo" />
-  
+            <img src={logo} alt="Logo" className="navbar-logo" />
+
           <div className="navbar-item">
             <NavLink to="/" id="homepage-link" className="navbar-item-text">
               HOMEPAGE
@@ -54,7 +108,31 @@ function NavBar() {
 
           {user && user.role === "user" && (
               <>
-                <img src={notifications} alt="Notifications" className="navbar-notifications" />
+                <div className="navbar-notifications-container">
+                  
+                  <img src={notifications} alt="Notifications" className="navbar-notifications-icon" />
+                  
+                  <div className="dropdown-content">
+                  {messagesReceived ? (
+                      <div className="navbar-notifications-text">
+                        <h1>NO NOTIFICATIONS!</h1>
+                      </div>
+                    )
+                    :
+                    (
+                      messagesReceived
+                      .filter(message => message.from !== props.username)
+                      .map(message => (
+                          <div key={message.id}>
+                              <p>From: {message.from}</p>
+                              <p>Direct: {message.to === props.username ? 'Yes' : 'No'}</p>
+                              <p>Text: {message.text}</p>
+                          </div>
+                      ))
+                  )}
+                  </div>
+
+                </div>
                 
                 <div className="navbar-item">
                   <NavLink to="/orders" id="orders-link" className="navbar-item-text">
@@ -160,5 +238,6 @@ function NavBar() {
     </>
   )
 }
+
 
 export default NavBar;
