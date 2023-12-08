@@ -18,6 +18,158 @@
     padding-left: 1%;
 }
 
+.button-addAdmin {
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    background-color: #ffffff;
+    font-size: 250%;
+    padding: 0px 3%;
+    font-weight: 900;
+    cursor: pointer;
+    margin-left: 41.3%;
+    letter-spacing: 1.5mm;
+    margin-top: 4%;
+}
+
+.button-addAdmin:hover {
+    background-color: #c0baba;
+}
+
+.textaddAdmin-info {
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    font-size: 103%;
+    letter-spacing: 0.5mm;
+}
+
+
+.content-box-addAdmin {
+    margin-left: 39.5%;
+    margin-top: 2%;
+    height: 10%;
+    width: 25%;
+}
+
+.addAdmin-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 123%;
+    padding: 2%;
+    padding-right: 3%;
+  }
+
+
+.addAdmin-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2%;
+    width: 90%; 
+    position: relative;
+  }
+
 .remove-margin {
     margin: 0;
+}
+
+
+
+
+/* Ban User */
+
+.warning-text {
+    width: 100%;
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 170%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    text-align: center;
+}
+
+.grid-item {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 3%;
+}
+
+.banUser-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 163%;
+    padding: 3%;
+    width: 100%;
+  }
+
+
+.banUser-validation-text {
+    margin-top: 5%;
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 1mm;
+    width: 185%;
+    font-size: 190%;
+}
+
+.banUser-grid {
+    display: flex;
+    margin-left: 37%;
+}
+
+.remove-margin {
+    margin: 0;
+}
+
+.button-banUser{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #ffffff;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 10.2%;
+    cursor: pointer;
+    margin-left: 36.8%;
+    margin-top: 1.3%;
+    margin-bottom: 2%;
+}
+
+.button-banUser:hover {
+    color: #ffffff;
+    background-color: #929191;
+}
+
+
+.banUser-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.banUser-input {
+    border: none;
+    outline: none;
+    font-size: 163%;
+    padding: 5%;
+    width: 160%;
+  }
+
+
+.banUser-validation-text {
+    margin-top: 5%;
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 1mm;
+    width: 185%;
+    font-size: 195%;
 }

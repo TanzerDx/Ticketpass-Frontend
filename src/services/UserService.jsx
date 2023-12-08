@@ -10,6 +10,11 @@ function Register(formData) {
     .then(response => response.data)
 }
 
+function addAdmin(formData) {
+    return axios.post(`${hostname}/users/admin`, formData)
+    .then(response => response.data)
+}
+
 function Login(formData) {
     return axios.post(`${hostname}/users/login`, formData)
     .then(response => response.data)
@@ -26,7 +31,14 @@ function getUserByAccessToken(accessToken) {
     .then(response => response.data)
 }
 
+function banUser(userId) {
+    return axios.put(`${hostname}/users/${userId}`)
+    .then(response => response.data)
+}
+
 export default {
+    addAdmin,
+    banUser,
     Register,
     Login,
     getUserById,
