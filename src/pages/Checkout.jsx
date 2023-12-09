@@ -98,18 +98,30 @@ function Checkout() {
       const handleCheckout = async (event) => {
         event.preventDefault();
 
-        const orderResponse = await OrderService.addOrder(formData);
-        const orderToPass = await OrderService.getOrder(orderResponse.id);
+        if (user.role === "user")
+        {
+            console.log(formData);
+            const orderResponse = await OrderService.addOrder(formData);
+            const orderToPass = await OrderService.getOrder(orderResponse.id);
+            
+        
+            updateOrderTickets(orderToPass);
 
-      
-        updateOrderTickets(orderToPass);
+            toast.success('Order successful', {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            });
 
-        toast.success('Order successful', {
-            position: toast.POSITION.BOTTOM_RIGHT,
-        });
+            setTimeout(() => {
+            }, 1000);
+        }
+        else {
+            toast.error('Orders can be made only from a user account', {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            });
 
-        setTimeout(() => {
-        }, 1000);
+            setTimeout(() => {
+            }, 1000);
+        }
     }
     
     useEffect(() => {
@@ -144,12 +156,14 @@ function Checkout() {
                         <div className='checkout-validation-text'>
                                     <h1 className='remove-margin'>Number of tickets: </h1>
                                 </div>
- 
-                                <button type="button" name="buttonPlus" className='button-ticket-management' onClick={handlePlusClick}>+</button>
+
+                                <button type="button" name="buttonMinus" className='button-ticket-management' onClick={handleMinusClick}>-</button>
+
                                 <div className='checkout-validation-text-ticketNumber'>
                                     <h1 className='remove-margin'>{numberOfTickets}</h1>
                                 </div>
-                                <button type="button" name="buttonMinus" className='button-ticket-management' onClick={handleMinusClick}>-</button>
+
+                                <button type="button" name="buttonPlus" className='button-ticket-management' onClick={handlePlusClick}>+</button>
 
 
                                 <div className='checkout-validation-text'>
@@ -246,7 +260,7 @@ function Checkout() {
                                 <div className='checkout-concert-info-description'>
                                     
                                     <h1 className='remove-margin'>Venue: {concertData.venue}</h1>
-                                    <h1 className='remove-margin'>Date: {format(new Date(concertData.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
+                                    <h1 className='remove-margin'>Date: {format(new Date(concertData.date), 'yyyy-MM-dd HH:mm')}</h1>
                                     <h1 className='remove-margin'>Location: {concertData.city}</h1>
                                         
                                         <div className='checkout-concert-info-description-price'>

@@ -69,7 +69,7 @@ function Orders() {
                                         </div>
 
                                         <div className='order-concert-details'>
-                                            <h1 className='orders-heading-margin'>{format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
+                                            <h1 className='orders-heading-margin'>{format(new Date(order.concert.date), 'yyyy-MM-dd HH:mm')}</h1>
                                         </div>
 
                                         <button type="button" className="button-showTickets" name="showTickets" onClick={() => handleGetTickets(order.id)}>SHOW TICKETS</button>
