@@ -30,7 +30,7 @@ function ConcertItem(props) {
 
               <div className="concerts-additional-info-desc">
                 <h1 id="concerts-additional-info-margin">Venue: {props.concertItem.venue}</h1>
-                <h1 id="concerts-additional-info-margin">Time: {format(new Date(props.concertItem.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
+                <h1 id="concerts-additional-info-margin">Time: {format(new Date(props.concertItem.date), 'yyyy-MM-dd HH:mm')}</h1>
                 <h1 id="concerts-additional-info-margin">Location: {props.concertItem.city}</h1>
               </div>
 

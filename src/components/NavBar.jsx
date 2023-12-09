@@ -123,10 +123,10 @@ function NavBar() {
                       messagesReceived
                       .filter(message => message.from !== props.username)
                       .map(message => (
-                          <div key={message.id}>
-                              <p>From: {message.from}</p>
-                              <p>Direct: {message.to === props.username ? 'Yes' : 'No'}</p>
-                              <p>Text: {message.text}</p>
+                          <div className="message-design">
+                            <div key={message.id}>
+                                <p>Text: {message.text}</p>
+                            </div>
                           </div>
                       ))
                   )}
