@@ -49,92 +49,94 @@ function AdminManageConcerts ()
                     <div className='adminManageConcerts-heading'>
                         <h1 className='remove-margin'>ADD A CONCERT</h1>
                     </div>
+                    
                 <form onSubmit={handleCreateConcert}>
                         <div className='manageConcerts-grid'>
-                            <div className='grid-item'>
-                                <div className='manageConcerts-validation-text'>
-                                                <h1 className='remove-margin'>Artist: </h1>
-                                            </div>
-                                            <div className='manageConcerts-container'>
-                                                <input
-                                                    type="text"
-                                                    name="artist"
-                                                    className="manageConcerts-input"
-                                                    placeholder=""
-                                                    required
-                                                    onChange={updateFormData}
-                                                />  
-                                            </div>
-                            </div>     
-
-                            <div className='grid-item'>  
+                            <div className='grid-left'>
+                                    <div className='grid-item'>
                                         <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>Genre: </h1>
-                                        </div>
-                                        <div className='manageConcerts-container'>
-                                            <input
-                                                type="text"
-                                                name="musicGenre"
-                                                className="manageConcerts-input"
-                                                placeholder=""
-                                                required
-                                                onChange={updateFormData}
-                                            />  
-                                        </div>
+                                                        <h1 className='remove-margin'>Artist: </h1>
+                                                    </div>
+                                                    <div className='manageConcerts-container'>
+                                                        <input
+                                                            type="text"
+                                                            name="artist"
+                                                            className="manageConcerts-input"
+                                                            placeholder=""
+                                                            required
+                                                            onChange={updateFormData}
+                                                        />  
+                                                    </div>
+                                    </div>     
+
+                                    <div className='grid-item'>  
+                                                <div className='manageConcerts-validation-text'>
+                                                    <h1 className='remove-margin'>Genre: </h1>
+                                                </div>
+                                                <div className='manageConcerts-container'>
+                                                    <input
+                                                        type="text"
+                                                        name="musicGenre"
+                                                        className="manageConcerts-input"
+                                                        placeholder=""
+                                                        required
+                                                        onChange={updateFormData}
+                                                    />  
+                                                </div>
+                                    </div>
+
+                                    <div className='grid-item'>
+                                                <div className='manageConcerts-validation-text'>
+                                                    <h1 className='remove-margin'>Venue: </h1>
+                                                </div>
+                                                <div className='manageConcerts-container'>
+                                                    <input
+                                                        type="text"
+                                                        name="venue"
+                                                        className="manageConcerts-input"
+                                                        placeholder=""
+                                                        required
+                                                        onChange={updateFormData}
+                                                    />  
+                                                </div>
+                                    </div>
+
+
+                                    <div className='grid-item'>
+                                                <div className='manageConcerts-validation-text'>
+                                                    <h1 className='remove-margin'>Date: </h1>
+                                                </div>
+                                                <div className='manageConcerts-container'>
+                                                    <input
+                                                        type="datetime-local"
+                                                        name="date"
+                                                        className="manageConcerts-input"
+                                                        placeholder=""
+                                                        required
+                                                        onChange={updateFormData}
+                                                    />  
+                                                </div>
+                                    </div>
+
+                                    
+                                    <div className='grid-item'>
+                                                <div className='manageConcerts-validation-text'>
+                                                    <h1 className='remove-margin'>City: </h1>
+                                                </div>
+                                                <div className='manageConcerts-container'>
+                                                    <input
+                                                        type="text"
+                                                        name="city"
+                                                        className="manageConcerts-input"
+                                                        placeholder=""
+                                                        required
+                                                        onChange={updateFormData}
+                                                    />  
+                                                </div>
+                                    </div>
                             </div>
 
-                            <div className='grid-item'>
-                                        <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>Venue: </h1>
-                                        </div>
-                                        <div className='manageConcerts-container'>
-                                            <input
-                                                type="text"
-                                                name="venue"
-                                                className="manageConcerts-input"
-                                                placeholder=""
-                                                required
-                                                onChange={updateFormData}
-                                            />  
-                                        </div>
-                            </div>
-
-
-                            <div className='grid-item'>
-                                        <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>Date: </h1>
-                                        </div>
-                                        <div className='manageConcerts-container'>
-                                            <input
-                                                type="datetime-local"
-                                                name="date"
-                                                className="manageConcerts-input"
-                                                placeholder=""
-                                                required
-                                                onChange={updateFormData}
-                                            />  
-                                        </div>
-                            </div>
-
-                            
-                            <div className='grid-item'>
-                                        <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>City: </h1>
-                                        </div>
-                                        <div className='manageConcerts-container'>
-                                            <input
-                                                type="text"
-                                                name="city"
-                                                className="manageConcerts-input"
-                                                placeholder=""
-                                                required
-                                                onChange={updateFormData}
-                                            />  
-                                        </div>
-                            </div>
-
-
-
+                        <div className='grid-right'>
                             <div className='grid-item'>
                                         <div className='manageConcerts-validation-text'>
                                             <h1 className='remove-margin'>Description: </h1>
@@ -205,7 +207,8 @@ function AdminManageConcerts ()
                                             />  
                                         </div>
                             </div>
-                        
+                        </div>
+
                         </div>
                         <input type="submit" className="button-manageConcert" value="PROCEED"/>
                     </form>

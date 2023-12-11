@@ -19,8 +19,7 @@
 }
 
 .grid-item {
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
 }
 
 .input-container {
@@ -34,8 +33,8 @@
     border: none;
     outline: none;
     font-size: 163%;
-    padding: 3%;
-    width: 100%;
+    padding: 1%;
+    width: 60%;
   }
 
 
@@ -43,20 +42,27 @@
     margin-top: 5%;
     color: #ffffff;
     font-family: "Koulen Serif", sans-serif;
-    letter-spacing: 1mm;
-    width: 185%;
-    font-size: 190%;
+    letter-spacing: 1mm;    
+    font-size: 90%;
 }
 
+
 .manageConcerts-grid {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
+    display: grid;
+    margin-left: 16%;
+}
+
+.grid-left {
+    grid-column: 1;
+}
+
+.grid-right {
+    grid-column: 2;
 }
 
 .remove-margin {
     margin: 0;
+    width: 30%;
 }
 
 .button-manageConcert{
@@ -75,9 +81,33 @@
     align-items: center;
 }
 
-.button-updateConcert:hover {
+.button-manageConcert:hover {
     color: #ffffff;
     background-color: #929191;
+}
+
+.getConcert-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.getConcert-input {
+    border: none;
+    outline: none;
+    font-size: 163%;
+    padding: 0.5%;
+    width: 30%;
+  }
+
+
+.getConcert-validation-text {
+    margin-top: 5%;
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 1mm;
+    width: 185%;
+    font-size: 195%;
 }
 
 .button-getConcert{
@@ -90,35 +120,9 @@
     border: 1px solid #000000;
     padding: 0.5% 8.2%;
     cursor: pointer;
-    margin-left: 36.5%;
     margin-top: 1.3%;
     margin-bottom: 2%;
     align-items: center;
-}
-
-.getConcert-grid {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    margin-left: 36.5%;
-}
-
-.getConcert-input {
-    border: none;
-    outline: none;
-    font-size: 163%;
-    padding: 5%;
-    width: 160%;
-  }
-
-
-.getConcert-validation-text {
-    margin-top: 5%;
-    color: #ffffff;
-    font-family: "Koulen Serif", sans-serif;
-    letter-spacing: 1mm;
-    width: 185%;
-    font-size: 195%;
 }
 
 .button-getConcert:hover {
