@@ -47,23 +47,33 @@ function AdminUpdateConcert ()
     
     const getConcertToUpdate = async (event) => {
         event.preventDefault();
-      
-        const data = await ConcertService.getConcert(concertId);
-      
-        setFormData((formData) => ({
-          ...formData,
-          id: data.id,
-          artist: data.artist,
-          musicGenre: data.musicGenre,
-          venue: data.venue,
-          date: format(parseISO(data.date), "yyyy-MM-dd'T'HH:mm"),
-          city: data.city,
-          description: data.description,
-          photoURL: data.photoURL,
-          price: data.price,
-          ticketsRemaining: data.ticketsRemaining,
-        }));
-      };
+    
+        try {
+            const data = await ConcertService.getConcert(concertId);
+    
+            setFormData((formData) => ({
+                ...formData,
+                id: data.id,
+                artist: data.artist,
+                musicGenre: data.musicGenre,
+                venue: data.venue,
+                date: format(parseISO(data.date), "yyyy-MM-dd'T'HH:mm"),
+                city: data.city,
+                description: data.description,
+                photoURL: data.photoURL,
+                price: data.price,
+                ticketsRemaining: data.ticketsRemaining,
+            }));
+    
+        } catch (error) {
+            toast.error('Concert ID is incorrect!', {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            });
+    
+            setTimeout(() => {
+            }, 1000);
+        }
+    };
 
 
     return (
@@ -75,12 +85,13 @@ function AdminUpdateConcert ()
                     <div className='adminManageConcerts-heading'>
                         <h1 className='remove-margin'>UPDATE A CONCERT</h1>
                     </div>
-                        
-                            
+
                     <form onSubmit={getConcertToUpdate}>
-                        <div className='getConcert-grid'>
+                                                    
+                    <div className='manageConcerts-grid'>
+                        <div className='grid-left'>
                             <div className='grid-item'>
-                                <div className='getConcert-validation-text'>
+                                <div className='manageConcerts-validation-text'>
                                     <h1 className='remove-margin'>CONCERT ID: </h1>
                                 </div>
                                 <div className='manageConcerts-container'>
@@ -95,13 +106,15 @@ function AdminUpdateConcert ()
                                     />
                                 </div>
                             </div>
-                        </div>
                         <input type="submit" className="button-getConcert" value="FIND CONCERT" />
+                        </div>
+                    </div>
                     </form>
 
 
                             <form onSubmit={handleUpdateConcert}>
-                                <div className='manageConcerts-grid'>
+                            <div className='manageConcerts-grid'>
+                            <div className='grid-left'>
                                 <div className='grid-item'>
                                     <div className='manageConcerts-validation-text'>
                                                     <h1 className='remove-margin'>Artist: </h1>
@@ -171,7 +184,6 @@ function AdminUpdateConcert ()
                                             </div>
                                 </div>
 
-                                
                                 <div className='grid-item'>
                                             <div className='manageConcerts-validation-text'>
                                                 <h1 className='remove-margin'>City: </h1>
@@ -188,8 +200,9 @@ function AdminUpdateConcert ()
                                                 />  
                                             </div>
                                 </div>
-
-
+                            </div>
+                                
+                            <div className='grid-right'>
 
                                 <div className='grid-item'>
                                             <div className='manageConcerts-validation-text'>
@@ -265,14 +278,15 @@ function AdminUpdateConcert ()
                                                 />  
                                             </div>
                                 </div>
-                            
-                            </div>
-                            
+                       
+                        </div>
+                        </div>
                             <input type="submit" className="button-manageConcert" value="PROCEED"/>
                         
                         </form>
                     </div>
                 </div>
+            
 
         </>
     )
