@@ -14,7 +14,7 @@ function Orders() {
 
     useEffect(() => {
         const accessToken = localStorage.getItem("accessToken");
-    
+
         if (accessToken) {
             UserService.getUserByAccessToken(accessToken)
                 .then(data => {

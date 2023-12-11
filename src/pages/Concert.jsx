@@ -59,17 +59,17 @@ function Concert() {
                         
                         <div className="concert-grid-left">
                             <div className='artist-name'>
-                                <h1 className='remove-margin'>{concertItem.artist}</h1>
+                                <h1 className='concert-remove-margin'>{concertItem.artist}</h1>
                             </div>
                                             
                             <div className='artist-description'>
-                                <h1 className='remove-margin'>{concertItem.description}</h1>
+                                <h1 className='concert-remove-margin'>{concertItem.description}</h1>
                             </div>
 
                             <div className='concert-details'>
-                                <h1 className='remove-margin'>VENUE: {concertItem.venue}</h1>
-                                <h1 className='remove-margin'>DATE: {format(new Date(concertItem.date), 'yyyy-MM-dd HH:mm')}</h1>
-                                <h1 className='remove-margin'>LOCATION: {concertItem.city}  </h1>
+                                <h1 className='concert-remove-margin'>VENUE: {concertItem.venue}</h1>
+                                <h1 className='concert-remove-margin'>DATE: {format(new Date(concertItem.date), 'yyyy-MM-dd HH:mm')}</h1>
+                                <h1 className='concert-remove-margin'>LOCATION: {concertItem.city}  </h1>
                             </div>
 
                         </div>

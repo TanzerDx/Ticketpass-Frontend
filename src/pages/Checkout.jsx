@@ -146,7 +146,7 @@ function Checkout() {
                 <div className="content">
                 
                     <div className='checkout-heading'>
-                        <h1 className='remove-margin'>Checkout</h1>
+                        <h1 className='checkout-remove-margin'>Checkout</h1>
                     </div>
 
                     <div className='checkout-grid'>
@@ -154,20 +154,20 @@ function Checkout() {
                     <form onSubmit={handleCheckout}>
                         <div className='checkout-grid-left'>
                         <div className='checkout-validation-text'>
-                                    <h1 className='remove-margin'>Number of tickets: </h1>
+                                    <h1 className='checkout-remove-margin'>Number of tickets: </h1>
                                 </div>
 
                                 <button type="button" name="buttonMinus" className='button-ticket-management' onClick={handleMinusClick}>-</button>
 
                                 <div className='checkout-validation-text-ticketNumber'>
-                                    <h1 className='remove-margin'>{numberOfTickets}</h1>
+                                    <h1 className='checkout-remove-margin'>{numberOfTickets}</h1>
                                 </div>
 
                                 <button type="button" name="buttonPlus" className='button-ticket-management' onClick={handlePlusClick}>+</button>
 
 
                                 <div className='checkout-validation-text'>
-                                    <h1 className='remove-margin'>Name: </h1>
+                                    <h1 className='checkout-remove-margin'>Name: </h1>
                                 </div>
                                 <div className='checkout-container'>
                                     <input
@@ -181,7 +181,7 @@ function Checkout() {
                                 </div>
                                 
                                 <div className='checkout-validation-text'>
-                                    <h1 className='remove-margin'>Surname: </h1>
+                                    <h1 className='checkout-remove-margin'>Surname: </h1>
                                 </div>
                                 <div className='checkout-container'>
                                     <input
@@ -195,7 +195,7 @@ function Checkout() {
                                 </div>
 
                                 <div className='checkout-validation-text'>
-                                    <h1 className='remove-margin'>Address: </h1>
+                                    <h1 className='checkout-remove-margin'>Address: </h1>
                                 </div>
                                 <div className='checkout-container'>
                                     <input
@@ -209,7 +209,7 @@ function Checkout() {
                                 </div>
 
                                 <div className='checkout-validation-text'>
-                                    <h1 className='remove-margin'>Phone Number: </h1>
+                                    <h1 className='checkout-remove-margin'>Phone Number: </h1>
                                 </div>
                                 <div className='checkout-container'>
                                     <input
@@ -222,7 +222,7 @@ function Checkout() {
                                     />  
                                 </div>
                                 <div className='checkout-validation-text-paymentMethod'>
-                                    <h1 className='remove-margin'>Payment Method: </h1>
+                                    <h1 className='checkout-remove-margin'>Payment Method: </h1>
                                 </div>
                         
                                 <div className='payment-method-grid'>
@@ -254,17 +254,17 @@ function Checkout() {
                             <div className='checkout-concert-info-box'>
                                 
                                 <div className='checkout-concert-info-heading'>
-                                    <h1 className='remove-margin'>{concertData.artist}</h1>
+                                    <h1 className='checkout-remove-margin'>{concertData.artist}</h1>
                                 </div>
                                 
                                 <div className='checkout-concert-info-description'>
                                     
-                                    <h1 className='remove-margin'>Venue: {concertData.venue}</h1>
-                                    <h1 className='remove-margin'>Date: {format(new Date(concertData.date), 'yyyy-MM-dd HH:mm')}</h1>
-                                    <h1 className='remove-margin'>Location: {concertData.city}</h1>
+                                    <h1 className='checkout-remove-margin'>Venue: {concertData.venue}</h1>
+                                    <h1 className='checkout-remove-margin'>Date: {format(new Date(concertData.date), 'yyyy-MM-dd HH:mm')}</h1>
+                                    <h1 className='checkout-remove-margin'>Location: {concertData.city}</h1>
                                         
                                         <div className='checkout-concert-info-description-price'>
-                                            <h1 className='remove-margin'>TOTAL PRICE: {price.toFixed(2)}€</h1>
+                                            <h1 className='checkout-remove-margin'>TOTAL PRICE: {price.toFixed(2)}€</h1>
                                         </div>
                                 
                                 </div>
