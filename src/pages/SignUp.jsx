@@ -28,6 +28,11 @@ function SignUp() {
             .then(() =>  {
                     window.location.href = 'signin'
             })
+            .catch(() => {
+                toast.error('Email is already taken!', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                });
+            })
         }
         else {
             toast.error('Passwords do not match!', {

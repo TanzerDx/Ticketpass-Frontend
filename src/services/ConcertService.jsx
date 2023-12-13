@@ -15,6 +15,11 @@ function getAllConcerts() {
     .then(response => response.data)
 }
 
+function filterConcerts(keyword) {
+    return axios.get(`${hostname}/concerts/filter`, { params: { keyword } })
+    .then(response => response.data)
+}
+
 function getConcert(id) {
     return axios.get(`${hostname}/concerts/${id}`)
     .then(response => response.data)
@@ -27,6 +32,7 @@ function updateConcert(formData) {
 
 export default {
     addConcert,
+    filterConcerts,
     getAllConcerts,
     getConcert,
     updateConcert
