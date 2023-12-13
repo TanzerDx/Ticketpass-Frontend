@@ -30,6 +30,11 @@ function AdminAddAdmin ()
                     position: toast.POSITION.BOTTOM_RIGHT,
                 });
             })
+            .catch(() => {
+                toast.error('Email is already taken!', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                });
+            })
         }
         else {
             toast.error('Passwords do not match!', {

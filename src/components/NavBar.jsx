@@ -30,11 +30,12 @@ function NavBar() {
     });
 
     stompClient.onConnect = () => {
-          topics.forEach((topic) => {
-              stompClient.subscribe(`/user/${topic}/queue/inboxmessages`, (data) => {
+          // topics.forEach((topic) => {
+          console.log("test");    
+          stompClient.subscribe(`/user/4/queue/inboxmessages`, (data) => {
                   onMessageReceived(data);
               });
-          });
+          // });
       };
     
 
@@ -47,7 +48,6 @@ function NavBar() {
     setMessagesReceived(messagesReceived => [...messagesReceived, message]);
   };
 
-  
       useEffect(() => {
         const accessToken = localStorage.getItem("accessToken");
       
