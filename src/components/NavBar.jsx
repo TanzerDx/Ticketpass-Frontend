@@ -215,8 +215,20 @@ function NavBar() {
                       </div>
 
                       <div className="navbar-item">
+                        <NavLink to="/deleteAdmin" id="orders-link" className="navbar-item-text">
+                          DELETE ADMIN
+                        </NavLink>
+                      </div>
+
+                      <div className="navbar-item">
                         <NavLink to="/banUser" id="orders-link" className="navbar-item-text">
                           BAN USER
+                        </NavLink>
+                      </div>
+
+                      <div className="navbar-item">
+                        <NavLink to="/unbanUser" id="orders-link" className="navbar-item-text">
+                          UNBAN USER
                         </NavLink>
                       </div>
 
