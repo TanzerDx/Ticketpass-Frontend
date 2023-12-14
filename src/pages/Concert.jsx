@@ -68,7 +68,7 @@ function Concert() {
 
                             <div className='concert-details'>
                                 <h1 className='concert-remove-margin'>VENUE: {concertItem.venue}</h1>
-                                <h1 className='concert-remove-margin'>DATE: {format(new Date(concertItem.date), 'yyyy-MM-dd HH:mm')}</h1>
+                                <h1 className='concert-remove-margin'>DATE: {format(new Date(concertItem.date), 'dd-MM-yyyy HH:mm')}</h1>
                                 <h1 className='concert-remove-margin'>LOCATION: {concertItem.city}  </h1>
                             </div>
 

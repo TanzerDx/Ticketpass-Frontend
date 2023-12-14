@@ -15,7 +15,7 @@ function Tickets() {
         if (orderId) {
             OrderService.getOrder(orderId)
                 .then(data => {
-                    data.date = format(new Date(data.date), 'yyyy-MM-dd');
+                    data.date = format(new Date(data.date), 'dd-MM-yyyy');
                     setOrder(data);
 
                     return TicketService.getTickets(orderId);

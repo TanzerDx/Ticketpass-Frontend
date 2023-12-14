@@ -43,7 +43,7 @@ function AdminAllOrders ()
                                 <h1 className='remove-margin'>NAME: {order.name} </h1>
                                 <h1 className='remove-margin'>SURNAME: {order.surname}</h1>
                                 <h1 className='remove-margin'>PAYMENT METHOD: {order.paymentMethod}</h1>
-                                <h1 className='remove-margin'>DATE ACQUIRED: {format(new Date(order.date), 'yyyy-MM-dd HH:mm:ss')}</h1>
+                                <h1 className='remove-margin'>DATE ACQUIRED: {format(new Date(order.date), 'dd-MM-yyyy HH:mm:ss')}</h1>
                             </div>
                         </div>
                      
