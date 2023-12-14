@@ -71,8 +71,9 @@
     position: relative;
   }
 
-.remove-margin {
+.remove-margin-manager-properties {
     margin: 0;
+    width: 100%;
 }
 
 
@@ -116,7 +117,7 @@
     color: #ffffff;
     font-family: "Koulen Serif", sans-serif;
     letter-spacing: 1mm;
-    width: 185%;
+    width: 500%;
     font-size: 190%;
 }
 
@@ -149,6 +150,45 @@
     background-color: #929191;
 }
 
+.button-unbanUser{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #ffffff;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 9%;
+    cursor: pointer;
+    margin-left: 36.8%;
+    margin-top: 1.3%;
+    margin-bottom: 2%;
+}
+
+.button-unbanUser:hover {
+    color: #ffffff;
+    background-color: #929191;
+}
+
+.button-deleteAdmin{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #ffffff;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 8.23%;
+    cursor: pointer;
+    margin-left: 36.8%;
+    margin-top: 1.3%;
+    margin-bottom: 2%;
+}
+
+.button-deleteAdmin:hover {
+    color: #ffffff;
+    background-color: #929191;
+}
 
 .banUser-grid {
     display: flex;

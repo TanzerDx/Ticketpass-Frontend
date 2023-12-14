@@ -260,7 +260,7 @@ function Checkout() {
                                 <div className='checkout-concert-info-description'>
                                     
                                     <h1 className='checkout-remove-margin'>Venue: {concertData.venue}</h1>
-                                    <h1 className='checkout-remove-margin'>Date: {format(new Date(concertData.date), 'yyyy-MM-dd HH:mm')}</h1>
+                                    <h1 className='checkout-remove-margin'>Date: {format(new Date(concertData.date), 'dd-MM-yyyy HH:mm')}</h1>
                                     <h1 className='checkout-remove-margin'>Location: {concertData.city}</h1>
                                         
                                         <div className='checkout-concert-info-description-price'>

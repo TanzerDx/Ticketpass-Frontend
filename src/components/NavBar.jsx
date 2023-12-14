@@ -175,6 +175,12 @@ function NavBar() {
                         </NavLink>
                       </div>
 
+                      <div className="navbar-item">
+                        <NavLink to="/unbanUser" id="orders-link" className="navbar-item-text">
+                          UNBAN USER
+                        </NavLink>
+                      </div>
+
                     </div>
                 </div>
 

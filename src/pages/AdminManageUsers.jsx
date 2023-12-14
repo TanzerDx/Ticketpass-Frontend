@@ -29,7 +29,7 @@ function AdminManageUsers ()
                 <div className="content">
                 
                 <div className='adminManageUsers-heading'>
-                        <h1 className='remove-margin'>BAN USER</h1>
+                        <h1 className='remove-margin-manager-properties'>BAN USER</h1>
                     </div>
 
                 <div className='warning-text'>
@@ -40,7 +40,7 @@ function AdminManageUsers ()
                         <div className='banUser-grid'>
                             <div className='grid-item'>
                                 <div className='banUser-validation-text'>
-                                    <h1 className='remove-margin'>USER ID: </h1>
+                                    <h1 className='remove-margin-manager-properties'>USER ID: </h1>
                                 </div>
                                 <div className='banUser-container'>
                                     <input

@@ -55,7 +55,7 @@ function AdminManageConcerts ()
                             <div className='grid-left'>
                                     <div className='grid-item'>
                                         <div className='manageConcerts-validation-text'>
-                                                        <h1 className='remove-margin'>Artist: </h1>
+                                                        <h1 className='remove-margin-concerts-AddUpdate'>Artist: </h1>
                                                     </div>
                                                     <div className='manageConcerts-container'>
                                                         <input
@@ -71,7 +71,7 @@ function AdminManageConcerts ()
 
                                     <div className='grid-item'>  
                                                 <div className='manageConcerts-validation-text'>
-                                                    <h1 className='remove-margin'>Genre: </h1>
+                                                    <h1 className='remove-margin-concerts-AddUpdate'>Genre: </h1>
                                                 </div>
                                                 <div className='manageConcerts-container'>
                                                     <input
@@ -87,7 +87,7 @@ function AdminManageConcerts ()
 
                                     <div className='grid-item'>
                                                 <div className='manageConcerts-validation-text'>
-                                                    <h1 className='remove-margin'>Venue: </h1>
+                                                    <h1 className='remove-margin-concerts-AddUpdate'>Venue: </h1>
                                                 </div>
                                                 <div className='manageConcerts-container'>
                                                     <input
@@ -104,7 +104,7 @@ function AdminManageConcerts ()
 
                                     <div className='grid-item'>
                                                 <div className='manageConcerts-validation-text'>
-                                                    <h1 className='remove-margin'>Date: </h1>
+                                                    <h1 className='remove-margin-concerts-AddUpdate'>Date: </h1>
                                                 </div>
                                                 <div className='manageConcerts-container'>
                                                     <input
@@ -121,7 +121,7 @@ function AdminManageConcerts ()
                                     
                                     <div className='grid-item'>
                                                 <div className='manageConcerts-validation-text'>
-                                                    <h1 className='remove-margin'>City: </h1>
+                                                    <h1 className='remove-margin-concerts-AddUpdate'>City: </h1>
                                                 </div>
                                                 <div className='manageConcerts-container'>
                                                     <input
@@ -139,7 +139,7 @@ function AdminManageConcerts ()
                         <div className='grid-right'>
                             <div className='grid-item'>
                                         <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>Description: </h1>
+                                            <h1 className='remove-margin-concerts-AddUpdate'>Description: </h1>
                                         </div>
                                         <div className='manageConcerts-container'>
                                             <input
@@ -158,7 +158,7 @@ function AdminManageConcerts ()
 
                             <div className='grid-item'>
                                         <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>Photo: </h1>
+                                            <h1 className='remove-margin-concerts-AddUpdate'>Photo: </h1>
                                         </div>
                                         <div className='manageConcerts-container'>
                                             <input
@@ -176,7 +176,7 @@ function AdminManageConcerts ()
 
                             <div className='grid-item'>
                                         <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>Price: </h1>
+                                            <h1 className='remove-margin-concerts-AddUpdate'>Price: </h1>
                                         </div>
                                         <div className='manageConcerts-container'>
                                             <input
@@ -194,7 +194,7 @@ function AdminManageConcerts ()
 
                             <div className='grid-item'>
                                         <div className='manageConcerts-validation-text'>
-                                            <h1 className='remove-margin'>Number of Tickets: </h1>
+                                            <h1 className='remove-margin-concerts-AddUpdate'>Number of Tickets: </h1>
                                         </div>
                                         <div className='manageConcerts-container'>
                                             <input

@@ -40,7 +40,7 @@ function AdminDeleteAdmin ()
                         <div className='banUser-grid'>
                             <div className='grid-item'>
                                 <div className='banUser-validation-text'>
-                                    <h1 className='remove-margin'>USER ID: </h1>
+                                    <h1 className='remove-margin-manager-properties'>USER ID: </h1>
                                 </div>
                                 <div className='banUser-container'>
                                     <input
@@ -55,7 +55,7 @@ function AdminDeleteAdmin ()
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" className="button-banUser" value="DELETE ADMIN" />
+                        <input type="submit" className="button-deleteAdmin" value="DELETE ADMIN" />
                     </form>
 
 
