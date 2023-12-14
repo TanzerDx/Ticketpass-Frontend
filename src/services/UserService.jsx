@@ -15,6 +15,11 @@ function addAdmin(formData) {
     .then(response => response.data)
 }
 
+function deleteAdmin(userId) {
+    return axios.delete(`${hostname}/users/admin/${userId}`)
+    .then(response => response.data)
+}
+
 function Login(formData) {
     return axios.post(`${hostname}/users/login`, formData)
     .then(response => response.data)
@@ -32,13 +37,20 @@ function getUserByAccessToken(accessToken) {
 }
 
 function banUser(userId) {
-    return axios.put(`${hostname}/users/${userId}`)
+    return axios.put(`${hostname}/users/ban/${userId}`)
+    .then(response => response.data)
+}
+
+function unbanUser(userId) {
+    return axios.put(`${hostname}/users/unban/${userId}`)
     .then(response => response.data)
 }
 
 export default {
     addAdmin,
+    deleteAdmin,
     banUser,
+    unbanUser,
     Register,
     Login,
     getUserById,
