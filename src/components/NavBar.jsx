@@ -115,7 +115,7 @@ function NavBar() {
                   <div className="dropdown-content">
                   {messagesReceived ? (
                       <div className="navbar-notifications-text">
-                        <h1>NO NOTIFICATIONS!</h1>
+                        <h1>NO NEW NOTIFICATIONS!</h1>
                       </div>
                     )
                     :
@@ -125,7 +125,7 @@ function NavBar() {
                       .map(message => (
                           <div className="message-design">
                             <div key={message.id}>
-                                <p>Text: {message.text}</p>
+                                <h1>{message.text}</h1>
                             </div>
                           </div>
                       ))
