@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import '../styles/styles.components/Navbar.css';
 import logo from '../assets/Project Icon.png';
-import notifications from '../assets/3239958.png';
+import notificationsIcon from '../assets/3239958.png';
 import { NavLink } from 'react-router-dom';
 import UserService from "../services/UserService";
+import WebSocketsConfig from '../services/WebSocketsConfig';
 import OrderService from "../services/OrderService";
-import { Client } from '@stomp/stompjs';
 import SearchBar from './SearchBar';
 
 function NavBar() {
@@ -16,37 +16,9 @@ function NavBar() {
     window.location.href="/"
   }
 
+  const [notifications, setNotifications] = useState([]);
   const [user, setUser] = useState(null);
   const [topics, setTopics] = useState(null);
-  const [stompClient, setStompClient] = useState();
-  const [messagesReceived, setMessagesReceived] = useState([]);
-
-  const setupStompClient = () => {
-    const stompClient = new Client({
-      brokerURL: 'ws://localhost:8080/ws',
-      reconnectDelay: 5000,
-      heartbeatIncoming: 4000,
-      heartbeatOutgoing: 4000
-    });
-
-    stompClient.onConnect = () => {
-          // topics.forEach((topic) => {
-          console.log("test");    
-          stompClient.subscribe(`/user/4/queue/inboxmessages`, (data) => {
-                  onMessageReceived(data);
-              });
-          // });
-      };
-    
-
-    stompClient.activate();
-    setStompClient(stompClient);
-  };
-          
-  const onMessageReceived = (data) => {
-    const message = JSON.parse(data.body);
-    setMessagesReceived(messagesReceived => [...messagesReceived, message]);
-  };
 
       useEffect(() => {
         const accessToken = localStorage.getItem("accessToken");
@@ -62,10 +34,14 @@ function NavBar() {
                   if (Array.isArray(orders.orders)) { 
                     const retrievedOrders = orders.orders;
                     const concertIds = retrievedOrders.map(order => order.concert.id);
-                    setTopics(concertIds);
+                    setTopics(concertIds)
 
-                    setupStompClient();
-
+                      if (topics) {
+                        WebSocketsConfig.setupStompClient(topics);
+                      }
+                    
+                    setNotifications(JSON.parse(localStorage.getItem("notifications")));
+                    console.log(notifications);
                   }})
                   .catch(error => {
                     console.error("Error fetching orders:", error);
@@ -110,26 +86,22 @@ function NavBar() {
               <>
                 <div className="navbar-notifications-container">
                   
-                  <img src={notifications} alt="Notifications" className="navbar-notifications-icon" />
+                  <img src={notificationsIcon} alt="Notifications" className="navbar-notifications-icon" />
                   
                   <div className="dropdown-content">
-                  {messagesReceived ? (
+                  {notifications && notifications && notifications.length === 0 ? (
                       <div className="navbar-notifications-text">
                         <h1>NO NEW NOTIFICATIONS!</h1>
                       </div>
                     )
                     :
                     (
-                      messagesReceived
-                      .filter(message => message.from !== props.username)
-                      .map(message => (
-                          <div className="message-design">
-                            <div key={message.id}>
-                                <h1>{message.text}</h1>
-                            </div>
-                          </div>
+                      notifications && notifications.map((msg) => (
+                        <div className="message-design" key={msg.id}>
+                          <h1>{msg.message}</h1>
+                        </div>
                       ))
-                  )}
+                    )}
                   </div>
 
                 </div>
