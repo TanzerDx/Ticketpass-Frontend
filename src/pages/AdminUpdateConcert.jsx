@@ -5,7 +5,6 @@ import '../styles/AdminManageConcerts.css';
 import React, {useState} from "react";
 import {toast} from "react-toastify";
 import {parseISO, format} from "date-fns";
-import { v4 as uuidv4 } from 'uuid';
 
 function AdminUpdateConcert() 
     {

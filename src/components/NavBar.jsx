@@ -19,41 +19,46 @@ function NavBar() {
   const [notifications, setNotifications] = useState([]);
   const [user, setUser] = useState(null);
   const [topics, setTopics] = useState(null);
+  
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+  
+    if (accessToken) {
+      UserService.getUserByAccessToken(accessToken)
+        .then((user) => {
+          setUser(user);
+  
+          if (user) {
+            OrderService.getAllOrders(user.id)
+              .then((orders) => {
+                if (Array.isArray(orders.orders)) {
+                  const retrievedOrders = orders.orders;
+                  const concertIds = retrievedOrders.map((order) => order.concert.id);
+                  setTopics(concertIds);
+                }
+              })
+              .catch((error) => {
+                console.error("Error fetching orders:", error);
+              });
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user:", error);
+        });
+    }
+  }, []);
 
-      useEffect(() => {
-        const accessToken = localStorage.getItem("accessToken");
-      
-        if (accessToken) {
-          UserService.getUserByAccessToken(accessToken)
-            .then(user => {
-              setUser(user);
-      
-              if (user) {
-                OrderService.getAllOrders(user.id)
-            .then(orders => {
-                  if (Array.isArray(orders.orders)) { 
-                    const retrievedOrders = orders.orders;
-                    const concertIds = retrievedOrders.map(order => order.concert.id);
-                    setTopics(concertIds)
-
-                      if (topics) {
-                        WebSocketsConfig.setupStompClient(topics);
-                      }
-                    
-                    setNotifications(JSON.parse(localStorage.getItem("notifications")));
-                    console.log(notifications);
-                  }})
-                  .catch(error => {
-                    console.error("Error fetching orders:", error);
-                  });
-              }
-            })
-            .catch(error => {
-              console.error("Error fetching user:", error);
-            });
-        }
-      }, []); 
-        
+  
+  useEffect(() => {
+    if (topics) {
+      let currentNotifications = JSON.parse(localStorage.getItem("notifications")) || [];
+  
+      WebSocketsConfig.setupStompClient(topics, (newNotifications) => {
+        setNotifications([...currentNotifications, ...newNotifications]);
+        localStorage.setItem("notifications", JSON.stringify([...currentNotifications, ...newNotifications]));
+      });
+    }
+  }, [topics]);
 
 
   return (
@@ -89,15 +94,15 @@ function NavBar() {
                   <img src={notificationsIcon} alt="Notifications" className="navbar-notifications-icon" />
                   
                   <div className="dropdown-content">
-                  {notifications && notifications && notifications.length === 0 ? (
+                  {notifications && notifications.length === 0 || notifications == null ? (
                       <div className="navbar-notifications-text">
                         <h1>NO NEW NOTIFICATIONS!</h1>
                       </div>
                     )
                     :
                     (
-                      notifications && notifications.map((msg) => (
-                        <div className="message-design" key={msg.id}>
+                      notifications && notifications.map((msg, index) => (
+                        <div className="message-design" key={index}>
                           <h1>{msg.message}</h1>
                         </div>
                       ))
