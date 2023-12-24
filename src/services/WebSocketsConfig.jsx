@@ -1,11 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
 import { Client } from '@stomp/stompjs';
 
 let stompClient = null;
 let notifications = [];
+let updateCallback = null;
 
-function setupStompClient(topics) {
+function setupStompClient(topics, callback) {
+  updateCallback = callback;
+
   stompClient = new Client({
     brokerURL: 'ws://localhost:8080/ws',
     reconnectDelay: 5000,
@@ -26,13 +28,15 @@ function setupStompClient(topics) {
   stompClient.activate();
 }
 
-
 const onMessageReceived = (data) => {
-    const message = JSON.parse(data.body);
-    
-    notifications.push(message);
-    localStorage.setItem("notifications", JSON.stringify(notifications));
-    }
+  const message = JSON.parse(data.body);
+
+  notifications.push(message);
+
+  if (updateCallback) {
+    updateCallback(notifications);
+  }
+}
   
 
   function publishMessage(destination, message) {
