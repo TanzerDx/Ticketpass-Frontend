@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import UserService from "../services/UserService";
 import WebSocketsConfig from '../services/WebSocketsConfig';
 import OrderService from "../services/OrderService";
+import {toast} from "react-toastify";
 import SearchBar from './SearchBar';
 
 function NavBar() {
@@ -23,7 +24,9 @@ function NavBar() {
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
   
-    if (accessToken) {
+    let effectHasRun = false;
+  
+    if (!effectHasRun && accessToken) {
       UserService.getUserByAccessToken(accessToken)
         .then((user) => {
           setUser(user);
@@ -41,12 +44,14 @@ function NavBar() {
                 console.error("Error fetching orders:", error);
               });
           }
+
+          effectHasRun = true;
         })
         .catch((error) => {
           console.error("Error fetching user:", error);
         });
     }
-  }, []);
+  }, []); 
 
   
   useEffect(() => {
@@ -59,6 +64,11 @@ function NavBar() {
         setNotifications([...currentNotifications, ...newNotifications]);
 
         localStorage.setItem("notifications", JSON.stringify([...currentNotifications, ...newNotifications]));
+
+        toast.success('You received a new notification!', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+      });
+
       });
 
     }

@@ -113,6 +113,8 @@ function Checkout() {
 
             setTimeout(() => {
             }, 1000);
+
+            window.location.href="/"
         }
         else {
             toast.error('Orders can be made only from a user account', {
