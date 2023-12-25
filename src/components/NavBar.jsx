@@ -52,11 +52,15 @@ function NavBar() {
   useEffect(() => {
     if (topics) {
       let currentNotifications = JSON.parse(localStorage.getItem("notifications")) || [];
-  
+
+      setNotifications([...currentNotifications]);
+
       WebSocketsConfig.setupStompClient(topics, (newNotifications) => {
         setNotifications([...currentNotifications, ...newNotifications]);
+
         localStorage.setItem("notifications", JSON.stringify([...currentNotifications, ...newNotifications]));
       });
+
     }
   }, [topics]);
 
