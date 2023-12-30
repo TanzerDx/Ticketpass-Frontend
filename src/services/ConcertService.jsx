@@ -30,10 +30,17 @@ function updateConcert(formData) {
     .then(response => response.data)
 }
 
+function lowerTicketNumber(formData) {
+    return axios.put(`${hostname}/concerts/lowerTicketNumber`, formData)
+    .then(response => response.data)
+}
+
+
 export default {
     addConcert,
     filterConcerts,
     getAllConcerts,
     getConcert,
-    updateConcert
+    updateConcert,
+    lowerTicketNumber
 }

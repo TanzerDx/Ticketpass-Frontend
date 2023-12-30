@@ -46,3 +46,32 @@
 .remove-margin {
     margin: 0;
 }
+
+
+#form-size-control-allOrdersFilter{
+    width: 100%;
+    border: none;
+  }
+  
+  .allOrdersFilter-input {
+      flex: 1;
+      outline: none;
+      border: none;
+      font-size: 100%;
+      padding: 3%;
+      width: 80%;
+    }
+  
+  
+  .allOrdersFilter-container {
+      margin-bottom: 3%;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-left: 1%;
+      padding: 0.1%;
+      width: 20%;
+      position: relative;
+    }

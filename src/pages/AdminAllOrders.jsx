@@ -1,11 +1,25 @@
 import OrderService from "../services/OrderService";
 import React, {useState, useEffect} from "react";
+import { useNavigate } from 'react-router-dom';
 import { format } from "date-fns"; 
 import '../styles/AdminAllOrders.css';
 
 function AdminAllOrders () 
 {
     const [orders, setOrders] = useState(null);
+
+    const [keyword, setKeyword] = useState('');
+
+    const navigateTo = useNavigate();
+  
+    const handleFilter = (e) => {
+      e.preventDefault();
+  
+      if(keyword != ""){
+        navigateTo(`/concerts?keyword=${encodeURIComponent(keyword)}`);
+        window.location.reload();
+      }
+    };
 
     useEffect(() => {
         const accessToken = localStorage.getItem("accessToken");
@@ -33,6 +47,20 @@ function AdminAllOrders ()
                     ) : (
                         <h1 className='remove-margin'>LOADING CONTENT...</h1>
                     )}
+                    </div>
+
+                    <div className='allOrdersFilter-container'>
+                        
+                        <form onSubmit={handleFilter} id="form-size-control-allOrdersFilter">
+                            <input
+                            type="text"
+                            className="allOrdersFilter-input"
+                            placeholder="Search by Order ID..."
+                            value={keyword}
+                            onChange={(e) => setKeyword(e.target.value)}
+                            />
+                        </form>
+
                     </div>
 
                     {orders && orders.map(order => (                  

@@ -81,3 +81,17 @@
     color: #ffffff;
     background-color: #929191;
 }
+
+.button-soldOut{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #9c9c9c;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 15%;
+    cursor: pointer;
+    margin-left: 22%;
+    margin-top: 4.3%;
+}

@@ -77,7 +77,16 @@ function Concert() {
                         <div className="concert-grid-right">
                             <img src={concertItem.photoURL} alt="Artist" className="artist-picture" />
                             
-                            <button type="button" className="button-buyTickets" name="buyTickets" onClick={handleBuyTicketsClick}>BUY TICKETS</button>
+                            {concertItem.ticketsRemaining > 0 ? (
+                                <button type="button" className="button-buyTickets" name="buyTickets" onClick={handleBuyTicketsClick}>
+                                    BUY TICKETS
+                                </button>
+                            ) : (
+                                <button type="button" className="button-soldOut" name="soldOut">
+                                    SOLD OUT
+                                </button>
+                            )}
+                            
                         </div>
 
                     </div>
