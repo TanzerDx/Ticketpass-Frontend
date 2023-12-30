@@ -17,6 +17,7 @@ import AdminManageUsers from './pages/AdminManageUsers.jsx';
 import AdminUpdateConcert from './pages/AdminUpdateConcert.jsx';
 import AdminAddAdmin from './pages/AdminAddAdmin.jsx';
 import AdminDeleteAdmin from './pages/AdminDeleteAdmin.jsx';
+import ThankYou from './pages/ThankYou.jsx'
 import AdminUnbanUser from './pages/AdminUnbanUser.jsx';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
               <Route path="/statistics" element={<Statistics />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/thankyou" element={<ThankYou/>} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/tickets" element={<Tickets/>} />

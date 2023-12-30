@@ -8,6 +8,7 @@ import cardLogo from '../assets/credit-card-black-png-0.png';
 import idealLogo from '../assets/ideal-logo-1024.png';
 import OrderService from '../services/OrderService.jsx';
 import TicketService from '../services/TicketService.jsx';
+import ConcertService from '../services/ConcertService.jsx';
 import UserService from '../services/UserService.jsx';
 
 function Checkout() {
@@ -93,38 +94,50 @@ function Checkout() {
         setOrderTickets(() => ({
           order: orderToPass
         }));
+
+        localStorage.setItem("orderId", JSON.stringify(orderToPass.id));
       };
+
       
       const handleCheckout = async (event) => {
         event.preventDefault();
-
-        if (user.role === "user")
-        {
-            console.log(formData);
-            const orderResponse = await OrderService.addOrder(formData);
-            const orderToPass = await OrderService.getOrder(orderResponse.id);
-            
+    
+        try {
+            if (user.role === "user") {
+                const orderResponse = await OrderService.addOrder(formData);
+    
+                const ticketFormData = {
+                    concertId: concertData.id,
+                    ticketNumber: numberOfTickets,
+                };
+    
+                await ConcertService.lowerTicketNumber(ticketFormData);
+    
+                const orderToPass = await OrderService.getOrder(orderResponse.id);
+    
+                updateOrderTickets(orderToPass);
+    
+                window.location.href = "/thankyou";
+            } else {
+                toast.error('Orders can be made only from a user account', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                });
+            }
+        } 
         
-            updateOrderTickets(orderToPass);
+        catch (error) {
 
-            toast.success('Order successful', {
-                position: toast.POSITION.BOTTOM_RIGHT,
-            });
 
-            setTimeout(() => {
-            }, 1000);
+            if (error.response.status === 401)
+            {
+                toast.error('Tickets for the event are lower than the desired amount', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                });
+            }
 
-            window.location.href="/"
         }
-        else {
-            toast.error('Orders can be made only from a user account', {
-                position: toast.POSITION.BOTTOM_RIGHT,
-            });
+    };
 
-            setTimeout(() => {
-            }, 1000);
-        }
-    }
     
     useEffect(() => {
       
