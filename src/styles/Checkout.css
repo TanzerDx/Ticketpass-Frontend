@@ -135,6 +135,7 @@
 .checkbox-container-flex {
     display: flex;
     align-items: left;
+    margin-top: 3%;
 }
 
 .payment-method-image {
@@ -215,4 +216,9 @@
 .payment-method:hover {
     background-color: rgb(220, 220, 220);
     border: 10px solid darkgray;
+}
+
+.payment-method.selected:hover {
+    background-color: rgb(178, 243, 187);
+    border: 10px solid rgb(47, 211, 47);
 }

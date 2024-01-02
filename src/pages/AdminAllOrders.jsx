@@ -1,39 +1,41 @@
 import OrderService from "../services/OrderService";
 import React, {useState, useEffect} from "react";
-import { useNavigate } from 'react-router-dom';
 import { format } from "date-fns"; 
+import {toast} from "react-toastify";
 import '../styles/AdminAllOrders.css';
 
 function AdminAllOrders () 
 {
     const [orders, setOrders] = useState(null);
+    const [keyword, setKeyword] = useState("");
 
-    const [keyword, setKeyword] = useState('');
-
-    const navigateTo = useNavigate();
-  
     const handleFilter = (e) => {
       e.preventDefault();
   
       if(keyword != ""){
-        navigateTo(`/concerts?keyword=${encodeURIComponent(keyword)}`);
-        window.location.reload();
+        OrderService.getOrder(keyword)
+        .then(data => {
+          setOrders([data]);
+        })
+        .catch(()=> {
+          toast.error('ID is not valid!', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+        });
+        });
       }
     };
 
     useEffect(() => {
-        const accessToken = localStorage.getItem("accessToken");
-      
-        if (accessToken) {
-          OrderService.getOrdersForAllUsers()
-            .then(data => {
-              setOrders(data);
-            })
-            .catch(error => {
-              console.error("Error fetching user or order data:", error);
-            });
-        }
-      }, []);
+      OrderService.getOrdersForAllUsers()
+        .then(data => {
+          setOrders(data);
+        })
+        .catch(error => {
+          console.error("Error fetching user or order data:", error);
+        });
+    }
+  , []);
+
 
     return (
         <>
@@ -56,7 +58,6 @@ function AdminAllOrders ()
                             type="text"
                             className="allOrdersFilter-input"
                             placeholder="Search by Order ID..."
-                            value={keyword}
                             onChange={(e) => setKeyword(e.target.value)}
                             />
                         </form>
