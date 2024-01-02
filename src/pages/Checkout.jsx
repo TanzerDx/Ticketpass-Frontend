@@ -23,6 +23,8 @@ function Checkout() {
 
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
 
+    const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
     const price = numberOfTickets * concertData.price;
 
 
@@ -50,6 +52,10 @@ function Checkout() {
 
     const handlePaymentMethodClick = (name) => {
       setSelectedPaymentMethod(name);
+    };
+
+    const handleCheckboxChange = (e) => {
+        setIsCheckboxChecked(e.target.checked);
     };
 
     const [formData, setFormData] = useState({
@@ -103,6 +109,14 @@ function Checkout() {
         event.preventDefault();
     
         try {
+
+            if (!isCheckboxChecked) {
+                toast.error('Please agree to the General Terms of Ticketpass before proceeding!', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                });
+                return;
+            }
+
             if (user.role === "user") {
                 const orderResponse = await OrderService.addOrder(formData);
     
@@ -241,22 +255,38 @@ function Checkout() {
                                 </div>
                         
                                 <div className='payment-method-grid'>
-                                        <div className='payment-method' onClick={() => handlePaymentMethodClick("Card")}>
-                                            <img src={cardLogo} alt="Card" className="payment-method-image" />
-                                        </div>
+                                    <div
+                                        className={`payment-method ${selectedPaymentMethod === "Card" ? "selected" : ""}`}
+                                        onClick={() => handlePaymentMethodClick("Card")}
+                                    >
+                                        <img src={cardLogo} alt="Card" className="payment-method-image" />
+                                    </div>
 
-                                        <div className='payment-method' onClick={() => handlePaymentMethodClick("iDeal")}>
-                                            <img src={idealLogo} alt="iDeal" className="payment-method-image" />
-                                        </div>
+                                    <div
+                                        className={`payment-method ${selectedPaymentMethod === "iDeal" ? "selected" : ""}`}
+                                        onClick={() => handlePaymentMethodClick("iDeal")}
+                                    >
+                                        <img src={idealLogo} alt="iDeal" className="payment-method-image" />
+                                    </div>
 
-                                        <div className='payment-method' onClick={() => handlePaymentMethodClick("PayPal")}>
-                                            <img src={paypalLogo} alt="PayPal" className="payment-method-image" />
-                                        </div>
+                                    <div
+                                        className={`payment-method ${selectedPaymentMethod === "PayPal" ? "selected" : ""}`}
+                                        onClick={() => handlePaymentMethodClick("PayPal")}
+                                    >
+                                        <img src={paypalLogo} alt="PayPal" className="payment-method-image" />
+                                    </div>
                                 </div>
 
                                 <div className="checkbox-container-flex">
-                                    <input type="checkbox" id="agreeCheckbox"/>
-                                    <label htmlFor="agreeCheckbox" className="checkout-agreeCheckbox">I have read and agree to the general terms of Ticketpass</label>
+                                    <input
+                                        type="checkbox"
+                                        id="agreeCheckbox"
+                                        checked={isCheckboxChecked}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    <label htmlFor="agreeCheckbox" className="checkout-agreeCheckbox">
+                                        I have read and agree to the general terms of Ticketpass
+                                    </label>
                                 </div>
                         
                             <input type="submit" className="button-makeOrder" value="PROCEED"/>
