@@ -125,10 +125,24 @@ function NavBar() {
 
                 </div>
                 
-                <div className="navbar-item">
-                  <NavLink to="/orders" id="orders-link" className="navbar-item-text">
-                    MY TICKETS
-                  </NavLink>
+                <div className="navbar-item-user">
+                      <h1 className="dropdown-menu-size">MY ORDERS</h1>
+                    <div className="dropdown-content">
+                          
+                      <div className="navbar-item">
+                        <NavLink to="/orders" id="allOrders-link" className="navbar-item-text">
+                          UPCOMING CONCERTS
+                        </NavLink>
+                      </div>
+
+                      <div className="navbar-item">
+                        <NavLink to="/previousConcerts" id="previousOrders-link" className="navbar-item-text">
+                          PREVIOUS CONCERTS
+                        </NavLink>
+                      </div>
+
+
+                    </div>
                 </div>
 
                 <button onClick={logout} id='navbar-item-text' className='navbar-logout'>LOGOUT</button>

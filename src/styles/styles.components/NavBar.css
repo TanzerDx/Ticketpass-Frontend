@@ -95,6 +95,40 @@
     cursor: pointer;
 }
 
+.navbar-item-user {
+    padding:0.5%;
+    margin-left: 2%;
+    margin-right: 3%;
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-item-user .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navbar-item-user .dropdown-content a {
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    padding: 12px 56px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.navbar-item-user .dropdown-content a:hover {
+    background-color: #dfdbdb;
+}
+
+.navbar-item-user:hover .dropdown-content {
+    display: block;
+}
+
 .dropdown-menu-size {
     font-size: 120%;
     font-weight: bold;
