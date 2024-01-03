@@ -17,6 +17,7 @@ import AdminManageUsers from './pages/AdminManageUsers.jsx';
 import AdminUpdateConcert from './pages/AdminUpdateConcert.jsx';
 import AdminAddAdmin from './pages/AdminAddAdmin.jsx';
 import AdminDeleteAdmin from './pages/AdminDeleteAdmin.jsx';
+import AttendedConcerts from './pages/AttendedConcerts.jsx';
 import ThankYou from './pages/ThankYou.jsx'
 import AdminUnbanUser from './pages/AdminUnbanUser.jsx';
 
@@ -44,6 +45,7 @@ function App() {
               <Route path="/banUser" element={<AdminManageUsers/>} />
               <Route path="/addConcert" element={<AdminManageConcerts/>} />
               <Route path="/addAdmin" element={<AdminAddAdmin/>} />
+              <Route path="/previousConcerts" element={<AttendedConcerts/>} />
               <Route path="/updateConcert" element={<AdminUpdateConcert/>} />
               <Route path="/deleteAdmin" element={<AdminDeleteAdmin/>} />
               <Route path="/unbanUser" element={<AdminUnbanUser/>} />

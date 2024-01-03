@@ -5,7 +5,7 @@ import UserService from '../services/UserService';
 import OrderService from '../services/OrderService';
 import TicketService from '../services/TicketService';
 
-function Orders() {
+function AttendedConcerts() {
 
     const [user, setUser] = useState(null);
 
@@ -24,8 +24,9 @@ function Orders() {
 
                 })
                 .then(data => {
-                    const filteredOrders = data.orders.filter(order => new Date(order.concert.date) > new Date());
+                    const filteredOrders = data.orders.filter(order => new Date(order.concert.date) < new Date());
                     setOrders(filteredOrders);
+
                 })
                 .catch(error => {
                     console.error("Error fetching user or order data:", error);
@@ -33,14 +34,7 @@ function Orders() {
         }
     }, []);
 
-    const handleGetTickets = (orderId) => {
-        
-        localStorage.setItem("orderId", orderId);
-        window.location.href = '/tickets';
-        
-    };
     
-
     return (
         <>
             <div className='background-color-orders'>
@@ -49,7 +43,7 @@ function Orders() {
                 
                     <div className='orders-heading'>
                     {user ? (
-                        <h1 className='orders-heading-margin'>UPCOMING CONCERTS</h1>
+                        <h1 className='orders-heading-margin'>PREVIOUS CONCERTS</h1>
                     ) : (
                         <h1 className='orders-heading-margin'>LOADING CONTENT...</h1>
                     )}
@@ -72,8 +66,6 @@ function Orders() {
                                         <div className='order-concert-details'>
                                             <h1 className='orders-heading-margin'>{format(new Date(order.concert.date), 'dd-MM-yyyy HH:mm')}</h1>
                                         </div>
-
-                                        <button type="button" className="button-showTickets" name="showTickets" onClick={() => handleGetTickets(order.id)}>SHOW TICKETS</button>
                                     
                                     </div>
                             ))}
@@ -87,4 +79,4 @@ function Orders() {
     )
 }
 
-export default Orders;
+export default AttendedConcerts;
