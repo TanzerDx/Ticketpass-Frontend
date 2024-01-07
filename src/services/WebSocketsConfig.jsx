@@ -9,10 +9,7 @@ function setupStompClient(topics, callback) {
   updateCallback = callback;
 
   stompClient = new Client({
-    brokerURL: 'ws://localhost:8080/ws',
-    reconnectDelay: 5000,
-    heartbeatIncoming: 4000,
-    heartbeatOutgoing: 4000,
+    brokerURL: 'ws://localhost:8080/ws'
   });
 
   stompClient.onConnect = () => {
