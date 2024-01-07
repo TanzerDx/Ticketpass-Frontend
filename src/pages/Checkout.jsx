@@ -180,7 +180,7 @@ function Checkout() {
 
                     <div className='checkout-grid'>
 
-                    <form onSubmit={handleCheckout}>
+                    <form data-testid="cypress-checkout-form" onSubmit={handleCheckout}>
                         <div className='checkout-grid-left'>
                         <div className='checkout-validation-text'>
                                     <h1 className='checkout-remove-margin'>Number of tickets: </h1>
@@ -200,6 +200,7 @@ function Checkout() {
                                 </div>
                                 <div className='checkout-container'>
                                     <input
+                                        data-testid="cypress-checkout-input-name"
                                         type="text"
                                         name="name"
                                         className="checkout-input"
@@ -214,6 +215,7 @@ function Checkout() {
                                 </div>
                                 <div className='checkout-container'>
                                     <input
+                                        data-testid="cypress-checkout-input-surname"
                                         type="text"
                                         name="surname"
                                         className="checkout-input"
@@ -228,6 +230,7 @@ function Checkout() {
                                 </div>
                                 <div className='checkout-container'>
                                     <input
+                                        data-testid="cypress-checkout-input-address"
                                         type="text"
                                         name="address"
                                         className="checkout-input"
@@ -242,6 +245,7 @@ function Checkout() {
                                 </div>
                                 <div className='checkout-container'>
                                     <input
+                                        data-testid="cypress-checkout-input-phoneNumber"
                                         type="text"
                                         name="phone"
                                         className="checkout-input"
@@ -256,6 +260,7 @@ function Checkout() {
                         
                                 <div className='payment-method-grid'>
                                     <div
+                                        data-testid="cypress-checkout-input-paymentMethod"
                                         className={`payment-method ${selectedPaymentMethod === "Card" ? "selected" : ""}`}
                                         onClick={() => handlePaymentMethodClick("Card")}
                                     >
@@ -279,6 +284,7 @@ function Checkout() {
 
                                 <div className="checkbox-container-flex">
                                     <input
+                                        data-testid="cypress-checkout-input-checkbox"
                                         type="checkbox"
                                         id="agreeCheckbox"
                                         checked={isCheckboxChecked}

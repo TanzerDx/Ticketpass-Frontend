@@ -34,7 +34,7 @@ function ConcertItem(props) {
                 <h1 id="concerts-additional-info-margin">Location: {props.concertItem.city}</h1>
               </div>
 
-              <button type="button" className="button-moreInfo" name="moreInfo" onClick={handleMoreInfoClick}> MORE INFO</button>
+              <button data-testid="cypress-selectConcert-form" type="button" className="button-moreInfo" name="moreInfo" onClick={handleMoreInfoClick}> MORE INFO</button>
 
             </div>
 

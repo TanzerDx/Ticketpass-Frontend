@@ -88,7 +88,7 @@ function NavBar() {
           </div>
 
           <div className="navbar-item">
-            <NavLink to="/concerts" id="concerts-link" className="navbar-item-text">
+            <NavLink data-testid="cypress-goToConcerts-button" to="/concerts" id="concerts-link" className="navbar-item-text">
             CONCERTS
             </NavLink>
           </div>
