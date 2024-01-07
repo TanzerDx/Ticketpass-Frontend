@@ -90,14 +90,15 @@ function SignIn() {
                 <span id="typewriter-signin"></span><span id="cursor-signin">|</span>
                 </div>
             
-            <form onSubmit={handleLogin}>
+            <form data-testid="cypress-loginUser-form" onSubmit={handleLogin}>
                 <div className='content-box-signin'>                   
                     <div className='text-info'>
-                        <h1>EMAIL ADDRESS:</h1>
+                        <h1 data-testid="cypress-loginUser-email">EMAIL ADDRESS:</h1>
                     </div>
 
                     <div className='signin-container'>
                         <input
+                            data-testid="cypress-loginUser-input-email"
                             type="email"
                             name="email"
                             className="signin-input"
@@ -111,11 +112,12 @@ function SignIn() {
 
                 <div className='content-box-signin'>
                     <div className='text-info'>
-                        <h1>PASSWORD:</h1>
+                        <h1 data-testid="cypress-loginUser-password">PASSWORD:</h1>
                     </div>
 
                     <div className='signin-container'>
                         <input
+                            data-testid="cypress-loginUser-input-password"
                             type="password"
                             name="password"
                             className="signin-input"

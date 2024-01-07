@@ -19,8 +19,9 @@ function SearchBar() {
 
   return (
     <div className='searchBar-container'>
-      <form onSubmit={handleFilter} id="form-size-control-filter">
+      <form data-testid="cypress-filter" onSubmit={handleFilter} id="form-size-control-filter">
         <input
+          data-testid="cypress-filter-input-keyword"
           type="text"
           className="searchBar-input"
           placeholder="Search by Artist, Genre, or City..."

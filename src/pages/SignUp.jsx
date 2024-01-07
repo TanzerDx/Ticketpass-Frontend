@@ -70,14 +70,15 @@ function SignUp() {
                     <span id="typewriter-signup"></span><span id="cursor-signup">|</span>
                 </div>
             
-            <form onSubmit={handleRegister}>
+            <form data-testid="cypress-registerUser-form" onSubmit={handleRegister}>
                 <div className='content-box-signup'>                   
                     <div className='text-info'>
-                        <h1>EMAIL ADDRESS:</h1>
+                        <h1 data-testid="cypress-registerUser-email">EMAIL ADDRESS:</h1>
                     </div>
 
                     <div className='signup-container'>
                         <input
+                            data-testid="cypress-registerUser-input-email"
                             type="email"
                             name="email"
                             className="signup-input"
@@ -90,11 +91,12 @@ function SignUp() {
 
                 <div className='content-box-signup'>
                     <div className='text-info'>
-                        <h1>PASSWORD:</h1>
+                        <h1 data-testid="cypress-registerUser-password">PASSWORD:</h1>
                     </div>
 
                     <div className='signup-container'>
                         <input
+                            data-testid="cypress-registerUser-input-password"
                             type="password"
                             name="password"
                             className="signup-input"
@@ -107,11 +109,12 @@ function SignUp() {
 
                 <div className='content-box-signup'>
                     <div className='text-info'>
-                        <h1>CONFIRM PASSWORD:</h1>
+                        <h1 data-testid="cypress-registerUser-confirmPassword">CONFIRM PASSWORD:</h1>
                     </div>
 
                     <div className='signup-container'>
                         <input
+                            data-testid="cypress-registerUser-input-confirmPassword"
                             type="password"
                             name="confirmPassword"
                             className="signup-input"
