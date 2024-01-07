@@ -26,7 +26,7 @@ function ThankYou() {
                         </div>
 
                     <NavLink to="/tickets" id="tickets-link">
-                        <button type="button" name="go-to-tickets" className="button-toTickets">SEE YOUR TICKETS</button>
+                        <button data-testid="cypress-thankyou-button" type="button" name="go-to-tickets" className="button-toTickets">SEE YOUR TICKETS</button>
                     </NavLink>
 
                     </div>

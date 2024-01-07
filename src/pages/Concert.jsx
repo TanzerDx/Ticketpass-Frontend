@@ -78,7 +78,7 @@ function Concert() {
                             <img src={concertItem.photoURL} alt="Artist" className="artist-picture" />
                             
                             {concertItem.ticketsRemaining > 0 ? (
-                                <button type="button" className="button-buyTickets" name="buyTickets" onClick={handleBuyTicketsClick}>
+                                <button data-testid="cypress-buyTickets-form" type="button" className="button-buyTickets" name="buyTickets" onClick={handleBuyTicketsClick}>
                                     BUY TICKETS
                                 </button>
                             ) : (
