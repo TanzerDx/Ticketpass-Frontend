@@ -20,32 +20,30 @@ function NavBar() {
   const [notifications, setNotifications] = useState([]);
   const [user, setUser] = useState(null);
   const [topics, setTopics] = useState(null);
+
+  const [userReceivedNotification, setUserReceivedNotifications] = useState(false);
   
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
   
-    let effectHasRun = false;
-  
-    if (!effectHasRun && accessToken) {
+    if (accessToken) {
       UserService.getUserByAccessToken(accessToken)
         .then((user) => {
           setUser(user);
-  
+
           if (user) {
             OrderService.getAllOrders(user.id)
               .then((orders) => {
                 if (Array.isArray(orders.orders)) {
                   const retrievedOrders = orders.orders;
-                  const concertIds = retrievedOrders.map((order) => order.concert.id);
-                  setTopics(concertIds);
+                  const concertIdsSet = new Set(retrievedOrders.map((order) => order.concert.id));
+                  setTopics([...concertIdsSet]);
                 }
               })
               .catch((error) => {
                 console.error("Error fetching orders:", error);
               });
           }
-
-          effectHasRun = true;
         })
         .catch((error) => {
           console.error("Error fetching user:", error);
@@ -55,7 +53,8 @@ function NavBar() {
 
   
   useEffect(() => {
-    if (topics) {
+   
+    if (!userReceivedNotification && topics) {
       let currentNotifications = JSON.parse(localStorage.getItem("notifications")) || [];
 
       setNotifications([...currentNotifications]);
@@ -70,6 +69,8 @@ function NavBar() {
       });
 
       });
+
+      setUserReceivedNotifications(true);
 
     }
   }, [topics]);
