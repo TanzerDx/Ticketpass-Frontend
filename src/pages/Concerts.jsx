@@ -26,7 +26,10 @@ function Concerts() {
             });
         } else {
           ConcertService.getAllConcerts()
-            .then(data => setConcerts(data))
+            .then(data => {
+              const filteredConcerts = data.filter(concert => new Date(concert.date) > new Date());
+              setConcerts(filteredConcerts);
+          })
             .catch(error => {
               if (error.response && error.response.status === 401) {
                 localStorage.removeItem('accessToken');
