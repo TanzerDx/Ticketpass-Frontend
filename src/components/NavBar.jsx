@@ -95,8 +95,8 @@ function NavBar() {
           </div>
 
           <div className="navbar-item">
-            <NavLink to="/statistics" id="statistics-link" className="navbar-item-text">
-            STATISTICS
+            <NavLink to="/aboutUs" id="aboutUs-link" className="navbar-item-text">
+            ABOUT US
             </NavLink>
           </div>
           
@@ -248,6 +248,12 @@ function NavBar() {
                 </div>
 
                 <button onClick={logout} id='navbar-item-text' className='navbar-logout'>LOGOUT</button>
+              </>
+            )}
+
+            {user && user.role === "banned" && (
+              <>
+                <button onClick={logout} id='navbar-item-text' className='navbar-logout-banned'>LOGOUT</button>
               </>
             )}
 

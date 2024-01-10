@@ -2,7 +2,7 @@ import '../src/styles/App.css'
 import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage.jsx'
-import Statistics from './pages/Statistics.jsx'
+import AboutUs from './pages/AboutUs.jsx'
 import Concerts from './pages/Concerts.jsx'
 import {ToastContainer} from "react-toastify";
 import SignIn from './pages/SignIn.jsx'
@@ -20,11 +20,12 @@ import AdminDeleteAdmin from './pages/AdminDeleteAdmin.jsx';
 import AttendedConcerts from './pages/AttendedConcerts.jsx';
 import ThankYou from './pages/ThankYou.jsx'
 import AdminUnbanUser from './pages/AdminUnbanUser.jsx';
+import UserIsBanned from './pages/UserIsBanned.jsx';
 
 function App() {
 
   const user = localStorage.getItem("user");
-  
+
   return (
     <div className="App">
 
@@ -34,11 +35,12 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/concerts" element={<Concerts />} />
               <Route path="/concert" element={<Concert />} />
-              <Route path="/statistics" element={<Statistics />} />
+              <Route path="/aboutUs" element={<AboutUs />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/thankyou" element={<ThankYou/>} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/banned" element={<UserIsBanned/>} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/tickets" element={<Tickets/>} />
               <Route path="/allOrders" element={<AdminAllOrders/>} />

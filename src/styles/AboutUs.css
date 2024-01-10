@@ -1,0 +1,53 @@
+.background-color-aboutUs{
+    height: 100vh;
+    background: #000000;
+    background: -webkit-linear-gradient( to bottom, #999797, #000);
+    background: -moz-linear-gradient( to bottom, #999797, #000);
+    background: -ms-linear-gradient( to bottom, #999797, #000);
+    background: -o-linear-gradient( to bottom, #999797, #000);
+    background: linear-gradient( to bottom, #999797, #000);
+}
+
+.aboutUs-heading {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 250%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.aboutUs-grid {
+    display: grid;
+    grid-template-columns: 60% 25%;
+    padding: 1%;
+    gap: 5%;
+}
+
+.aboutUs-grid-left {
+    grid-column: 1;
+    margin-left: 5%;
+}
+
+.aboutUs-grid-right {
+    grid-column: 2;
+}
+
+
+/* TEXT */
+
+.aboutUs-description {
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    font-size: 120%;
+    width: 90%;
+    height: 50%;
+}
+
+
+.remove-margin {
+    margin: 0;
+    padding: 0;
+}
