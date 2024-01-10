@@ -1,9 +1,0 @@
-.background-color-statistics {
-    height: 100vh;
-    background: #000000;
-    background: -webkit-linear-gradient( to bottom, #999797, #000);
-    background: -moz-linear-gradient( to bottom, #999797, #000);
-    background: -ms-linear-gradient( to bottom, #999797, #000);
-    background: -o-linear-gradient( to bottom, #999797, #000);
-    background: linear-gradient( to bottom, #999797, #000);
-}

@@ -78,7 +78,7 @@ function Checkout() {
             orderPrice: numberOfTickets * concertData.price,
           paymentMethod: selectedPaymentMethod
         }));
-      }, [selectedPaymentMethod]);
+      }, [selectedPaymentMethod, numberOfTickets]);
 
      const updateFormData = event => {
         setFormData((formData) => ({
