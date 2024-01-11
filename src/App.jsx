@@ -1,4 +1,5 @@
 import '../src/styles/App.css'
+import React, {useEffect} from "react";
 import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage.jsx'
@@ -21,10 +22,37 @@ import AttendedConcerts from './pages/AttendedConcerts.jsx';
 import ThankYou from './pages/ThankYou.jsx'
 import AdminUnbanUser from './pages/AdminUnbanUser.jsx';
 import UserIsBanned from './pages/UserIsBanned.jsx';
+import UserService from './services/UserService.jsx';
 
 function App() {
 
-  const user = localStorage.getItem("user");
+  useEffect(() => {
+    
+    const fetchUserData = async () => {
+      try 
+      {
+
+        const user = JSON.parse(localStorage.getItem("user")) ?? await UserService.getUserByAccessToken(localStorage.getItem("accessToken"));
+        localStorage.setItem("user", JSON.stringify(user));
+
+        if (user && user.role === "banned" && window.location.href !== "http://localhost:5173/banned") {
+          window.location.href = "/banned";
+        }
+      } 
+      
+      catch (error) {
+        console.error("Error fetching user data:", error);
+        
+        localStorage.clear();
+
+      }
+
+    };
+
+    fetchUserData();
+
+  }, []);
+
 
   return (
     <div className="App">
