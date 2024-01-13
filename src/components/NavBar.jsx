@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 import UserService from "../services/UserService";
 import WebSocketsConfig from '../services/WebSocketsConfig';
 import OrderService from "../services/OrderService";
-import {toast} from "react-toastify";
 import SearchBar from './SearchBar';
 
 function NavBar() {
@@ -19,61 +18,40 @@ function NavBar() {
 
   const [notifications, setNotifications] = useState([]);
   const [user, setUser] = useState(null);
-  const [topics, setTopics] = useState(null);
 
-  const [userReceivedNotification, setUserReceivedNotifications] = useState(false);
-  
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
   
-    if (accessToken) {
-      UserService.getUserByAccessToken(accessToken)
-        .then((user) => {
-          setUser(user);
-
+    const fetchData = async () => {
+      try {
+        if (accessToken) {
+          const user = await UserService.getUserByAccessToken(accessToken);
+  
           if (user) {
-            OrderService.getAllOrders(user.id)
-              .then((orders) => {
-                if (Array.isArray(orders.orders)) {
-                  const retrievedOrders = orders.orders;
-                  const concertIdsSet = new Set(retrievedOrders.map((order) => order.concert.id));
-                  setTopics([...concertIdsSet]);
-                }
-              })
-              .catch((error) => {
-                console.error("Error fetching orders:", error);
-              });
+            setUser(user);
+  
+            const orders = await OrderService.getAllOrders(user.id);
+  
+            if (Array.isArray(orders.orders)) {
+              const retrievedOrders = orders.orders;
+              const concertIdsSet = new Set(retrievedOrders.map((order) => order.concert.id));
+              WebSocketsConfig.setupStompClient([...concertIdsSet]);
+            }
           }
-        })
-        .catch((error) => {
-          console.error("Error fetching user:", error);
-        });
-    }
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  
+    fetchData();
   }, []); 
 
   
   useEffect(() => {
-   
-    if (!userReceivedNotification && topics) {
-      let currentNotifications = JSON.parse(localStorage.getItem("notifications")) || [];
-
-      setNotifications([...currentNotifications]);
-
-      WebSocketsConfig.setupStompClient(topics, (newNotifications) => {
-        setNotifications([...currentNotifications, ...newNotifications]);
-
-        localStorage.setItem("notifications", JSON.stringify([...currentNotifications, ...newNotifications]));
-
-        toast.success('You received a new notification!', {
-          position: toast.POSITION.BOTTOM_RIGHT,
-      });
-
-      });
-
-      setUserReceivedNotifications(true);
-
-    }
-  }, [topics]);
+    setNotifications(WebSocketsConfig.getNotifications());
+    console.log("effect ran!", notifications);
+  }, []);
 
 
   return (
@@ -196,6 +174,29 @@ function NavBar() {
 
             {user && user.role === "manager" && (
               <>
+                <div className="navbar-notifications-container">
+                  
+                  <img src={notificationsIcon} alt="Notifications" className="navbar-notifications-icon" />
+                  
+                  <div className="dropdown-content">
+                  {notifications && notifications.length === 0 || notifications == null ? (
+                      <div className="navbar-notifications-text">
+                        <h1>NO NEW NOTIFICATIONS!</h1>
+                      </div>
+                    )
+                    :
+                    (
+                      notifications && notifications.map((msg, index) => (
+                        <div className="message-design" key={index}>
+                          <h1>{msg.message}</h1>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                </div>
+
+
                 <div className="navbar-item-manager">
                       <h1 className="dropdown-menu-size">MANAGER FUNCTIONS</h1>
                     <div className="dropdown-content">
