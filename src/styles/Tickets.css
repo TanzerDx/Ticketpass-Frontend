@@ -55,10 +55,10 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
-    min-width: 60%;
+    min-width: 70%;
     height: 50vh;
     border: 5px solid black;
-    margin-left: 20%;
+    margin-left: 15%;
     margin-right: 20%;
     margin-bottom: 5%;
     flex-direction: column;
@@ -78,7 +78,7 @@
 
 .ticket-qr {
     margin: 5% 5% 5% 5%;
-    height: 74.8%;
+    height: 70.8%;
     width: 31.3%;
     border: 5px solid black;
     justify-content: start;
@@ -105,9 +105,8 @@
 
 
 .tickets-field {
-    height: 20%;
-    width: auto;
-    margin-top: 5%;
-    display: flex;
-    overflow-x: scroll;
+    height: 60%;
+    width: 90%;
+    margin-top: 3%;
+    margin-left: 4.5%;
 }

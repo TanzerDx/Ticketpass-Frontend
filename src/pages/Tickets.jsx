@@ -1,4 +1,6 @@
 import TicketService from "../services/TicketService";
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import React, {useState, useEffect} from "react";
 import { format } from "date-fns"
 import '../styles/Tickets.css'
@@ -55,29 +57,32 @@ function Tickets() {
                             </div>
                             
                             <div className="tickets-field">
-                                {tickets && tickets.map(ticket => (                  
-                                        <div className='ticket-container' key={ticket.id}>
-                                            
-                                            <div className="ticket-qr">
-                                            <img src={generateQR(ticket.qr)} alt={`QR Code for Ticket ${ticket.id}`} />
-                                            </div>
-
-                                                <div className="ticket-artist-name">
-                                                    <h1 className='tickets-remove-margin'>{order.concert.artist}</h1>
+                           
+                            <Carousel className="tickets-field">
+                                    {tickets && tickets.map(ticket => (                  
+                                            <div className='ticket-container' key={ticket.id}>
+                                                
+                                                <div className="ticket-qr">
+                                                <img src={generateQR(ticket.qr)} alt={`QR Code for Ticket ${ticket.id}`} />
                                                 </div>
 
-                                                <div className="ticket-id-text">
-                                                    <h1 className='tickets-remove-margin'>TICKET ID: {ticket.id}</h1>
+                                                    <div className="ticket-artist-name">
+                                                        <h1 className='tickets-remove-margin'>{order.concert.artist}</h1>
+                                                    </div>
+
+                                                    <div className="ticket-id-text">
+                                                        <h1 className='tickets-remove-margin'>TICKET ID: {ticket.id}</h1>
+                                                    </div>
+                
+
+                                                <div className="ticket-name-seating">
+                                                    <h1 className='tickets-remove-margin'>NAME: {order.name} {order.surname}</h1>
+                                                    <h1 className='tickets-remove-margin'>SECTION: {ticket.venueSection}</h1>
                                                 </div>
-              
-
-                                            <div className="ticket-name-seating">
-                                                <h1 className='tickets-remove-margin'>NAME: {order.name} {order.surname}</h1>
-                                                <h1 className='tickets-remove-margin'>SECTION: {ticket.venueSection}</h1>
                                             </div>
-                                        </div>
 
-                                ))}
+                                    ))}
+                            </Carousel>
                             </div>
                         </>
                         ) : (
