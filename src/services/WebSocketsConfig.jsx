@@ -45,5 +45,6 @@ function publishMessage(destination, message) {
 export default { 
     setupStompClient, 
     publishMessage,
-    getNotifications
+    getNotifications,
+    notifications
 };

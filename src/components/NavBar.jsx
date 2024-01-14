@@ -49,9 +49,9 @@ function NavBar() {
 
   
   useEffect(() => {
-    setNotifications(WebSocketsConfig.getNotifications());
+    setNotifications(WebSocketsConfig.notifications);
     console.log("effect ran!", notifications);
-  }, []);
+  }, [WebSocketsConfig.notifications]);
 
 
   return (
@@ -174,28 +174,6 @@ function NavBar() {
 
             {user && user.role === "manager" && (
               <>
-                <div className="navbar-notifications-container">
-                  
-                  <img src={notificationsIcon} alt="Notifications" className="navbar-notifications-icon" />
-                  
-                  <div className="dropdown-content">
-                  {notifications && notifications.length === 0 || notifications == null ? (
-                      <div className="navbar-notifications-text">
-                        <h1>NO NEW NOTIFICATIONS!</h1>
-                      </div>
-                    )
-                    :
-                    (
-                      notifications && notifications.map((msg, index) => (
-                        <div className="message-design" key={index}>
-                          <h1>{msg.message}</h1>
-                        </div>
-                      ))
-                    )}
-                  </div>
-
-                </div>
-
 
                 <div className="navbar-item-manager">
                       <h1 className="dropdown-menu-size">MANAGER FUNCTIONS</h1>
