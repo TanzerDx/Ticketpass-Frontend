@@ -13,11 +13,11 @@ function Concerts() {
     const keyword = searchParams.get('keyword');
 
     useEffect(() => {
-      console.log(keyword);
 
         if (keyword) {
           ConcertService.filterConcerts(keyword)
-            .then(data => setConcerts(data))
+            .then(data => 
+              setConcerts(data))
             .catch(error => {
               if (error.response && error.response.status === 401) {
                 localStorage.removeItem('accessToken');
