@@ -49,7 +49,7 @@ function Orders() {
                 
                     <div className='orders-heading'>
                     {user ? (
-                        <h1 className='orders-heading-margin'>UPCOMING CONCERTS</h1>
+                        <h1 data-testid="cypress-orders-upcomingConcerts" className='orders-heading-margin'>UPCOMING CONCERTS</h1>
                     ) : (
                         <h1 className='orders-heading-margin'>LOADING CONTENT...</h1>
                     )}
