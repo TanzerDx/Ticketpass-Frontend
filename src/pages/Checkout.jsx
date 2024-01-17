@@ -113,6 +113,7 @@ function Checkout() {
             if (!isCheckboxChecked) {
                 toast.error('Please agree to the General Terms of Ticketpass before proceeding!', {
                     position: toast.POSITION.BOTTOM_RIGHT,
+                    className: "cypress-toastify-error-checkboxNotChecked"
                 });
                 return;
             }

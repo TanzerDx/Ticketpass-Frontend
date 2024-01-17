@@ -31,6 +31,7 @@ function SignUp() {
             .catch(() => {
                 toast.error('Email is already taken!', {
                     position: toast.POSITION.BOTTOM_RIGHT,
+                    className: "cypress-toastify-error-registration"
                 });
             })
         }
