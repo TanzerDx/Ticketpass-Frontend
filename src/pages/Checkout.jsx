@@ -13,7 +13,7 @@ import UserService from '../services/UserService.jsx';
 
 function Checkout() {
 
-    const concertData = JSON.parse(localStorage.getItem("concertItem"));
+    const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
     
     const accessToken = localStorage.getItem("accessToken");
 

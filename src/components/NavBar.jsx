@@ -12,7 +12,10 @@ function NavBar() {
 
   const logout = (event) => {
     event.preventDefault();
+    
     localStorage.clear();
+    sessionStorage.clear();
+    
     window.location.href="/"
   }
 
