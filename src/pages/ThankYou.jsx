@@ -5,8 +5,8 @@ import {NavLink} from "react-router-dom"
 
 function ThankYou() {
 
-    const concert = JSON.parse(localStorage.getItem("concertItem"))
-    const orderId = JSON.parse(localStorage.getItem("orderId"))
+    const concert = JSON.parse(sessionStorage.getItem("concertItem"));
+    const orderId = JSON.parse(localStorage.getItem("orderId"));
 
     return (
         <>

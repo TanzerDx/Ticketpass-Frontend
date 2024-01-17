@@ -18,7 +18,7 @@ function SignIn() {
         })
     }
 
-    const concertData = JSON.parse(localStorage.getItem("concertItem"));
+    const concertData = JSON.parse(sessionStorage.getItem("concertItem"));
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -35,6 +35,8 @@ function SignIn() {
             .then((userData) => {
 
                 const user = userData;
+
+                console.log(JSON.parse(localStorage.getItem("concertItem")));
       
                  if (user.role === 'admin' || user.role === 'manager') {
                 window.location.href = '/allOrders';

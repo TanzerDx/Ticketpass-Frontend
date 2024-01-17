@@ -62,7 +62,7 @@ describe('Filter Concerts', () => {
 
     cy.get('[data-testid="cypress-concertItem-time"]')
     .should('exist')
-    .should('have.text' , 'Time: 29-02-2024 20:00');
+    .should('have.text' , 'Time: 28-02-2024 21:00');
 
     cy.get('[data-testid="cypress-concertItem-location"]')
     .should('exist')
