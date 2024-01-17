@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Client } from '@stomp/stompjs';
 
 let stompClient = null;
-let notifications = [];
+let notifs = [];
 
 function setupStompClient(topics) {
 
@@ -30,7 +30,7 @@ function setupStompClient(topics) {
 
 const onMessageReceived = (data) => {
   const message = JSON.parse(data.body);
-  notifications.push(message);
+  notifs.push(message);
 }
 
 function getNotifications() {
@@ -46,5 +46,5 @@ export default {
     setupStompClient, 
     publishMessage,
     getNotifications,
-    notifications
+    notifs
 };

@@ -54,6 +54,7 @@ function SignIn() {
             console.error('Login failed:', error);
             toast.error('Invalid username or password', {
                 position: toast.POSITION.BOTTOM_RIGHT,
+                className: "cypress-toastify-error-login"
             });
             setTimeout(() => {
             }, 1000);

@@ -52,9 +52,10 @@ function NavBar() {
 
   
   useEffect(() => {
-    setNotifications(WebSocketsConfig.notifications);
+    setNotifications(WebSocketsConfig.notifs);
+    console.log(WebSocketsConfig.notifs)
     console.log("effect ran!", notifications);
-  }, [WebSocketsConfig.notifications]);
+  }, [WebSocketsConfig.notifs]);
 
 
   return (
