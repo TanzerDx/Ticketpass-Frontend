@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import { useEffect, useState } from 'react';
 import '../styles/styles.components/Navbar.css';
 import logo from '../assets/Project Icon.png';
 import notificationsIcon from '../assets/3239958.png';
@@ -50,12 +50,11 @@ function NavBar() {
     fetchData();
   }, []); 
 
-  
+
   useEffect(() => {
-    setNotifications(WebSocketsConfig.notifs);
-    console.log(WebSocketsConfig.notifs)
-    console.log("effect ran!", notifications);
-  }, [WebSocketsConfig.notifs]);
+    setNotifications([...WebSocketsConfig.notifs]);
+    console.log("Effect ran!", notifications);
+  }, [WebSocketsConfig.notifs.length]);
 
 
   return (

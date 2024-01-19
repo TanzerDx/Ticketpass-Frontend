@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Client } from '@stomp/stompjs';
+import {toast} from "react-toastify";
 
 let stompClient = null;
 let notifs = [];
@@ -31,6 +32,10 @@ function setupStompClient(topics) {
 const onMessageReceived = (data) => {
   const message = JSON.parse(data.body);
   notifs.push(message);
+
+  toast.success('You have received a new notification!', {
+    position: toast.POSITION.BOTTOM_RIGHT,
+});
 }
 
 function getNotifications() {
@@ -48,3 +53,5 @@ export default {
     getNotifications,
     notifs
 };
+
+

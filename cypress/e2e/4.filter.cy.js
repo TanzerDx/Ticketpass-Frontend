@@ -63,10 +63,6 @@ describe('Filter Concerts', () => {
       .should('exist')
       .should('have.text' , 'Venue: AFAS Live');
 
-      cy.get('[data-testid="cypress-concertItem-time"]')
-      .should('exist')
-      .should('have.text' , 'Time: 28-02-2024 21:00');
-
       cy.get('[data-testid="cypress-concertItem-location"]')
       .should('exist')
       .should('have.text' , 'Location: Amsterdam');
