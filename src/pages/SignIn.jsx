@@ -23,7 +23,7 @@ function SignIn() {
     const handleLogin = (event) => {
         event.preventDefault();
 
-        localStorage.removeItem('accessToken');
+        localStorage.clear();
 
         UserService.Login(formData)
           .then((data) => {
