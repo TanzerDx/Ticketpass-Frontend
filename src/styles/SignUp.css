@@ -1,0 +1,85 @@
+.background-color-signup {
+  height: 90vh;
+  background: #ffffff;
+  background: -webkit-linear-gradient( to top, #999797, #000000);
+  background: -moz-linear-gradient( to top, #999797, #000000);
+  background: -ms-linear-gradient( to top, #999797, #000000);
+  background: -o-linear-gradient( to top, #999797, #000000);
+  background: linear-gradient( to top, #999797, #000000);
+}
+
+.signup-text {
+    letter-spacing: 1.5mm;
+    margin-left: 23.7%;
+    padding: 2.8%
+}
+
+.button-signup {
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    background-color: #ffffff;
+    font-size: 250%;
+    padding: 0px 3%;
+    font-weight: 900;
+    cursor: pointer;
+    margin-left: 40.5%;
+    letter-spacing: 1mm;
+    margin-top: 2%;
+}
+
+.button-signup:hover {
+    background-color: #c0baba;
+}
+
+.text-info {
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    font-size: 70%;
+    letter-spacing: 0.5mm;
+}
+
+
+.content-box-signup {
+    margin-left: 39.5%;
+    margin-top: 2%;
+    height: 10%;
+    width: 25%;
+}
+
+.signup-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 120%;
+    padding: 2%;
+    padding-right: 3%;
+  }
+
+
+.signup-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2%;
+    width: 90%; 
+    position: relative;
+  }
+
+  #typewriter-signup {
+    color: #fff;
+    font-size: 323%;
+    font-family: "Koulen Serif", sans-serif;
+  }
+
+  #cursor-signup {
+    color: white;
+    animation: blink 1s step-end infinite;
+    font-size: 423%;
+  }
+
+  @keyframes blink {
+    from, to { color: white }
+    50% { color: transparent }
+}

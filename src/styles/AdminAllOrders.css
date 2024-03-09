@@ -1,0 +1,77 @@
+.background-color-adminAllOrders{
+    height: 100vh;
+    background: #000000;
+    background: -webkit-linear-gradient( to bottom, #999797, #000);
+    background: -moz-linear-gradient( to bottom, #999797, #000);
+    background: -ms-linear-gradient( to bottom, #999797, #000);
+    background: -o-linear-gradient( to bottom, #999797, #000);
+    background: linear-gradient( to bottom, #999797, #000);
+}
+
+.adminAllOrders-heading {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 250%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.allOrders-container {
+    align-items: center;
+    background-color:white;
+    min-height: 20%;
+    max-width: 100%;
+    border: 3px solid black;
+}
+
+
+.allOrders-details {
+    display: flex;
+    font-family: "Koulen Serif", sans-serif;
+    background-color:white;
+    color: rgb(0, 0, 0);
+    font-size: 80%;
+    font-weight: 100;
+    letter-spacing: 0.5mm;
+    border: 1px solid black;
+    padding-left: 8%;
+    padding-right: 6%;
+    min-height: 20%;
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.remove-margin {
+    margin: 0;
+}
+
+
+#form-size-control-allOrdersFilter{
+    width: 100%;
+    border: none;
+  }
+  
+  .allOrdersFilter-input {
+      flex: 1;
+      outline: none;
+      border: none;
+      font-size: 100%;
+      padding: 3%;
+      width: 80%;
+    }
+  
+  
+  .allOrdersFilter-container {
+      margin-bottom: 3%;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-left: 1%;
+      padding: 0.1%;
+      width: 20%;
+      position: relative;
+    }

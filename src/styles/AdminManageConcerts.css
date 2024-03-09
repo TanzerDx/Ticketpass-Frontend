@@ -1,0 +1,131 @@
+.background-color-adminManageConcerts{
+    height: 100vh;
+    background: #000000;
+    background: -webkit-linear-gradient( to bottom, #999797, #000);
+    background: -moz-linear-gradient( to bottom, #999797, #000);
+    background: -ms-linear-gradient( to bottom, #999797, #000);
+    background: -o-linear-gradient( to bottom, #999797, #000);
+    background: linear-gradient( to bottom, #999797, #000);
+}
+
+.adminManageConcerts-heading {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 250%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.grid-item {
+    margin-bottom: 1%;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 3%;
+}
+
+.manageConcerts-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 163%;
+    padding: 1%;
+    width: 60%;
+  }
+
+
+.manageConcerts-validation-text {
+    margin-top: 5%;
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 1mm;    
+    font-size: 90%;
+}
+
+
+.manageConcerts-grid {
+    display: grid;
+    margin-left: 16%;
+}
+
+.grid-left {
+    grid-column: 1;
+}
+
+.grid-right {
+    grid-column: 2;
+}
+
+.remove-margin-concerts-AddUpdate {
+    margin: 0;
+    width: 40%;
+}
+
+.button-manageConcert{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #ffffff;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 10.2%;
+    cursor: pointer;
+    margin-left: 36.5%;
+    margin-top: 1.3%;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
+.button-manageConcert:hover {
+    color: #ffffff;
+    background-color: #929191;
+}
+
+.getConcert-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.getConcert-input {
+    border: none;
+    outline: none;
+    font-size: 163%;
+    padding: 0.5%;
+    width: 30%;
+  }
+
+
+.getConcert-validation-text {
+    margin-top: 5%;
+    color: #ffffff;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 1mm;
+    width: 185%;
+    font-size: 195%;
+}
+
+.button-getConcert{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #ffffff;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 8.2%;
+    cursor: pointer;
+    margin-top: 1.3%;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
+.button-getConcert:hover {
+    color: #ffffff;
+    background-color: #929191;
+}

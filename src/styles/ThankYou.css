@@ -1,0 +1,66 @@
+.background-color-thankyou {
+    height: 90vh;
+    background: -webkit-linear-gradient( to bottom, #999797, #000);
+    background: -moz-linear-gradient( to bottom, #999797, #000);
+    background: -ms-linear-gradient( to bottom, #999797, #000);
+    background: -o-linear-gradient( to bottom, #999797, #000);
+    background: linear-gradient( to bottom, #999797, #000);
+}
+
+.thankyou-heading {
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 350%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-top: 6%;
+    padding-left: 18%;
+}
+
+.thankyou-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5%;
+}
+
+.thankyou-flex {
+    grid-column: 1;
+    display: flex;
+    font-family: "Koulen Serif", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+    font-weight: bold;
+    letter-spacing: 0.5mm;
+    padding-left: 38%;
+    flex-direction: column;
+
+}
+
+.thankyou-info-margin {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.remove-margin-thankyou {
+    margin: 0;
+}
+
+.button-toTickets{
+    color: #000000;
+    font-family: "Koulen Serif", sans-serif;
+    letter-spacing: 0.5mm;
+    background-color: #ffffff;
+    font-size: 270%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    padding: 0.5% 5%;
+    cursor: pointer;
+    margin-left: 15%;
+    margin-top: 19.3%;
+    align-items: center;
+}
+
+.button-toTickets:hover {
+    color: #ffffff;
+    background-color: #929191;
+}
