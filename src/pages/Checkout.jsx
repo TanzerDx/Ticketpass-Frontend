@@ -206,6 +206,7 @@ function Checkout() {
                                         name="name"
                                         className="checkout-input"
                                         placeholder=""
+                                        autocomplete="off"
                                         required
                                         onChange={updateFormData}
                                     />  
@@ -221,6 +222,7 @@ function Checkout() {
                                         name="surname"
                                         className="checkout-input"
                                         placeholder=""
+                                        autocomplete="off"
                                         required
                                         onChange={updateFormData}
                                     />  
@@ -236,6 +238,7 @@ function Checkout() {
                                         name="address"
                                         className="checkout-input"
                                         placeholder=""
+                                        autocomplete="off"
                                         required
                                         onChange={updateFormData}
                                     />  
@@ -251,6 +254,7 @@ function Checkout() {
                                         name="phone"
                                         className="checkout-input"
                                         placeholder=""
+                                        autocomplete="off"
                                         required
                                         onChange={updateFormData}
                                     />  
