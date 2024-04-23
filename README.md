@@ -2,8 +2,8 @@ Ticketpass is an online platform for purchasing concert tickets, which was used 
 
 Displayed knowledge:
 
-React JS
-JavaScript
-Implementation of Websockets
-HTML & CSS
-End-to-End Tests
+-React JS
+-JavaScript
+-Implementation of Websockets
+-HTML & CSS
+-End-to-End Tests
