@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 src/assets/bgvideo.webm
+
+# json #
+package-lock.json

@@ -1,25 +1,28 @@
-import React ,{useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
-import "../styles/styles.components/SearchBar.css"
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "../styles/styles.components/SearchBar.css";
 
 function SearchBar() {
-
-  const [keyword, setKeyword] = useState('');
+  const [keyword, setKeyword] = useState("");
 
   const navigateTo = useNavigate();
 
   const handleFilter = (e) => {
     e.preventDefault();
 
-    if(keyword != ""){
+    if (keyword != "") {
       navigateTo(`/concerts?keyword=${encodeURIComponent(keyword)}`);
       window.location.reload();
     }
   };
 
   return (
-    <div className='searchBar-container'>
-      <form data-testid="cypress-filter" onSubmit={handleFilter} id="form-size-control-filter">
+    <div className="searchBar-container">
+      <form
+        data-testid="cypress-filter"
+        onSubmit={handleFilter}
+        id="form-size-control-filter"
+      >
         <input
           data-testid="cypress-filter-input-keyword"
           type="text"
@@ -29,7 +32,6 @@ function SearchBar() {
           onChange={(e) => setKeyword(e.target.value)}
         />
       </form>
-
     </div>
   );
 }
